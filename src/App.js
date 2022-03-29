@@ -1,9 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+// importing the function that modify redux state
+import {setData} from './store/reducer/stateReducer'
 
 function App() {
+  //select which state to use and cause rerender
   const data = useSelector(state => state);
+  // dispatch are the function you want to use to change redux state
+  const dispatch = useDispatch();
   console.log(data)
   return (
     <div className="App">

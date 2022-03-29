@@ -8,5 +8,6 @@ const persistConfig = {
     storage,
   };
 
-export const persistedReducer = persistReducer(persistConfig, allReducers);
-export const store = createStore(persistedReducer); 
+// export const persistedReducer = persistReducer(persistConfig, allReducers);
+// export const store = createStore(persistedReducer); 
+export const store = createStore(allReducers); 

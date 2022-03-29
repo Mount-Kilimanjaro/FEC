@@ -6,7 +6,7 @@ export const stateSlice = createSlice({
   name: 'state',
   initialState: {
    data: [{name:'david'}],
-   name: "david"
+   name: "david24"
   },
   reducers: {
     setData: (state, { payload }) => {
