@@ -3,7 +3,6 @@
     min-width: 480px;
 }
 #productImage {
-    background-color: yellow;
     height: 500px;
 }
 #productSelector {
@@ -13,4 +12,10 @@
 #feature {
     border-left: 1px solid black;
 }
+#imageWheel {
+    position: absolute;
+}
 
+#imageWheel img {
+    max-height: 85px;
+}
