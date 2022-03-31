@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // importing the function that modify redux state
 import { setCategory, setCurrentItem, setCurrentId } from './store/reducer/categoryReducer';
 import Overview from './components/overview/Overview.jsx';
+import Header from './components/overview/header/Header.jsx';
 
 function App() {
   // add redux state to this component
@@ -69,10 +70,7 @@ function App() {
 
   return (
     <div className="App h-full w-screen flex flex-col items-center">
-      {/* <div style={{minHeight:'50px', width:'100%', maxWidth: '1280px' , backgroundColor:'blue'}}> */}
-        {/* header */}
-        {/* <Header/> */}
-      {/* </div> */}
+        <Header/>
         <Overview/>
       {/* <div style={{height:'40%', width:'100%', maxWidth: '1280px' , backgroundColor:'green'}}>
       RelatedProducts && your outfit */}
