@@ -8,8 +8,8 @@ const ReviewsList = (props) => {
       Reviews List
       <ReviewTile />
       <div id="button-container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <div style={{ border: 'solid', height: '60px', width: '160px', margin: '5px', }}> More Reviews</div>
-        <div style={{ border: 'solid', height: '60px', width: '160px', margin: '5px' }}> Add a Review + </div>
+        <div style={{ backgroundColor: 'blue', height: '60px', width: '160px', margin: '5px', }}> More Reviews</div>
+        <div style={{ backgroundColor: 'blue', height: '60px', width: '160px', margin: '5px' }}> Add a Review + </div>
       </div>
     </div>
   )
