@@ -7,13 +7,14 @@ import { setCategory, setCurrentItem, setCurrentId } from './store/reducer/categ
 import Overview from './components/overview/Overview.jsx';
 
 function App() {
+  // add redux state to this component
   const currentItemId = useSelector(state => state.category.currentItemId);
   const dispatch = useDispatch();
   const headers = {
     'Authorization': process.env.REACT_APP_API_TOKEN
   }
 
-
+// run once on load for api call
   useEffect(()=> {
     const fetchData = async () => {
       try {
@@ -32,6 +33,7 @@ function App() {
     fetchData()
   }, [])
 
+  // runs everytime redux state of currentItemId changes
   useEffect(() => {
     const fetchItem = async () => {
       try {
@@ -41,11 +43,13 @@ function App() {
           //set item
           item = response.data;
           const getStyle = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/${currentItemId}/styles`,{headers});
-          //add style to item
+          //add style data to item object
           item.style = getStyle.data.results;
           const getRelated = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/${currentItemId}/related`,{headers});
-          // add realted items to item
+          // add realted data items to item object
           item.related = getRelated.data
+          //dispatch to set redux state
+          console.log(item)
           dispatch(setCurrentItem(item))
         }
       }
@@ -57,28 +61,27 @@ function App() {
   },[currentItemId])
   
 
-
   return (
     <div className="App h-full w-screen flex flex-col items-center">
-      <div style={{minHeight:'50px', width:'100%', maxWidth: '1280px' , backgroundColor:'blue'}}>
-        header
+      {/* <div style={{minHeight:'50px', width:'100%', maxWidth: '1280px' , backgroundColor:'blue'}}> */}
+        {/* header */}
         {/* <Header/> */}
-      </div>
+      {/* </div> */}
         <Overview/>
-      <div style={{height:'40%', width:'100%', maxWidth: '1280px' , backgroundColor:'green'}}>
-      RelatedProducts && your outfit
+      {/* <div style={{height:'40%', width:'100%', maxWidth: '1280px' , backgroundColor:'green'}}>
+      RelatedProducts && your outfit */}
         {/* <RelatedProducts/> */}
-      </div>
+      {/* </div> */}
 
-      <div style={{height:'35%', width:'100%', maxWidth: '1280px' , backgroundColor:'pink'}}>
-      q&a
+      {/* <div style={{height:'35%', width:'100%', maxWidth: '1280px' , backgroundColor:'pink'}}>
+      q&a */}
         {/* <QuestionAndAnswer/> */}
-      </div>
+      {/* </div> */}
 
-      <div style={{height:'35%', width:'100%', maxWidth: '1280px' , backgroundColor:'purple'}}>
-      Rating And Reviews
+      {/* <div style={{height:'35%', width:'100%', maxWidth: '1280px' , backgroundColor:'purple'}}>
+      Rating And Reviews */}
         {/* <RatingAndReviews/> */}
-      </div>
+      {/* </div> */}
     </div>
   );
 }
