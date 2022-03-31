@@ -30,7 +30,21 @@ export const categorySlice = createSlice(
               "default_price": "40"
           },
       ],
-      currentItem: null,
+      currentItemId: null,
+      currentItem: {
+        id: '',
+        campus: '',
+        name: '',
+        slogan: '',
+        description: '',
+        category: '',
+        default_price: '',
+        created_at: '',
+        updated_at: '',
+        features: [],
+        style : [],
+        related: []
+      },
   },
     reducers: {
       setCategory: (state, {payload} ) => {
@@ -39,9 +53,12 @@ export const categorySlice = createSlice(
       setCurrentItem: (state, {payload}) => {
         state.currentItem = payload;
       },
+      setCurrentId: (state, {payload}) => {
+        state.currentItemId = payload;
+      },
     },
 
   },
 );
 
-export const { setCategory , setCurrentItem } = categorySlice.actions;
+export const { setCategory , setCurrentItem, setCurrentId } = categorySlice.actions;

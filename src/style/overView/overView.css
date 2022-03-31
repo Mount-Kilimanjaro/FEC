@@ -1,0 +1,16 @@
+#container, #header {
+    max-width: 1280px;
+    min-width: 480px;
+}
+#productImage {
+    background-color: yellow;
+    height: 500px;
+}
+#productSelector {
+    height: 500px;
+    background-color: rgb(139, 139, 75);
+}
+#feature {
+    border-left: 1px solid black;
+}
+
