@@ -74,8 +74,6 @@ function App() {
     fetchItem()
     //eslint-disable-next-line react-hooks/exhaustive-deps
   },[currentItemId])
-  
-        <OverView/>
   return (
     <div className="App h-full w-screen flex flex-col items-center">
         <Header/>
