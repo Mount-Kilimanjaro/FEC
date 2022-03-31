@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 // importing the function that modify redux state
 import { setCategory, setCurrentItem } from './store/reducer/categoryReducer';
+import RatingsAndReviews from './components/RatingsAndReviews.jsx'
 
 function App() {
   const category = useSelector(state => state.category);
@@ -37,7 +38,7 @@ console.log(category)
         header
         {/* <Header/> */}
       </div>
-      
+
       <div style={{height:'60%', width:'100%', maxWidth: '1280px' , backgroundColor:'red'}}>
         overview
         {/* <OverView/> */}
@@ -54,10 +55,10 @@ console.log(category)
       </div>
 
       <div style={{height:'35%', width:'100%', maxWidth: '1280px' , backgroundColor:'purple'}}>
-      Rating And Reviews
+        <RatingsAndReviews />
         {/* <RatingAndReviews/> */}
       </div>
-      
+
 
     </div>
   );
