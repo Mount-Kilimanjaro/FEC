@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 // importing the function that modify redux state
 import { setCategory, setCurrentItem } from './store/reducer/categoryReducer';
+import RelatedProducts from './components/relatedProductsWidgetMain/RelatedProductsWidget.jsx';
 
 function App() {
   const category = useSelector(state => state.category);
@@ -37,16 +38,15 @@ console.log(category)
         header
         {/* <Header/> */}
       </div>
-      
+
       <div style={{height:'60%', width:'100%', maxWidth: '1280px' , backgroundColor:'red'}}>
         overview
         {/* <OverView/> */}
       </div>
 
-      <div style={{height:'40%', width:'100%', maxWidth: '1280px' , backgroundColor:'green'}}>
-      RelatedProducts && your outfit
-        {/* <RelatedProducts/> */}
-      </div>
+      
+        <RelatedProducts/>
+
 
       <div style={{height:'35%', width:'100%', maxWidth: '1280px' , backgroundColor:'pink'}}>
       q&a
@@ -57,7 +57,7 @@ console.log(category)
       Rating And Reviews
         {/* <RatingAndReviews/> */}
       </div>
-      
+
 
     </div>
   );
