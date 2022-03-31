@@ -9,9 +9,7 @@ function RelatedProductsWidget () {
 
   return (
     <div id='relatedMain'>
-      <h2>Related Products</h2>
       < RelatedProducts/>
-      <h2>Your Outfit</h2>
       < Outfit/>
     </div>
   )

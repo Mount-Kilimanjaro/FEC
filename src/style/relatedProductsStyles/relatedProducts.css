@@ -1,5 +1,64 @@
-
-#relatedMain {
-  height: 100%;
+* {
+  Margin:0;
+  Padding:0;
+  Border:0;
 }
 
+#relatedMain h1 {
+  font-size: 20px;
+  font-weight: 200;
+  color: gray;
+}
+/*
+width: 100%;
+  height: 100vh; */
+
+#relatedMain {
+  width: 100%;
+  height: 850px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* relatedProduct */
+
+.relatedProducts {
+  height: 380px;
+  width: 900px;
+  gap: 10px;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.relatedProductCards {
+  height: 85%;
+  width: 25%;
+  border: solid 2px;
+  background-color: #C0C0C0;
+
+}
+
+/* Outfit */
+
+.outfit {
+  height: 380px;
+  width: 900px;
+  gap: 10px;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.outfitCards {
+  height: 85%;
+  width: 25%;
+  border: solid 2px;
+  background-color: #C0C0C0;
+}
