@@ -43,7 +43,7 @@ function App() {
 
 
       <div style={{height:'60%', width:'100%', maxWidth: '1280px' , backgroundColor:'red'}}>
-=======
+
 
         overview
         {/* <OverView/> */}
@@ -53,7 +53,6 @@ function App() {
       
         <RelatedProducts/>
 
-=======
 
 
       <div style={{ height: '35%', width: '100%', maxWidth: '1280px', backgroundColor: 'pink' }}>
