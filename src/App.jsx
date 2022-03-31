@@ -6,6 +6,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setCategory, setCurrentItem, setCurrentId } from './store/reducer/categoryReducer';
 import Overview from './components/overview/Overview.jsx';
 import Header from './components/overview/header/Header.jsx';
+import RelatedProducts from './components/relatedProductsWidgetMain/RelatedProductsWidget.jsx';
+import RatingsAndReviews from './components/RatingsAndReviews.jsx'
+import QuestionAndAnswer from './components/QuestionsAndAnswers.jsx'
+
+
 
 function App() {
   // add redux state to this component
@@ -14,6 +19,7 @@ function App() {
   const headers = {
     'Authorization': process.env.REACT_APP_API_TOKEN
 }
+
 
 //hook useEffect render twice in dev because of "use strict" but wont in production build
 // run once on load for api call
@@ -29,7 +35,7 @@ function App() {
           dispatch(setCurrentId(response.data[0].id));
         }
       }
-      catch(err) {
+      catch (err) {
         console.log(err)
       }
     };
@@ -63,6 +69,7 @@ function App() {
       }
     }
     //invoke fetchItem
+
     fetchItem()
     //eslint-disable-next-line react-hooks/exhaustive-deps
   },[currentItemId])
@@ -70,24 +77,13 @@ function App() {
 
   return (
     <div className="App h-full w-screen flex flex-col items-center">
-        <Header/>
-        <Overview/>
-      {/* <div style={{height:'40%', width:'100%', maxWidth: '1280px' , backgroundColor:'green'}}>
-      RelatedProducts && your outfit */}
-        {/* <RelatedProducts/> */}
-      {/* </div> */}
-
-      {/* <div style={{height:'35%', width:'100%', maxWidth: '1280px' , backgroundColor:'pink'}}>
-      q&a */}
+        {/* <Header/> */}
+        {/* <Overview/> */}
+        <RelatedProducts/>
         {/* <QuestionAndAnswer/> */}
-      {/* </div> */}
-
-      {/* <div style={{height:'35%', width:'100%', maxWidth: '1280px' , backgroundColor:'purple'}}>
-      Rating And Reviews */}
-        {/* <RatingAndReviews/> */}
-      {/* </div> */}
+        <RatingsAndReviews />
     </div>
-  );
+  )
 }
 
 export default App;
