@@ -12,7 +12,7 @@ function App() {
   const dispatch = useDispatch();
   const headers = {
     'Authorization': process.env.REACT_APP_API_TOKEN
-  }
+}
 
 // run once on load for api call
   useEffect(()=> {
@@ -21,6 +21,7 @@ function App() {
         //api call
         const response = await axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/?count=max',{headers});
         //set data to redux state
+        console.log('hit')
         dispatch(setCategory(response.data));
         if (!currentItemId) {
           dispatch(setCurrentId(response.data[0].id));
@@ -31,9 +32,10 @@ function App() {
       }
     };
     fetchData()
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  // runs everytime redux state of currentItemId changes
+  // runs every time redux state of currentItemId changes
   useEffect(() => {
     const fetchItem = async () => {
       try {
@@ -49,7 +51,6 @@ function App() {
           // add realted data items to item object
           item.related = getRelated.data
           //dispatch to set redux state
-          console.log(item)
           dispatch(setCurrentItem(item))
         }
       }
@@ -58,6 +59,7 @@ function App() {
       }
     }
     fetchItem()
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   },[currentItemId])
   
 
