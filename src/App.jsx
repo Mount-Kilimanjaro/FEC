@@ -14,6 +14,7 @@ function App() {
     'Authorization': process.env.REACT_APP_API_TOKEN
 }
 
+//hook useEffect render twice in dev because of "use strict" but wont in production build
 // run once on load for api call
   useEffect(()=> {
     const fetchData = async () => {
@@ -21,8 +22,8 @@ function App() {
         //api call
         const response = await axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/?count=max',{headers});
         //set data to redux state
-        console.log('hit')
         dispatch(setCategory(response.data));
+        // set current item being view if no item is being viewed
         if (!currentItemId) {
           dispatch(setCurrentId(response.data[0].id));
         }
@@ -31,6 +32,7 @@ function App() {
         console.log(err)
       }
     };
+    //invoke fetchData
     fetchData()
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -40,15 +42,16 @@ function App() {
     const fetchItem = async () => {
       try {
         if (currentItemId) {
-          let item;
+          // api call
           const response = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/${currentItemId}`,{headers});
+          const getStyle = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/${currentItemId}/styles`,{headers});
+          const getRelated = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/${currentItemId}/related`,{headers});
+          let item; 
           //set item
           item = response.data;
-          const getStyle = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/${currentItemId}/styles`,{headers});
           //add style data to item object
           item.style = getStyle.data.results;
-          const getRelated = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/${currentItemId}/related`,{headers});
-          // add realted data items to item object
+          // add related data items to item object
           item.related = getRelated.data
           //dispatch to set redux state
           dispatch(setCurrentItem(item))
@@ -58,6 +61,7 @@ function App() {
         console.log(err)
       }
     }
+    //invoke fetchItem
     fetchItem()
     //eslint-disable-next-line react-hooks/exhaustive-deps
   },[currentItemId])
