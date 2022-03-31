@@ -77,10 +77,10 @@ function App() {
 
   return (
     <div className="App h-full w-screen flex flex-col items-center">
-        {/* <Header/> */}
-        {/* <Overview/> */}
+        <Header/>
+        <Overview/>
         <RelatedProducts/>
-        {/* <QuestionAndAnswer/> */}
+        <QuestionAndAnswer/>
         <RatingsAndReviews />
     </div>
   )
