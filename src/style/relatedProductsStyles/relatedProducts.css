@@ -1,5 +1,94 @@
-
-#relatedMain {
-  height: 100%;
+* {
+  Margin:0;
+  Padding:0;
+  Border:0;
 }
 
+#relatedMain h1 {
+  font-size: 20px;
+  font-weight: 300;
+  color: gray;
+}
+
+#relatedMain h3 {
+  font-size: 14px;
+  font-weight: 200;
+  color: black;
+  margin-left: 6px;
+}
+
+#relatedMain p {
+  font-size: 19px;
+  font-weight: 500;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: black;
+  margin-left: 6px;
+}
+
+#relatedMain span {
+  font-size: 12px;
+  font-weight: 250;
+  margin-left: 6px;
+}
+
+
+img {
+  width: 225px;
+  height: 220px;
+}
+/*
+width: 100%;
+  height: 100vh; */
+
+#relatedMain {
+  width: 100%;
+  height: 850px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* relatedProduct */
+
+.relatedProducts {
+  height: 380px;
+  width: 1200px;
+  gap: 10px;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.relatedProductCards {
+  height: 330px;
+  width: 225px;
+  border: solid 1px;
+  background-color: #C0C0C0;
+}
+
+#relatedMain .stars {
+  margin-left: 6px;
+}
+
+/* Outfit */
+
+.outfit {
+  height: 380px;
+  width: 900px;
+  gap: 10px;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.outfitCards {
+  height: 85%;
+  width: 25%;
+  border: solid 2px;
+  background-color: #C0C0C0;
+}
