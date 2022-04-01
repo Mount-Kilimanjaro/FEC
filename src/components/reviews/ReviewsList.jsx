@@ -7,11 +7,12 @@ import '../../style/ratings-reviews/reviews.css';
 const ReviewsList = (props) => {
 
 
+
   return (
 
     <div id="reviewsList-container" className="scroller" >
       <div id="reviewCount"><b>{props.reviews.length} reviews, sorted by relevance</b></div>
-      {!props.reviews.length ? <div>No reviews</div> : props.reviews.map((review) => (
+      {!props.reviews ? <div>No reviews</div> : props.reviews.map((review) => (
         <div key={JSON.stringify(review)}>
           <ReviewTile review={review}/>
           <hr/>

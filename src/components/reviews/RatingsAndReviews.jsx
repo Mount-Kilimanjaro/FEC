@@ -12,6 +12,7 @@ const RatingsAndReviews = (props) => {
   const [data, setData] = useState([]);
 
 
+
   // API call to retrieve reviews on state change
   useEffect(() => {
     const retrieveData = async () => {
@@ -32,7 +33,13 @@ const RatingsAndReviews = (props) => {
     retrieveData();
   }, [id]);
 
-  console.log(data.results);
+  // const [displayList, addToDisplay] = useState(props.reviews.slice(0, 2));
+
+  const addReviews = (e) => {
+    // var index = displayList.length + 2;
+    // addToDisplay(data.results.slice(0, index));
+  }
+
   return (
     <>
       <div id="reviews-container" style={{ display: 'flex', padding: '5px', width: '70%' }}>
@@ -44,7 +51,7 @@ const RatingsAndReviews = (props) => {
 
       </div>
       <div>
-        <button className="reviewButtons">MORE REVIEWS</button>
+        <button className="reviewButtons" onClick={() => addReviews()}>MORE REVIEWS</button>
 
         <button className="reviewButtons">ADD A REVIEW +</button>
       </div>
