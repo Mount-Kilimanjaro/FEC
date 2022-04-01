@@ -66,11 +66,12 @@ export default function Overview() {
     <div id="container" className="container pt-4 h-full" >
         <div className="image&products flex md:flex-row flex-col items-center">
             <ProductImage img={{imageUrl, imagesUrl,imageIndex, changeImgUrl, carouselNextImage, setNextImage, setPreviousImage}}/>
-            <ProductSelector product={currentItem} styleIndex={{styleIndex, handleSetStyleIndex}}/>
+            <ProductSelector product={currentItem} styleIndex={{styleIndex, handleSetStyleIndex}} imageUrl={imageUrl}/>
         </div>
         <div className="information ">
             <ProductInfo product={currentItem}/>
         </div>
+                
     </div>
   )
 }
