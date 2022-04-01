@@ -3,10 +3,17 @@
     min-width: 480px;
 }
 
+
 #productImage {
-    height: 650px;
     background-color: #bbbfc3;
+    min-height: 450px;
+
 }
+#overview_main_img {
+    max-height: 650px;
+    /* min-height: 590px; */
+}
+
 #productSelector {
     min-height: 650px;
 }
@@ -28,6 +35,15 @@
     height: 100px;
     width: 100px;
 }
-#selector select {
+#overview_selector select {
     width: 200px;
+
+}
+.overview_image_arrows {
+    height: 50px;
+
+}
+
+#overview_arrow {
+    position: absolute;
 }
