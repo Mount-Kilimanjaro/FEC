@@ -42,7 +42,12 @@ export const categorySlice = createSlice(
         created_at: '',
         updated_at: '',
         features: [],
-        style : [],
+        style : [
+          {
+            photos:[{url:'',thumbnail_url:''}],
+            skus:{}
+          }
+        ],
         related: []
       },
   },
