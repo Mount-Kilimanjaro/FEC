@@ -1,16 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReviewTile from './ReviewTile.jsx';
+import '../../style/ratings-reviews/reviews.css';
+
+
 
 const ReviewsList = (props) => {
 
+
   return (
-    <div id="reviewsList-container" style={{ border: 'solid', height: '550px', width: '100%' }}>
-      Reviews List
-      <ReviewTile />
-      <div id="button-container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <div style={{ backgroundColor: 'blue', height: '60px', width: '160px', margin: '5px', }}> More Reviews</div>
-        <div style={{ backgroundColor: 'blue', height: '60px', width: '160px', margin: '5px' }}> Add a Review + </div>
-      </div>
+
+    <div id="reviewsList-container" className="scroller" >
+      <div id="reviewCount"><b>{props.reviews.length} reviews, sorted by relevance</b></div>
+      {!props.reviews.length ? <div>No reviews</div> : props.reviews.map((review) => (
+        <div key={JSON.stringify(review)}>
+          <ReviewTile review={review}/>
+          <hr/>
+        </div>
+      ))
+      }
     </div>
   )
 }

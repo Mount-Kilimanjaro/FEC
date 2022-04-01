@@ -22,26 +22,33 @@ const RatingsAndReviews = (props) => {
         const response = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/?product_id=${id}`, { headers });
 
         setData(response.data);
+        console.log(response.data);
 
       }
-      catch(err) {
+      catch (err) {
         console.error(err);
       }
     }
     retrieveData();
   }, [id]);
 
-
+  console.log(data.results);
   return (
-    <div id="temp-container" style={{ height: '35%', width: '100%', maxWidth: '1280px', backgroundColor: 'pink' }}>
-      <div id="reviews-container" style={{display: 'flex', border: 'solid', padding: '5px'}}>
+    <>
+      <div id="reviews-container" style={{ display: 'flex', padding: '5px', width: '70%' }}>
+
 
         <RatingBreakdown />
 
-        <ReviewsList reviews={data.results}/>
+        <ReviewsList reviews={data.results} />
 
       </div>
-    </div>
+      <div>
+        <button className="reviewButtons">MORE REVIEWS</button>
+
+        <button className="reviewButtons">ADD A REVIEW +</button>
+      </div>
+    </>
   )
 }
 
