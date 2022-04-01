@@ -2,12 +2,13 @@
     max-width: 1280px;
     min-width: 480px;
 }
+
 #productImage {
-    height: 500px;
+    height: 650px;
+    background-color: #bbbfc3;
 }
 #productSelector {
-    height: 500px;
-    background-color: rgb(139, 139, 75);
+    min-height: 650px;
 }
 #feature {
     border-left: 1px solid black;
@@ -15,7 +16,18 @@
 #imageWheel {
     position: absolute;
 }
+#scrollImg {
+    width: 100px;
+    height: 120px;
+}
 
 #imageWheel img {
-    max-height: 85px;
+    max-height: 100px;
+}
+#styleThumbNail {
+    height: 100px;
+    width: 100px;
+}
+#selector select {
+    width: 200px;
 }
