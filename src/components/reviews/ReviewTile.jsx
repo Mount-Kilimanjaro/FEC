@@ -13,9 +13,6 @@ const ReviewTile = (props) => {
 
         </div>
 
-
-
-
         <div className="reviewSummary tile"><b>{props.review.summary}</b></div>
 
         <div className="reviewBody tile">
