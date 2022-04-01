@@ -9,7 +9,7 @@ module.exports = {
         '300': '300px',
       },
       minHeight: {
-        '590': '590px',
+        '650': '650px',
       },
       width: {
         '300': '300px',
