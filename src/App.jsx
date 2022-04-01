@@ -7,9 +7,8 @@ import { setCategory, setCurrentItem, setCurrentId } from './store/reducer/categ
 import Overview from './components/overview/Overview.jsx';
 import Header from './components/overview/header/Header.jsx';
 import RelatedProducts from './components/relatedProductsWidgetMain/RelatedProductsWidget.jsx';
-import RatingsAndReviews from './components/RatingsAndReviews.jsx'
-import QuestionAndAnswer from './components/QuestionsAndAnswers.jsx'
-
+import RatingsAndReviews from './components/reviews/RatingsAndReviews.jsx';
+import QuestionAndAnswer from './components/QuestionsAndAnswers.jsx';
 
 
 function App() {
@@ -18,7 +17,7 @@ function App() {
   const dispatch = useDispatch();
   const headers = {
     'Authorization': process.env.REACT_APP_API_TOKEN
-}
+  }
 
 
 //hook useEffect render twice in dev because of "use strict" but wont in production build
@@ -53,7 +52,7 @@ function App() {
           const response = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/${currentItemId}`,{headers});
           const getStyle = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/${currentItemId}/styles`,{headers});
           const getRelated = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/${currentItemId}/related`,{headers});
-          let item; 
+          let item;
           //set item
           item = response.data;
           //add style data to item object

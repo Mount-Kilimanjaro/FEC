@@ -1,0 +1,204 @@
+
+Ratings & Reviews - FEC:
+  ☐ Write new review
+    ☐ Button to add review remains visible at the bottom of module
+    ☐ Button opens modal that overlays the product page
+      ☐ Modal is titled "Write your review"
+      ☐ Modal is subtitled "About the [product name here]"
+    ☐ Mandatory sections have asterisks next to the section title
+
+    ☐ Overall rating (mandatory)
+      ☐ Selected via 5 selectable star icons (1- Poor, 2- Fair, 3- Average, 4- Good, 5- Great)
+        ☐ Stars are initially outlines
+        ☐ Clicking on the stars change them to solid stars
+          ☐ Customers cannot select a fraction of a star
+        ☐ Once stars are selected, text appears to the right explaining the meaning of the selection
+
+    ☐ Do you recommend this product? (mandatory)
+      ☐ Radio button for yes/no
+      ☐ Default radio button behavior applies
+
+    ☐ Characteristics (mandatory)
+      ☐ Input appears as an array of 5 radio buttons
+        ☐ Characteristic title is displayed above buttons
+      ☐ Lowest (1) & highest (5) appear below the radio buttons
+      ☐ No button is selected by default
+
+    ☐ Review Summary
+      ☐ Contains a text input that allows up to 60 chars
+      ☐ Placeholder texts reads "Example: Best purchase ever!"
+
+    ☐ Review Body (mandatory)
+      ☐ Contains text input allowing for up to 1000 chars
+      ☐ Placeholder text reads "Why did you like the product or not?"
+      ☐ Review cannot be submitted with less than 50 chars
+        ☐ Submission fails in the same way it would for a blank input box
+      ☐ Char count appears below Review body with # of chars needed to meet requirement
+        ☐ Char count is formatted as "Minimum required characters left: [###]"
+        ☐ Char count updates as user types
+        ☐ Count changes to "Minimum reached" at 50 chars
+
+    ☐ Upload your photos
+      ☐ Contains a button that allows users to upload photos
+      ☐ Clicking the button opens a window where the photo can be selected
+      ☐ After first image is uploaded, thumbnail showing the image appears
+      ☐ Button to add images disappears after 5 images are added
+
+    ☐ What is your nickname (mandatory)
+      ☐ Contains a text input for up to 60 chars
+      ☐ Placeholder text reads "Example: jackson11!"
+      ☐ "For privacy reasons, do not use your full name or email address" appears below the text input
+
+    ☐ Your email (mandatory)
+      ☐ Contains a text input for up to 60 chars
+      ☐ Placeholder text reads "Example: jackson11@email.com"
+      ☐ "For authentication reasons, you will not be emailed" appears below text input
+
+    ☐ Submit Review
+      ☐ Upon submission, form inputs are validated
+      ☐ Submission is prevented if there are invalid entries, such as:
+        ☐ Any mandatory fields are blank
+        ☐ Review body is less than 50 chars
+        ☐ Email address provided is not in correct format
+        ☐ Images selected are unavailable or unable to be uploaded
+      ☐ A warning message titled "You must enter the following: [missing fields]" appears if needed
+
+    ☐ Keyword Search @low
+      ☐ Search bar appears above reviews list
+        ☐ Allows users to filter reviews for any that contain text matching the search term
+        ☐ Search begins to filter after user inputs 3 chars
+        ☐ Search continues to update as user enters more chars
+        ☐ If user clears search or removes chars to less than 3, full list is displayed
+      ☐ Search works with other applied filters
+      ☐ Changes to sort/rating filters do not remove search term filter
+
+  ☐ Reviews List
+    ☐ Displays reviews on tiles of standard size
+    ☐ Displays 2 tiles at a time
+      ☐ More than 2 reviews -> displays "More Reviews" button below the list
+        ☐ Button adds 2 tiles to the list
+        ☐ Button disappears once all tiles are loaded
+      ☐ 2 or fewer reviews -> does not display "More Reviews" button
+    ☐ Reviews module always fits on a single screen & becomes scrollable when needed
+      ☐ Sort dropdown & buttons remain fixed outside of scrollable list
+    ☐ Products with no reviews display "Add new review" button at top of module
+
+    ☐ Individual Review Tile
+      ☐ Each tile displays:
+
+        ☐ Star Rating (to 1/4 point)
+
+        ☐ Review Date (Month DD, YYYY)
+
+        ☐ Review summary
+          ☐ Capped at 60 chars
+          ☐ Appears in bold above the full review
+
+        ☐ Review body
+          ☐ Free-form multimedia input
+            ☐ Allows for 50-1000 chars but only displays 250 chars
+              ☐ Link to "Show more" below body should expand the tile
+            ☐ Allows for up to 5 images
+            ☐ Images appear as clickable thumbnails that expand into a modal and display at full res
+              ☐ Close modal functionality
+
+        ☐ Recommend
+          ☐ If reviewer recommends product, "I recommend this product" appears with checkmark below review
+          ☐ If not, display nothing
+
+        ☐ Reviewer name
+          ☐ Only shows username
+            ☐ If email is associated with sale -> "Verified purchaser" should appear next to username
+
+        ☐ Response to Review
+          ☐ Internal sales responses appear below reviewer name
+          ☐ Responses are preceded by "Response from seller"
+          ☐ Responses are visually distinguished from rest of review
+
+        ☐ Rating Helpfulness
+          ☐ Users can provide feedback regarding helpful reviews
+          ☐ "Was this review helpful?" appears at the bottom of the review text
+            ☐ Yes (#) & No (#) links appear with # of users that have selected each option
+            ☐ User click for Yes or No increments count
+            ☐ Additional clicks for Yes or No toggle response, but do not allow both to be selected
+
+  ☐ Sorting
+    ☐ Contains dropdown labeled "Sort on" with options:
+
+      ☐ Helpful
+        ☐ Prioritizes reviews that have been found helpful
+        ☐ Order is determined by subtracting "No" responses from "Yes" responses and sorting such that the highest score appears at the top
+
+      ☐ Newest
+        ☐ Most recent review appears first
+
+      ☐ Relevant
+        ☐ Relevance is determined by combination of date submitted & feedback received
+          ☐ Weighs two characteristics such that recent reviews appear near the top but do not outweigh reviews that have been found helpful
+          ☐ Reviews that have been found helpful appear near the top but yield to more recent reviews if they are older
+
+    ☐ Relevance is default order
+    ☐ Dropdown updates to refelect current selection
+    ☐ List refreshes to show the first results for that order
+    ☐ Sort persists when filters are added/removed
+
+  ☐ Rating Breakdown (Filtering)
+    ☐ Breakdown displays at top left corner of reviews module
+
+    ☐ Rating Summary
+      ☐ Top of breakdown displays average rating for product
+        ☐ Average rating is displayed as number & star icons
+          ☐ Number is rounded to nearest single decimal
+          ☐ Stars are rounded to 1/4 review point
+      ☐ Total review count is displayed
+
+    ☐ Rating Breakdown
+      ☐ Appears below average rating
+
+      ☐ 5 bars display - one for each star rating
+        ☐ Star count is displayed to the left of the bar as "# Stars"
+        ☐ Total reviews for each star value is displayed to the right of the bar
+        ☐ Bar is two-toned
+          ☐ Green -> portion of bar that represents the % of total reviews with that star rating
+          ☐ Gray -> remainder of the bar to the left
+
+      ☐ Each rating breakdown (label, bar, count) acts as a filter
+        ☐ Clicking on the breakdown filters the review list so reviews with that star rating display
+        ☐ Hovering over breakdown filters changes background color to indicate it is actionable
+
+      ☐ Filters are additive -> selecting 1 & 2 stars displays reviews of 1 & 2 stars
+      ☐ Filters are toggled with each click
+
+      ☐ Message appears with applied filters below Rating Breakdown title
+        ☐ Includes link to "Remove all filters"
+
+    ☐ Recommendations
+      ☐ % of reviews that "recommend" the product are displayed below the breakdown
+
+  ☐ Product Breakdown (Factors)
+    ☐ Reviews provide option to give feedback on:
+
+      ☐ Size
+        ☐ 1 - "Too Small"
+        ☐ 3 - "Perfect"
+        ☐ 5 - "Too big"
+      ☐ Width
+      ☐ Comfort
+      ☐ Quality
+        ☐ 1 - "Poor"
+        ☐ 5 - "Great"
+      ☐ Length
+      ☐ Fit
+
+    ☐ Average feedback for each characteristic that applies is displayed
+    ☐ Feedback depends on a 5 point scale
+      ☐ Displays the same for all characteristics of the product
+      ☐ Appears as a gray bar similar to rating breakdown
+      ☐ Label above bar states the characteristic
+      ☐ Meaning of lowest selection appears below bar to the left
+      ☐ Meaning of the highest selection appears below bar to the right
+      ☐ An icon appears on the bar representing the average value received via rewviews submitted
+        ☐ Icon appears horizontally from left edge of the bar such that it represents the average input for the characteristic
+
+
+
