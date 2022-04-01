@@ -18,7 +18,7 @@ const RatingsAndReviews = (props) => {
         const headers = {
           'Authorization': process.env.REACT_APP_API_TOKEN
         };
-        const response = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/?product_id=${id}&count=5`, { headers });
+        const response = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/?product_id=${id}&count=1000`, { headers });
 
         setData(response.data);
 
@@ -32,11 +32,9 @@ const RatingsAndReviews = (props) => {
 
   return (
     <>
-      <div id="reviews-container" style={{ display: 'flex', padding: '5px', width: '70%' }}>
-
+      <div id="reviews-container" style={{ display: 'flex', padding: '5px', width: '80%' }}>
 
         <RatingBreakdown />
-
         <ReviewsList reviews={data.results} />
 
       </div>

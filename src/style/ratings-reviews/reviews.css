@@ -22,7 +22,8 @@
   width: 100%;
   padding-top: 35px;
   padding-bottom: 35px;
-
+  border-bottom: solid;
+  border-width: 0.5px;
   justify-content: space-between;
 }
 
@@ -32,6 +33,12 @@
   padding-right: 25px;
 }
 
+.reviewSummary {
+  overflow-wrap: break-word;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 60ch;
+}
 .tile {
   margin: 5px;
 }

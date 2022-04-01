@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ReviewTile from './ReviewTile.jsx';
+import Button from './Button.jsx'
 import '../../style/ratings-reviews/reviews.css';
 
 
@@ -21,21 +22,22 @@ const ReviewsList = (props) => {
   }
 
   return (
-    <div>
+    <div id="">
       <div id="reviewsList-container" className="scroller" >
         <div id="reviewCount"><b>{props.reviews.length} reviews, sorted by relevance</b></div>
-        {!displayList.length ? <div>No reviews</div> : displayList.map((review) => (
+        {displayList.length === 1 ? <Button label={"ADD A REVIEW"}/> : displayList.map((review) => (
           <div key={JSON.stringify(review)}>
             <ReviewTile review={review}/>
-            <hr />
           </div>
         ))}
       </div>
 
         <button className="reviewButtons" onClick={addReviews} style={{ display: displayButton }}>MORE REVIEWS</button>
-        <button className="reviewButtons">ADD A REVIEW +</button>
+
+        <Button className="reviewButtons" label={"ADD A REVIEW"}  />
     </div>
   )
 }
 
 export default ReviewsList;
+
