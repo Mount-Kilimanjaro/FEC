@@ -1,6 +1,46 @@
 .scroller {
   margin: 0 auto;
+  max-height: 100vh;
   height: 550px;
   width: 100%;
-  overflow: auto;
+  overflow-y: scroll;
+}
+#reviewsList-container {
+  padding: 50px;
+}
+#reviewCount {
+  text-align: center;
+}
+
+.reviewTile-container {
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  width: 100%;
+  padding-top: 35px;
+  padding-bottom: 35px;
+
+  justify-content: space-between;
+}
+
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 25px;
+}
+
+.tile {
+  margin: 5px;
+}
+
+.reviewBody, .reviewHelpful, .reviewHeader {
+  font-size: 0.8em;
+}
+
+.reviewButtons {
+  border: solid;
+  border-width: 1px;
+  padding: 15px;
+  margin: 10px;
 }
