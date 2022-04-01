@@ -9,7 +9,7 @@ const RatingsAndReviews = (props) => {
 
 
   const id = useSelector((state) => state.category.currentItem.id);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({results: [{id: null}]});
 
 
 
@@ -23,7 +23,7 @@ const RatingsAndReviews = (props) => {
         const response = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/?product_id=${id}`, { headers });
 
         setData(response.data);
-        console.log(response.data);
+        console.log(data);
 
       }
       catch (err) {
