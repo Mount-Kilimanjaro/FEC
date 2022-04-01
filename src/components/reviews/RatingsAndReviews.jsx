@@ -9,9 +9,7 @@ const RatingsAndReviews = (props) => {
 
 
   const id = useSelector((state) => state.category.currentItem.id);
-  const [data, setData] = useState({results: [{id: null}]});
-
-
+  const [data, setData] = useState({results: [{id: 38321}]});
 
   // API call to retrieve reviews on state change
   useEffect(() => {
@@ -20,10 +18,9 @@ const RatingsAndReviews = (props) => {
         const headers = {
           'Authorization': process.env.REACT_APP_API_TOKEN
         };
-        const response = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/?product_id=${id}`, { headers });
+        const response = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/?product_id=${id}&count=5`, { headers });
 
         setData(response.data);
-        console.log(data);
 
       }
       catch (err) {
@@ -32,13 +29,6 @@ const RatingsAndReviews = (props) => {
     }
     retrieveData();
   }, [id]);
-
-  // const [displayList, addToDisplay] = useState(props.reviews.slice(0, 2));
-
-  const addReviews = (e) => {
-    // var index = displayList.length + 2;
-    // addToDisplay(data.results.slice(0, index));
-  }
 
   return (
     <>
@@ -50,11 +40,7 @@ const RatingsAndReviews = (props) => {
         <ReviewsList reviews={data.results} />
 
       </div>
-      <div>
-        <button className="reviewButtons" onClick={() => addReviews()}>MORE REVIEWS</button>
 
-        <button className="reviewButtons">ADD A REVIEW +</button>
-      </div>
     </>
   )
 }
