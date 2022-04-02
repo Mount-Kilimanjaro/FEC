@@ -9,6 +9,7 @@ import Header from "./components/overview/header/Header.jsx";
 import RelatedProducts from "./components/relatedProductsWidgetMain/RelatedProductsWidget.jsx";
 import RatingsAndReviews from "./components/reviews/RatingsAndReviews.jsx";
 import QuestionAndAnswer from "./components/QuestionsAndAnswers.jsx";
+import Search from "./components/overview/Search.jsx";
 
 
 function App() {
@@ -85,8 +86,9 @@ function App() {
   },[currentItemId]);
   return (
     <div className="App h-full w-full flex flex-col items-center relative">
-      <div className={`w-full h-full absolute inset-0 z-10 bg-black/50 ${blurBG ? 'block' : 'hidden'}`} onMouseEnter={() => disableToggle ? '' :handleToggleCart() }></div>
+      <div className={`w-full h-full absolute inset-0 z-10 bg-black/50 ${blurBG ? "block" : "hidden"}`} onMouseEnter={() => disableToggle ? "" :handleToggleCart() }></div>
         <Header cart={{handleToggleCart, cartVisibility}}/>
+        {/* <Search/> */}
         <Overview handleToggleCart={handleToggleCart}/>
         <RelatedProducts/>
         <QuestionAndAnswer/>

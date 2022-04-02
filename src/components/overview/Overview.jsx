@@ -62,7 +62,7 @@ export default function Overview(props) {
   
 
   return (
-    <div id="container" className="container pt-4 h-full" >
+    <div id="container" className="container pt-4 h-full mt-10" >
         <div className="image&products flex md:flex-row flex-col items-center">
             <ProductImage img={{imageUrl, imagesUrl, changeImgUrl, carouselNextImage, setNextImage, setPreviousImage}}/>
             <ProductSelector product={currentItem} styleIndex={{styleIndex, handleSetStyleIndex}} imageUrl={imageUrl} handleToggleCart={props.handleToggleCart}/>

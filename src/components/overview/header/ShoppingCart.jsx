@@ -2,7 +2,7 @@ import React from "react"
 import CartCard from "./CartCard.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import "../../../style/header/header.css";
-import {removeFromCart, modifyOrder} from '../../../store/reducer/shoppingCartReducer.js'
+import {removeFromCart, modifyOrder} from "../../../store/reducer/shoppingCartReducer.js"
 
 
 export default function ShoppingCart(props) {
@@ -22,8 +22,6 @@ export default function ShoppingCart(props) {
         <div className="mt-10 border-t-2 ">  
             {cart.map((order,i) => 
                 <CartCard key={i} cart= {{order, handleModifyOrder, handleRemoveOrder, cartVisibility }}/>
-
-                
             )}
         </div>
         <div className={`flex flex-row mt-8 p-2 ${cartVisibility ? "" : "hidden"}`}>
