@@ -54,18 +54,22 @@ export default function Overview(props) {
       setImageIndex(0);
     }
   };
+  useEffect(() => {
+    setStyleIndex(0)
+  }, [currentItem]);
 
   useEffect(() => {
-    setImageUrl(currentItem.style[styleIndex].photos[0].url);
-    setImagesUrl(currentItem.style[styleIndex].photos);
+    setImageUrl(currentItem.style[styleIndex >currentItem.style.length ? 0 : styleIndex].photos[0].url);
+    setImagesUrl(currentItem.style[styleIndex >currentItem.style.length ? 0 : styleIndex].photos);
   }, [currentItem,styleIndex]);
+
   
 
   return (
     <div id="container" className="container pt-4 h-full mt-10" >
         <div className="image&products flex md:flex-row flex-col items-center">
             <ProductImage img={{imageUrl, imagesUrl, changeImgUrl, carouselNextImage, setNextImage, setPreviousImage}}/>
-            <ProductSelector product={currentItem} styleIndex={{styleIndex, handleSetStyleIndex}} imageUrl={imageUrl} handleToggleCart={props.handleToggleCart}/>
+            <ProductSelector product={currentItem} styleIndex={{styleIndex, handleSetStyleIndex}} imageUrl={imageUrl} handleToggleCart={props.handleToggleCart} />
         </div>
         <div className="information ">
             <ProductInfo product={currentItem}/>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch} from "react-redux";
 import { addToCart } from "../../store/reducer/shoppingCartReducer.js";
 
@@ -8,9 +8,17 @@ export default function ProductSelector(props) {
   const {styleIndex, handleSetStyleIndex} = props.styleIndex;
   const [quantity, setQuantity] = useState(null);
   const [order, setOrder] = useState({});
-  const skus = product.style[styleIndex].skus;
+  const skus = product.style[styleIndex > product.style.length ? 0 : styleIndex].skus;
+
   
   const dispatch = useDispatch();
+
+  const resetInputs = () => {
+    const targetSelectSize = document.querySelector("#overview_select_size");
+    const targetSelectQuantity = document.querySelector("#overview_select_quantity");
+    targetSelectSize.value = "DEFAULT";
+    targetSelectQuantity.value = "DEFAULT";
+  }
 
   const handleSizeChange = (sku) => {
     setQuantity(skus[sku].quantity);
@@ -25,10 +33,7 @@ export default function ProductSelector(props) {
     setOrder({});
     setQuantity(0);
     handleSetStyleIndex(index);
-    const targetSelectSize = document.querySelector("#overview_select_size");
-    const targetSelectQuantity = document.querySelector("#overview_select_quantity");
-    targetSelectSize.value = "DEFAULT";
-    targetSelectQuantity.value = "DEFAULT";
+    resetInputs()
   };
 
   const handleAddQuantity = (quantity) => {
@@ -48,7 +53,11 @@ export default function ProductSelector(props) {
     dispatch(addToCart(newOrder));
     props.handleToggleCart(true);
   };
-
+  useEffect(() => {
+    resetInputs();
+    setOrder({});
+  }, [product])
+  
   return (
     <div id="productSelector" className="md:w-3/6 w-full pl-6  pr-5">
       <div className="p-2">
@@ -64,7 +73,7 @@ export default function ProductSelector(props) {
         <h1>{`$${product.default_price}`}</h1>
       </div>
       <div id="styleSelector" className="p-2 text-xl">
-        <h1><span className="font-bold">{`STYLE >`}  </span>{product.style[styleIndex].name}</h1>
+        <h1><span className="font-bold">{`STYLE >`}  </span>{product.style[styleIndex >product.style.length ? 0 : styleIndex].name}</h1>
         <div id="style" className="flex flex-row flex-wrap gap-5 p-4 justify-center">
           {product.style.map((style, i) => {
             return (

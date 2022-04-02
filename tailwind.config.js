@@ -32,6 +32,7 @@ module.exports = {
       },
       zIndex: {
         '50': '50',
+        '100': '100',
       },
       minWidth: {
         '600': '600px',

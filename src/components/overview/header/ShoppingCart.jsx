@@ -18,7 +18,7 @@ export default function ShoppingCart(props) {
     };
 
   return (
-    <div id="header_shopping_cart" className={`absolute right-0 top-14 mt-1 bg-white border-2 z-50 ${cartVisibility ? "w-full md:w-300 " : "w-0 h-0"}`}>
+    <div id="header_shopping_cart" className={`absolute right-0 top-14 mt-1 bg-white border-2 z-[60] ${cartVisibility ? "w-full md:w-300 " : "w-0 h-0"}`}>
         <div className="mt-10 border-t-2 ">  
             {cart.map((order,i) => 
                 <CartCard key={i} cart= {{order, handleModifyOrder, handleRemoveOrder, cartVisibility }}/>

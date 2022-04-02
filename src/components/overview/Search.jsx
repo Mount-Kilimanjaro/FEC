@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import searchIcon from './assets/search.png';
-import SearchModal from './SearchModal.jsx';
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import searchIcon from "./assets/search.png";
+import SearchModal from "./SearchModal.jsx";
 export default function Search(props) {
     const data = useSelector(state => state.category.category)
-    const [search, setSearch] = useState('');
+    const [search, setSearch] = useState("");
     const [filteredData, setFilteredData] = useState([]);
     const [modalVisible , toggleModalVisible] = useState(false);
+
     const handleSearch = () => {
+        if(search.length < 2) {
+            return alert("search much include atleast 3 character");
+        }
         const filteredData = data.filter(obj => {
             if (
                 obj.name.toLowerCase().includes(search.toLowerCase()) || 
@@ -20,16 +24,21 @@ export default function Search(props) {
             }
             return null;
         })
-        setFilteredData(filteredData)
-        toggleModalVisible(true)
+        setFilteredData(filteredData);
+        if (filteredData.length > 0) {
+            toggleModalVisible(true);
+        }else {
+            return alert("Search result 0")
+        }
+
     };
 
   return (
-    <div className=' flex justify-center p-2 md:pb-2 container z-30 absolute top-[65px]'>
-        <div className='flex w-full h-35 md:w-3/6 border-2 border-black'>
-            <input className='grow outline-none p-2' type='search' placeholder='Search ....' value={search} onChange={(e) => setSearch(e.target.value)}/>
-            <div className='flex'>
-            <img className='p-1 border-black border-l-2 hover:bg-blue-300 hover:cursor-pointer' src={searchIcon} alt='search icon'onClick={() => handleSearch()}/>
+    <div className=" flex justify-center p-2 md:pb-2 container z-30 absolute top-[65px]">
+        <div className="flex w-full h-35 md:w-3/6 border-2 border-black">
+            <input className="grow outline-none p-2" type="search" placeholder="Search ...." value={search} onChange={(e) => setSearch(e.target.value)} onClick={() => toggleModalVisible(false)}/>
+            <div className="flex">
+            <img className="p-1 border-black border-l-2 bg-white hover:bg-blue-300 hover:cursor-pointer" src={searchIcon} alt="search icon"onClick={() => handleSearch()}/>
             </div>   
         </div>
         <SearchModal modal={{modalVisible, toggleModalVisible}} filteredData={filteredData} />
