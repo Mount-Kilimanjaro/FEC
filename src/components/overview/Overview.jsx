@@ -5,7 +5,7 @@ import ProductInfo from "./ProductInfo.jsx";
 import "../../style/overView/overView.css";
 import { useSelector } from "react-redux";
 
-export default function Overview() {
+export default function Overview(props) {
   const currentItem = useSelector(state => state.category.currentItem);
   const [styleIndex, setStyleIndex] = useState(0);
   const [imageIndex, setImageIndex] = useState(0);
@@ -65,7 +65,7 @@ export default function Overview() {
     <div id="container" className="container pt-4 h-full" >
         <div className="image&products flex md:flex-row flex-col items-center">
             <ProductImage img={{imageUrl, imagesUrl, changeImgUrl, carouselNextImage, setNextImage, setPreviousImage}}/>
-            <ProductSelector product={currentItem} styleIndex={{styleIndex, handleSetStyleIndex}} imageUrl={imageUrl}/>
+            <ProductSelector product={currentItem} styleIndex={{styleIndex, handleSetStyleIndex}} imageUrl={imageUrl} handleToggleCart={props.handleToggleCart}/>
         </div>
         <div className="information ">
             <ProductInfo product={currentItem}/>

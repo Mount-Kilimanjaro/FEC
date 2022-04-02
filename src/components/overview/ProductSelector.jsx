@@ -46,6 +46,7 @@ export default function ProductSelector(props) {
     newOrder.style_id = product.style[styleIndex].style_id;
     newOrder.maxQuantity = Number(quantity);
     dispatch(addToCart(newOrder));
+    props.handleToggleCart(true);
   };
 
   return (

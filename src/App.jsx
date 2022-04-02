@@ -16,8 +16,10 @@ function App() {
   const currentItemId = useSelector(state => state.category.currentItemId);
   const [blurBG ,toggleBlurBG] = useState(false)
   const [cartVisibility, toggleCartVisibility] = useState(false);
+  const [disableToggle, setDisableToggle] = useState(false);
 
-  const handleToggleCart = () => {
+  const handleToggleCart = (boolean) => {
+    setDisableToggle((boolean))
     toggleCartVisibility(!cartVisibility);
     toggleBlurBG(!blurBG);
   };
@@ -83,9 +85,9 @@ function App() {
   },[currentItemId]);
   return (
     <div className="App h-full w-full flex flex-col items-center relative">
-      <div className={`w-full h-full absolute inset-0 z-10 bg-black/50 ${blurBG ? 'block' : 'hidden'}`} onMouseEnter={() => handleToggleCart() }></div>
+      <div className={`w-full h-full absolute inset-0 z-10 bg-black/50 ${blurBG ? 'block' : 'hidden'}`} onMouseEnter={() => disableToggle ? '' :handleToggleCart() }></div>
         <Header cart={{handleToggleCart, cartVisibility}}/>
-        <Overview/>
+        <Overview handleToggleCart={handleToggleCart}/>
         <RelatedProducts/>
         <QuestionAndAnswer/>
         <RatingsAndReviews />
