@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import {setCurrentId} from '../../store/reducer/categoryReducer.js'
+import {setCurrentId} from "../../store/reducer/categoryReducer.js"
 
 export default function SearchModal(props) {
     const [pagination, setPagination] = useState([[0,10]]);
@@ -33,15 +33,13 @@ export default function SearchModal(props) {
       }, [props.filteredData]);
 
   return (
-      <div id="overview_search_modal" className={`w-full fixed top-[110px] left-0 justify-center ${modalVisible ? "flex " : "hidden"}`} onClick={() => {
-        //   toggleModalVisible(false)
-          }}>
+      <div id="overview_search_modal" className={`w-full fixed top-[110px] left-0 justify-center ${modalVisible ? "flex " : "hidden"}`}>
               <div className=" flex flex-row bg-blue-300 items-center hover:bg-red-300 hover:cursor-pointer" onClick={() => toggleModalVisible(false)}>
                   <p className="p-1.5">
                       {`<`}
                   </p>
               </div>
-          <div className="w-full md:min-w-600 md:max-w-70  flex flex-col bg-white items-center justify-center " >
+          <div className="w-full md:min-w-600 md:max-w-70  flex flex-col bg-white items-center justify-center border-2 border-black " >
               {props.filteredData.slice(pagination[pagiIndex][0],pagination[pagiIndex][1]).map((items,i) => {
                   const {name, id, description, category, default_price} = items
                   return (
@@ -58,18 +56,13 @@ export default function SearchModal(props) {
                   )
               })}
             <div className="flex ">
-                {pagination.map((arr,i) => {
-                    return (
-                        <div key={i} className={`p-3 hover:bg-blue-300 hover:cursor-pointer ${pagiIndex === i ? "bg-blue-300" : ""} ${modalVisible ? "" : "hidden"}`} onClick={() => {handlePagination(i)}}>
-                                <h1>{i+1}</h1>
-                        </div>
-                    )
-                })}
+                {pagination.map((arr,i) => 
+                    <div key={i} className={`p-3 hover:bg-blue-300 hover:cursor-pointer ${pagiIndex === i ? "bg-blue-300" : ""} ${modalVisible ? "" : "hidden"}`} onClick={() => {handlePagination(i)}}>
+                        <h1>{i+1}</h1>
+                    </div>
+                )}
             </div>
           </div>
-
-
-
       </div>    
   )
 }

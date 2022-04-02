@@ -9,8 +9,6 @@ export default function ProductSelector(props) {
   const [quantity, setQuantity] = useState(null);
   const [order, setOrder] = useState({});
   const skus = product.style[styleIndex > product.style.length ? 0 : styleIndex].skus;
-
-  
   const dispatch = useDispatch();
 
   const resetInputs = () => {
@@ -53,6 +51,7 @@ export default function ProductSelector(props) {
     dispatch(addToCart(newOrder));
     props.handleToggleCart(true);
   };
+  
   useEffect(() => {
     resetInputs();
     setOrder({});

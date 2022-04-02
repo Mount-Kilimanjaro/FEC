@@ -13,6 +13,7 @@ export default function ShoppingCart(props) {
     const handleRemoveOrder = (order) => {
         dispatch(removeFromCart(order));
     };
+    
     const handleModifyOrder = (value, order) => {
         dispatch(modifyOrder({value, order}));
     };
@@ -27,7 +28,6 @@ export default function ShoppingCart(props) {
         <div className={`flex flex-row mt-8 p-2 ${cartVisibility ? "" : "hidden"}`}>
             <button className="border-2 p-3  border-black whitespace-pre grow bg-white hover:bg-blue-300" onClick={() =>{}} >CHECKOUT</button>
         </div>
-
     </div>
   )
 }

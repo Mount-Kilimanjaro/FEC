@@ -28,7 +28,7 @@ export default function Search(props) {
         if (filteredData.length > 0) {
             toggleModalVisible(true);
         }else {
-            return alert("Search result 0")
+            return alert("Search result 0");
         }
 
     };

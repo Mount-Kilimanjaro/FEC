@@ -63,8 +63,6 @@ export default function Overview(props) {
     setImagesUrl(currentItem.style[styleIndex >currentItem.style.length ? 0 : styleIndex].photos);
   }, [currentItem,styleIndex]);
 
-  
-
   return (
     <div id="container" className="container pt-4 h-full mt-10" >
         <div className="image&products flex md:flex-row flex-col items-center">
