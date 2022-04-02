@@ -21,7 +21,6 @@
     border-left: 1px solid black;
 }
 #imageWheel {
-    z-index: 1;
 }
 #scrollImg {
     width: 100px;

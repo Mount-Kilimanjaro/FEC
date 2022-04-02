@@ -30,6 +30,15 @@ module.exports = {
         'primary' : '#999fa5',
         'secondary' : '#bbbfc3'
       },
+      zIndex: {
+        '50': '50',
+      },
+      minWidth: {
+        '600': '600px',
+      },
+      maxWidth: {
+        '70': '900px',
+      }
     },
   },
   plugins: [],
