@@ -11,7 +11,6 @@ export default function Overview() {
   const [imageIndex, setImageIndex] = useState(0);
   const [imageUrl, setImageUrl] = useState("");
   const [imagesUrl, setImagesUrl] = useState([]);
-  const [sku, setSku] = useState("");
 
   const getImageIndex = (url) => {
     return imagesUrl.map((obj,i) => {
@@ -65,7 +64,7 @@ export default function Overview() {
   return (
     <div id="container" className="container pt-4 h-full" >
         <div className="image&products flex md:flex-row flex-col items-center">
-            <ProductImage img={{imageUrl, imagesUrl,imageIndex, changeImgUrl, carouselNextImage, setNextImage, setPreviousImage}}/>
+            <ProductImage img={{imageUrl, imagesUrl, changeImgUrl, carouselNextImage, setNextImage, setPreviousImage}}/>
             <ProductSelector product={currentItem} styleIndex={{styleIndex, handleSetStyleIndex}} imageUrl={imageUrl}/>
         </div>
         <div className="information ">

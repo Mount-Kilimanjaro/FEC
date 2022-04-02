@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from '../../store/reducer/shoppingCartReducer.js';
+import { useDispatch} from "react-redux";
+import { addToCart } from "../../store/reducer/shoppingCartReducer.js";
 
 
 export default function ProductSelector(props) {
@@ -13,7 +13,7 @@ export default function ProductSelector(props) {
   const dispatch = useDispatch();
 
   const handleSizeChange = (sku) => {
-    setQuantity(skus[sku].quantity)
+    setQuantity(skus[sku].quantity);
     const item = {...order};
     item.sku = sku;
     item.size = skus[sku].size;
@@ -25,10 +25,10 @@ export default function ProductSelector(props) {
     setOrder({});
     setQuantity(0);
     handleSetStyleIndex(index);
-    const targetSelectSize = document.querySelector('#overview_select_size');
-    const targetSelectQuantity = document.querySelector('#overview_select_quantity');
-    targetSelectSize.value = 'DEFAULT';
-    targetSelectQuantity.value = 'DEFAULT';
+    const targetSelectSize = document.querySelector("#overview_select_size");
+    const targetSelectQuantity = document.querySelector("#overview_select_quantity");
+    targetSelectSize.value = "DEFAULT";
+    targetSelectQuantity.value = "DEFAULT";
   };
 
   const handleAddQuantity = (quantity) => {
@@ -39,13 +39,12 @@ export default function ProductSelector(props) {
 
   const handleAddToCart = () => {
     if(!order.quantity || !order.sku || !order.size) {
-      return alert('Select item and size before adding to bag');
+      return alert("Select item and size before adding to bag");
     }
     const newOrder = {...order};
     newOrder.img = product.style[styleIndex].photos[0].url;
     newOrder.style_id = product.style[styleIndex].style_id;
     newOrder.maxQuantity = Number(quantity);
-    console.log(newOrder)
     dispatch(addToCart(newOrder));
   };
 
@@ -64,11 +63,11 @@ export default function ProductSelector(props) {
         <h1>{`$${product.default_price}`}</h1>
       </div>
       <div id="styleSelector" className="p-2 text-xl">
-        <h1><span className="font-bold">STYLE > </span>{product.style[styleIndex].name}</h1>
+        <h1><span className="font-bold">{`STYLE >`}  </span>{product.style[styleIndex].name}</h1>
         <div id="style" className="flex flex-row flex-wrap gap-5 p-4 justify-center">
           {product.style.map((style, i) => {
             return (
-              <img key={i} id="styleThumbNail" className={`rounded-full hover:cursor-pointer border-2 hover:border-black hover:drop-shadow-lg ${styleIndex === i ? 'border-blue-300 border-4' : ''}`} src={product.style[i].photos[0].url} alt="" onClick={() => handleSetStyle(i)}/>
+              <img key={i} id="styleThumbNail" className={`rounded-full hover:cursor-pointer border-2 hover:border-black hover:drop-shadow-lg ${styleIndex === i ? "border-blue-300 border-4" : ""}`} src={product.style[i].photos[0].url} alt="" onClick={() => handleSetStyle(i)}/>
             )})}
         </div>
       </div>
@@ -85,13 +84,13 @@ export default function ProductSelector(props) {
             </select>
           </div>
           <div id="quantity" className="">
-            <select id='overview_select_quantity' className="border-2 p-3 border-black" name="quantity" defaultValue={"DEFAULT"} onChange={(e) => handleAddQuantity(e.target.value)}>
+            <select id="overview_select_quantity" className="border-2 p-3 border-black" name="quantity" defaultValue={"DEFAULT"} onChange={(e) => handleAddQuantity(e.target.value)}>
               <option  value="DEFAULT" disabled>QUANTITY</option>
               {Array.from(Array(quantity), (num, i) => {
                 if(quantity) {
                   return <option key={i}>{i+1}</option>
                 } else {
-                  return ''
+                  return "";
                 }
               })}
             </select>

@@ -1,3 +1,6 @@
 #header_shopping_cart {
-    transition: 1s;
+    transition: width 300ms;
+}
+input[type=number]::-webkit-inner-spin-button {
+    opacity: 1
 }
