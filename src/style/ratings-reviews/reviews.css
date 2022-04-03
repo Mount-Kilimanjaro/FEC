@@ -15,7 +15,7 @@
 }
 
 .reviewTile-container {
-  box-sizing: content-box;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   height: fit-content;
@@ -53,3 +53,4 @@
   padding: 15px;
   margin: 10px;
 }
+
