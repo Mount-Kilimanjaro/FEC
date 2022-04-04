@@ -7,7 +7,8 @@ import axios from 'axios';
 
 
 function RelatedProductsWidget () {
-  const Myitem = useSelector(state => state.category.currentItem);
+  const myItem = useSelector(state => state.category.currentItem);
+  const myItemId = useSelector(state => state.category.currentItemId);
   const headers = {
     'Authorization': process.env.REACT_APP_API_TOKEN
   }
@@ -16,18 +17,22 @@ function RelatedProductsWidget () {
   // send api request for each realted item
   // GET /products/:product_id/styles
   // store it in []
-  let relatedCalls = [];
+  console.log('itemId', myItemId);
   useEffect(() => {
+    let relatedCalls = [];
     const getData = async () => {
       try{
-        Myitem.related.map(async (value) => {
-          const call = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/${value}/styles`, {headers});
-          relatedCalls.push(call.data.results[0])
+        const gg = await myItem.related.map(async (value) => {
+          const getReq = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/${value}/styles`, {headers});
+        const cpyrelated = [...relatedProductA]
+        cpyrelated.push(getReq.data.results[0])
+         setRPA(cpyrelated) 
+         console.log('relatedpa', relatedProductA)
         })
-          setRPA(relatedCalls);
 
 
-      } 
+
+      }
       catch(err) {
         console.log('error in RP API call', err);
 
@@ -35,17 +40,17 @@ function RelatedProductsWidget () {
 
     }
     getData();
+    setRPA(relatedCalls);
 
 
-
-  }, [Myitem])
+  }, [myItemId])
 
 
 
 
   return (
     <div id='relatedMain'>
-      < RelatedProducts array={relatedProductA}/>
+      < RelatedProducts arr={relatedProductA}/>
       < Outfit/>
     </div>
   )
