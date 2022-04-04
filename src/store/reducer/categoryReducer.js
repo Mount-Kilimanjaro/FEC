@@ -1,8 +1,8 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 export const categorySlice = createSlice(
   {
-    name: 'category',
+    name: "category",
     initialState: {
       category: [
         {
@@ -32,19 +32,19 @@ export const categorySlice = createSlice(
       ],
       currentItemId: null,
       currentItem: {
-        id: '',
-        campus: '',
-        name: '',
-        slogan: '',
-        description: '',
-        category: '',
-        default_price: '',
-        created_at: '',
-        updated_at: '',
+        id: "",
+        campus: "",
+        name: "",
+        slogan: "",
+        description: "",
+        category: "",
+        default_price: "",
+        created_at: "",
+        updated_at: "",
         features: [],
         style : [
           {
-            photos:[{url:'',thumbnail_url:''}],
+            photos:[{url:"",thumbnail_url:""}],
             skus:{}
           }
         ],
