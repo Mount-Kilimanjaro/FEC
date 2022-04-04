@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 // importing the function that modify redux state
 import { setCategory, setCurrentItem } from './store/reducer/categoryReducer';
+import qAndA from './components/qAndA/qAndA.jsx';
 import RelatedProducts from './components/relatedProductsWidgetMain/RelatedProductsWidget.jsx';
 import RatingsAndReviews from './components/RatingsAndReviews.jsx'
 
@@ -50,15 +51,14 @@ function App() {
       </div>
 
 
-      
+
         <RelatedProducts/>
 
 =======
 
 
       <div style={{ height: '35%', width: '100%', maxWidth: '1280px', backgroundColor: 'pink' }}>
-        q&a
-        {/* <QuestionAndAnswer/> */}
+        <qAndA />
       </div>
 
       <div style={{ height: '35%', width: '100%', maxWidth: '1280px', backgroundColor: 'purple' }}>
