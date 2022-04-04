@@ -1,9 +1,3 @@
-* {
-  Margin:0;
-  Padding:0;
-  Border:0;
-}
-
 #relatedMain h1 {
   font-size: 20px;
   font-weight: 300;
@@ -32,7 +26,7 @@
 }
 
 
-img {
+#relatedMain img {
   width: 225px;
   height: 220px;
 }

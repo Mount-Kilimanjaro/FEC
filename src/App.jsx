@@ -1,22 +1,32 @@
-import './App.css';
-import React, { useEffect } from 'react';
-import axios from 'axios';
-import { useDispatch, useSelector } from 'react-redux';
+import "./App.css";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
 // importing the function that modify redux state
-import { setCategory, setCurrentItem, setCurrentId } from './store/reducer/categoryReducer';
-import Overview from './components/overview/Overview.jsx';
-import Header from './components/overview/header/Header.jsx';
-import RelatedProducts from './components/relatedProductsWidgetMain/RelatedProductsWidget.jsx';
-import RatingsAndReviews from './components/reviews/RatingsAndReviews.jsx';
-import QuestionAndAnswer from './components/QuestionsAndAnswers.jsx';
+import { setCategory, setCurrentItem, setCurrentId } from "./store/reducer/categoryReducer";
+import Overview from "./components/overview/Overview.jsx";
+import Header from "./components/overview/header/Header.jsx";
+import RelatedProducts from "./components/relatedProductsWidgetMain/RelatedProductsWidget.jsx";
+import RatingsAndReviews from "./components/reviews/RatingsAndReviews.jsx";
+import QuestionAndAnswer from "./components/QuestionsAndAnswers.jsx";
 
 
 function App() {
   // add redux state to this component
   const currentItemId = useSelector(state => state.category.currentItemId);
+  const [blurBG ,toggleBlurBG] = useState(false)
+  const [cartVisibility, toggleCartVisibility] = useState(false);
+  const [disableToggle, setDisableToggle] = useState(false);
+
+  const handleToggleCart = (boolean) => {
+    setDisableToggle((boolean))
+    toggleCartVisibility(!cartVisibility);
+    toggleBlurBG(!blurBG);
+  };
+
   const dispatch = useDispatch();
   const headers = {
-    'Authorization': process.env.REACT_APP_API_TOKEN
+    "Authorization": process.env.REACT_APP_API_TOKEN
   }
 
 
@@ -26,7 +36,7 @@ function App() {
     const fetchData = async () => {
       try {
         //api call
-        const response = await axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/?count=max',{headers});
+        const response = await axios.get("https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/?count=max",{headers});
         //set data to redux state
         dispatch(setCategory(response.data));
         // set current item being view if no item is being viewed
@@ -35,13 +45,13 @@ function App() {
         }
       }
       catch (err) {
-        console.log(err)
+        console.log(err);
       }
     };
     //invoke fetchData
-    fetchData()
+    fetchData();
     //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, []);
 
   // runs every time redux state of currentItemId changes
   useEffect(() => {
@@ -64,19 +74,20 @@ function App() {
         }
       }
       catch(err) {
-        console.log(err)
+        console.log(err);
       }
     }
     //invoke fetchItem
 
 
-    fetchItem()
+    fetchItem();
     //eslint-disable-next-line react-hooks/exhaustive-deps
-  },[currentItemId])
+  },[currentItemId]);
   return (
-    <div className="App h-full w-screen flex flex-col items-center">
-        <Header/>
-        <Overview/>
+    <div className="App h-full w-full flex flex-col items-center relative">
+      <div className={`w-full h-full absolute inset-0 z-[70] bg-black/50 ${blurBG ? "block" : "hidden"}`} onMouseEnter={() => disableToggle ? "" :handleToggleCart() }></div>
+        <Header cart={{handleToggleCart, cartVisibility}}/>
+        <Overview handleToggleCart={handleToggleCart}/>
         <RelatedProducts/>
         <QuestionAndAnswer/>
         <RatingsAndReviews />
