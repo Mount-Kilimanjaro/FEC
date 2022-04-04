@@ -14,24 +14,24 @@ const RatingsAndReviews = (props) => {
 
 
   // API call to retrieve reviews on state change
-  useEffect(() => {
-    const retrieveData = async () => {
-      try {
-        const headers = {
-          'Authorization': process.env.REACT_APP_API_TOKEN
-        };
-        const response = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/?product_id=${id}`, { headers });
+  // useEffect(() => {
+  //   const retrieveData = async () => {
+  //     try {
+  //       const headers = {
+  //         'Authorization': process.env.REACT_APP_API_TOKEN
+  //       };
+  //       const response = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/?product_id=${id}`, { headers });
 
-        setData(response.data);
-        console.log(data);
+  //       setData(response.data);
+  //       console.log(data);
 
-      }
-      catch (err) {
-        console.error(err);
-      }
-    }
-    retrieveData();
-  }, [id]);
+  //     }
+  //     catch (err) {
+  //       console.error(err);
+  //     }
+  //   }
+  //   retrieveData();
+  // }, [id]);
 
   // const [displayList, addToDisplay] = useState(props.reviews.slice(0, 2));
 

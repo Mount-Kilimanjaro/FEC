@@ -1,18 +1,18 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
 import Card from './RelatedProductCard.jsx';
 
-function RelatedProducts () {
-
+function RelatedProducts (props) {
 
   return (
     <div>
       <h1>Related Products</h1>
       <div className='relatedProducts'>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
+        {console.log('from inside RP', props.array)}
+ 
+        {props.array.map((value, index) => {
+          return (<Card prop1={value} key={index}/>)
+        })
+        }
       </div>
     </div>
     )
