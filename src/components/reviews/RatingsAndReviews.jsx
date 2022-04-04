@@ -9,7 +9,7 @@ const RatingsAndReviews = (props) => {
 
 
   const id = useSelector((state) => state.category.currentItem.id);
-  const [reviewList, setList] = useState({product: null, page: null, count: null, results: []});
+  const [reviewList, setList] = useState({product: null, results: []});
   const [reviewsMeta, setMeta] = useState({product_id: id, ratings: {}, recommended: {}, characteristics: {}});
 
   // API call to retrieve reviews on state change
@@ -35,7 +35,7 @@ const RatingsAndReviews = (props) => {
 
   return (
     <>
-      <div id="reviews-container" style={{ display: 'flex', padding: '5px', width: '80%' }}>
+      <div id="reviews-container">
 
         <RatingBreakdown metadata={reviewsMeta} />
         <ReviewsList reviews={reviewList.results} />

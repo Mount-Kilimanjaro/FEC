@@ -5,7 +5,7 @@ const PercentageBar = (props) => {
 
   return (
     <>
-      <ProgressBar variant="success" now={props.value} max={props.total} style={{ width: '253px', height: '10px' }}/>
+      <ProgressBar variant="success" now={props.value} max={props.total}/>
     </>
   )
 }
