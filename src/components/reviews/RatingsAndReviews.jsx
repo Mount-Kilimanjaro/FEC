@@ -9,7 +9,8 @@ const RatingsAndReviews = (props) => {
 
 
   const id = useSelector((state) => state.category.currentItem.id);
-  const [data, setData] = useState({results: [{id: 38321}]});
+  const [reviewList, setList] = useState({product: null, page: null, count: null, results: []});
+  const [reviewsMeta, setMeta] = useState({product_id: id, ratings: {}, recommended: {}, characteristics: {}});
 
   // API call to retrieve reviews on state change
   useEffect(() => {
@@ -18,9 +19,11 @@ const RatingsAndReviews = (props) => {
         const headers = {
           'Authorization': process.env.REACT_APP_API_TOKEN
         };
-        const response = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/?product_id=${id}&count=1000`, { headers });
+        const reviewList = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/?product_id=${id}&count=1000`, { headers });
+        const metadata = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/meta/?product_id=${id}`, { headers });
 
-        setData(response.data);
+        setMeta(metadata.data);
+        setList(reviewList.data);
 
       }
       catch (err) {
@@ -34,8 +37,8 @@ const RatingsAndReviews = (props) => {
     <>
       <div id="reviews-container" style={{ display: 'flex', padding: '5px', width: '80%' }}>
 
-        <RatingBreakdown />
-        <ReviewsList reviews={data.results} />
+        <RatingBreakdown metadata={reviewsMeta} />
+        <ReviewsList reviews={reviewList.results} />
 
       </div>
 

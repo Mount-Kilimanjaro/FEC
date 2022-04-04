@@ -10,7 +10,6 @@ const StarRating = (props) => {
     switch (index) {
       case 0:
         target.innerHTML = 'Poor';
-        console.log(target.innerHTML);
         break;
       case 1:
         target.innerHTML = 'Fair';
