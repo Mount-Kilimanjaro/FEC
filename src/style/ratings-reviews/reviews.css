@@ -73,3 +73,23 @@
 .requiredInput {
   color: red;
 }
+
+.percentageBar {
+  padding-left: 10px;
+  height: 10px;
+}
+
+.star-rating {
+  display: inline-block;
+  margin: 10px;
+}
+
+div#star-breakdown > div {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+div#characteristics-breakdown > div {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

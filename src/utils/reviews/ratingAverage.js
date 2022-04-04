@@ -3,10 +3,15 @@ const calculateRatingAverage = (ratingObj) => {
   var score = vals.reduce((total, count, index) => {
     return total += (Number(count) * (index + 1));
   }, 0);
-  var responses = vals.reduce((total, count) => {
+  var responses = calculateTotalRatings(ratingObj);
+  return (score / responses).toFixed(1);
+}
+
+const calculateTotalRatings = (ratingObj) => {
+  var vals = Object.values(ratingObj);
+  return vals.reduce((total, count) => {
     return total += (Number(count));
   }, 0);
-  return (score / responses).toFixed(1);
 }
 
 const calculatePercentRecommend = (recObj) => {
@@ -16,6 +21,6 @@ const calculatePercentRecommend = (recObj) => {
 
 module.exports = {
   calculateRatingAverage: calculateRatingAverage,
-  calculatePercentRecommend: calculatePercentRecommend
+  calculatePercentRecommend: calculatePercentRecommend,
+  calculateTotalRatings: calculateTotalRatings
 }
-
