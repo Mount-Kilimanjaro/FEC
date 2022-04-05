@@ -36,7 +36,7 @@ export default function Search(props) {
             onChange={(e) => setSearch(e.target.value)} 
             onClick={() => toggleModalVisible(false)}             
             onKeyPress={(e) => {
-                if (e.key === 'Enter') {
+                if (e.key === "Enter") {
                  return handleSearch();
                  }
              }}/>

@@ -74,10 +74,9 @@ export default function Overview(props) {
             <ProductImage img={{imageUrl, imagesUrl, changeImgUrl, carouselNextImage, setNextImage, setPreviousImage}}/>
             <ProductSelector product={currentItem} styleIndex={{styleIndex, handleSetStyleIndex}} imageUrl={imageUrl} handleToggleCart={props.handleToggleCart} cart={cart} />
         </div>
-        <div className="information ">
+        <div className="information">
             <ProductInfo product={currentItem}/>
-        </div>
-                
+        </div>   
     </div>
   )
 }

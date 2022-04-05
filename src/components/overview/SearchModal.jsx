@@ -13,7 +13,6 @@ export default function SearchModal(props) {
     const handleSetItemId = (id) => {
         toggleModalVisible(false);
         dispatch(setCurrentId(id));
-        
     };
 
     useEffect(() => {
@@ -59,7 +58,6 @@ export default function SearchModal(props) {
                 :
                 <div>NO RESULTS FOUND</div>   
               }
-             
             <div className="flex ">
                 {pagination.length > 1 ?
                     pagination.map((arr,i) => 
