@@ -14,36 +14,24 @@ function RelatedProductsWidget () {
   }
   const [relatedProductA, setRPA] = useState([]);
 
-  // send api request for each realted item
-  // GET /products/:product_id/styles
-  // store it in []
+
   console.log('itemId', myItemId);
-  useEffect(() => {
-    let relatedCalls = [];
+  useEffect( () => {
+    if(myItem.id) {
     const getData = async () => {
       try{
-        const gg = await myItem.related.map(async (value) => {
-          const getReq = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/${value}/styles`, {headers});
-        const cpyrelated = [...relatedProductA]
-        cpyrelated.push(getReq.data.results[0])
-         setRPA(cpyrelated) 
-         console.log('relatedpa', relatedProductA)
-        })
-
-
-
-      }
+          const response = await axios.all(myItem.related.map((endpoint) => axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/${endpoint}/styles`,{headers}))).then(
+          (data) => data)
+          setRPA(response);
+        }
       catch(err) {
         console.log('error in RP API call', err);
-
       }
-
     }
     getData();
-    setRPA(relatedCalls);
-
-
-  }, [myItemId])
+    }
+  //eslint-disable-next-line react-hooks/exhaustive-deps
+}, [myItem])
 
 
 
@@ -54,6 +42,7 @@ function RelatedProductsWidget () {
       < Outfit/>
     </div>
   )
+
 }
 
 export default RelatedProductsWidget;

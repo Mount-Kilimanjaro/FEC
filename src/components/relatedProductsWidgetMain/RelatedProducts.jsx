@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Card from './RelatedProductCard.jsx';
 
 function RelatedProducts (props) {
@@ -9,9 +9,10 @@ function RelatedProducts (props) {
       <div className='relatedProducts'>
 
 
-        {props.arr.map((value, index) => {
-          // return (<Card prop1={value} key={index}/>)
-        })
+        {props.arr.map((value, index) =>
+          console.log('value', value)
+          // <Card prop1={value} key={index}/>
+        )
         }
       </div>
     </div>
@@ -19,6 +20,11 @@ function RelatedProducts (props) {
 }
 
 export default RelatedProducts;
+
+
+
+
+
 
 
 
