@@ -8,7 +8,7 @@ import Overview from "./components/overview/Overview.jsx";
 import Header from "./components/overview/header/Header.jsx";
 import RelatedProducts from "./components/relatedProductsWidgetMain/RelatedProductsWidget.jsx";
 import RatingsAndReviews from "./components/reviews/RatingsAndReviews.jsx";
-import QuestionAndAnswer from "./components/QuestionsAndAnswers.jsx";
+import QAndA from "./components/qAndA/qAndA.jsx";
 
 
 function App() {
@@ -79,7 +79,6 @@ function App() {
     }
     //invoke fetchItem
 
-
     fetchItem();
     //eslint-disable-next-line react-hooks/exhaustive-deps
   },[currentItemId]);
@@ -88,9 +87,9 @@ function App() {
       <div className={`w-full h-full absolute inset-0 z-[70] bg-black/50 ${blurBG ? "block" : "hidden"}`} onMouseEnter={() => disableToggle ? "" :handleToggleCart() }></div>
         <Header cart={{handleToggleCart, cartVisibility}}/>
         <Overview handleToggleCart={handleToggleCart}/>
-        <RelatedProducts/>
-        <QuestionAndAnswer/>
-        <RatingsAndReviews />
+        {/* <RelatedProducts/>
+        <QAndA/>
+        <RatingsAndReviews /> */}
     </div>
   )
 }

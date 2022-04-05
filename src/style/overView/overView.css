@@ -11,16 +11,12 @@
 }
 #overview_main_img {
     max-height: 650px;
-    /* min-height: 590px; */
 }
-
 #productSelector {
     min-height: 650px;
 }
-#feature {
-    border-left: 1px solid black;
-}
-#imageWheel {
+#overview_decription {
+    border-right: 2px solid black;
 }
 #scrollImg {
     width: 100px;
@@ -35,12 +31,11 @@
     width: 100px;
 }
 #overview_selector select {
-    width: 200px;
+    width: 195px;
 
 }
 .overview_image_arrows {
     height: 50px;
-
 }
 
 #overview_arrow {
