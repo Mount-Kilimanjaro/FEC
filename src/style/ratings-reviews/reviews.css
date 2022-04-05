@@ -73,6 +73,11 @@
   margin: 10px;
 }
 
+.reviewButtons-container {
+  display: flex;
+  justify-content: center;
+}
+
 #rating-summary {
   display: flex;
   align-items: flex-start;
@@ -100,8 +105,10 @@
 }
 
 div#star-breakdown > div {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: fit-content;
+  padding: 2px;
 }
 
 div#characteristics-breakdown > div {
@@ -131,4 +138,9 @@ div#reviewCount > select {
   margin-left: 5px;
   margin-top: 1px;
   font-size: 0.9em;
+}
+
+#star-breakdown div:hover {
+  background-color: #bbbfc3;
+  border-radius: 3px;
 }

@@ -14,6 +14,7 @@ const RatingsAndReviews = (props) => {
 
   // API call to retrieve reviews on state change
   useEffect(() => {
+
     const retrieveData = async () => {
       try {
         const headers = {
@@ -30,16 +31,16 @@ const RatingsAndReviews = (props) => {
         console.error(err);
       }
     }
-    retrieveData();
+    if (id) {
+      retrieveData();
+    }
   }, [id]);
 
   return (
     <>
       <div id="reviews-container">
-
         <RatingBreakdown metadata={reviewsMeta} />
         <ReviewsList reviews={reviewList.results} />
-
       </div>
 
     </>
