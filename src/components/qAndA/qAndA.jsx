@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
-import '../../style/qAndA/qAndA.css';
+import '../../style/qAndA/QAndA.css';
 
 const QAndA = (props) => {
   const currentItemId = useSelector(state => state.category.currentItemId);
