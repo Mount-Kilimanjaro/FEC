@@ -1,5 +1,5 @@
 import React from 'react';
-import formatDate from '../../utils/reviewsUtils.js'
+import formatDate from '../../utils/reviews/reviewsUtils.js'
 const ReviewTile = (props) => {
 
   return (
