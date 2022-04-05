@@ -19,13 +19,6 @@ const RatingBreakdown = (props) => {
     )
   }
 
-  const onHover = (e) => {
-
-  }
-
-  const onHoverEnd = (e) => {
-    console.log(e.target, 'leave');
-  }
   return (
 
     <div id="ratingBreakdown-container">
@@ -40,7 +33,7 @@ const RatingBreakdown = (props) => {
 
       <div id="star-breakdown">
         {[5, 4, 3, 2, 1].map((rating) => (
-          <div key={JSON.stringify(rating)} className="percentageBar-container" onMouseEnter={(e) => onHover(e)} onMouseLeave={(e) => onHoverEnd(e)}>
+          <div key={JSON.stringify(rating)} className="percentageBar-container">
             <span style={{ display: 'inline-flex' }}><u>{rating} stars</u></span>
             <PercentageBar
               style={{ display: 'inline-flex'}}

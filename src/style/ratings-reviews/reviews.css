@@ -97,11 +97,30 @@
   padding-top: 15px;
 }
 
-.labels-container {
+.starsRating-label {
+  align-self: center;
+}
+
+/* .labels-container {
   display: flex;
   justify-content: space-between;
   font-size: 0.7em;
   width: 240px;
+} */
+
+.labels-container {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75em;
+  width: 200px;
+  margin-left: 25px;
+}
+
+.labels-modalChars {
+  margin-left: 38px;
+  display: flex;
+  width: 200px;
+  padding-bottom: 5px;
 }
 
 div#star-breakdown > div {
@@ -143,4 +162,22 @@ div#reviewCount > select {
 #star-breakdown div:hover {
   background-color: #bbbfc3;
   border-radius: 3px;
+}
+
+.form-label {
+  min-width: 65px;
+  width: fit-content;
+  margin-left: 3px;
+  margin-right: 20px;
+}
+
+.mainForm-header {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin: 15px 0px 15px 0px;
+  padding-bottom: 7px;
+}
+
+.factorLabels {
+  text-decoration: underline;
 }
