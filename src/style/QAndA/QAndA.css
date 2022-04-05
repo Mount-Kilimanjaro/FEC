@@ -1,9 +1,9 @@
-#qInputForm {
+#q-input-form {
   border-style: solid;
   border-width: 2px;
   padding: 2px 5px;
 }
 
-#qInputLabel {
+#q-input-label {
   font-style: bold;
 }
