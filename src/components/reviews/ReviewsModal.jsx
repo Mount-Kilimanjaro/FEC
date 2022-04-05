@@ -3,14 +3,20 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import StarRating from './StarRating.jsx';
 
+
 const ReviewsModal = (props) => {
   // commented out due to bug
   // const product = document.getElementById('productName').innerText;
   // const style = document.getElementById('styleSelector').innerText.slice(7);
   const [charCount, setRemaining] = useState(50);
+  const [rating, setRating] = useState(0);
 
   const onBodyChange = (e) => {
     setRemaining(50 - e.target.value.length);
+  };
+
+  const onRatingChange = (rating) => {
+    setRating(rating);
   };
 
   return (
@@ -34,7 +40,7 @@ const ReviewsModal = (props) => {
             <Form.Group>
               <Form.Label>Overall Rating<span className="requiredInput">*</span></Form.Label>
               <div className="box flex">
-                <StarRating />
+                <StarRating clickable={true}/>
               </div>
             </Form.Group>
 

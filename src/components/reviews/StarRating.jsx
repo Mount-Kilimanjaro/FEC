@@ -1,51 +1,29 @@
 import React, { useState } from 'react';
+import { RatingStar } from 'rating-star';
 
 const StarRating = (props) => {
 
-  const [rating, setRating] = useState(0);
+  const labels = ['Poor', 'Fair', 'Average', 'Good', 'Great']
+  const [rating, setRating] = useState(props.rating);
 
-  const handleClick = (index) => {
-    setRating(index);
-    var target = document.getElementById('rating-description');
-    switch (index) {
-      case 0:
-        target.innerHTML = 'Poor';
-        break;
-      case 1:
-        target.innerHTML = 'Fair';
-        break;
-      case 2:
-        target.innerHTML = 'Average';
-        break;
-      case 3:
-        target.innerHTML = 'Good';
-        break;
-      case 4:
-        target.innerHTML = 'Great';
-        break;
-      default:
-        target.innerHTML = '';
-    }
+  const onRatingChange = (rating) => {
+    setRating(rating);
   }
 
   return (
-    <div className="star-rating">
-      {[1, 2, 3, 4, 5].map((star, index) => {
-        return (
-          <button
-            id="stars"
-            type="button"
-            key={index}
-            className={index <= rating ? 'on' : 'off'}
-            onClick={() => handleClick(index)}>
-            <span className="star"> &#9733; </span>
-
-          </button>
-        )
-      })}
-      <span id="rating-description"></span>
-    </div>
+    <>
+      <div className="star-rating">
+        <RatingStar
+          clickable={props.clickable}
+          size={20}
+          maxScore={5}
+          rating={props.rating}
+          onRatingChange={onRatingChange}
+          colors={{ rear: 'transparent', stroke: 'black', mask: 'black' }}
+        />
+        <span className="starsRating-label">{labels[Math.round(rating)]}</span>
+      </div>
+    </>
   )
 }
-
 export default StarRating;

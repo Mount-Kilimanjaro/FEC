@@ -26,9 +26,10 @@ const RatingBreakdown = (props) => {
 
       <div id="rating-summary">
         <span style={{ fontSize: '4em' }}><b>{calculateRatingAverage(props.metadata.ratings)}</b></span>
-        <StarRating ratingValue={Number(calculateRatingAverage(props.metadata.ratings))} allowHalfIcon={true} disabled={true}/><br/>
-        <span>{`${calculatePercentRecommend(props.metadata.recommended)}%`} of reviews recommend this product</span>
+        <StarRating rating={Number(calculateRatingAverage(props.metadata.ratings))} /><br/>
       </div>
+        <div>{`${calculatePercentRecommend(props.metadata.recommended)}%`} of reviews recommend this product</div>
+
 
       <div id="star-breakdown">
         {[5, 4, 3, 2, 1].map((rating) => (

@@ -73,19 +73,9 @@
   margin: 10px;
 }
 
-#stars {
-  background-color: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
-}
-
-.on {
-  color: #000;
-}
-
-.off {
-  color: #eee;
+#rating-summary {
+  display: flex;
+  align-items: flex-start;
 }
 
 .requiredInput {
@@ -98,8 +88,8 @@
 }
 
 .star-rating {
-  display: inline-block;
   margin: 10px;
+  padding-top: 15px;
 }
 
 .labels-container {
