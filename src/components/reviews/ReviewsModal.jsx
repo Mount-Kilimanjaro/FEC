@@ -15,10 +15,6 @@ const ReviewsModal = (props) => {
     setRemaining(50 - e.target.value.length);
   };
 
-  const onRatingChange = (rating) => {
-    setRating(rating);
-  };
-
   return (
     <>
       <Modal
