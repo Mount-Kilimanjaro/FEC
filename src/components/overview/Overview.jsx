@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 
 export default function Overview(props) {
   const currentItem = useSelector(state => state.category.currentItem);
+  const cart = useSelector(state => state.shoppingCart.cart);
   const [styleIndex, setStyleIndex] = useState(0);
   const [imageIndex, setImageIndex] = useState(0);
   const [imageUrl, setImageUrl] = useState("");
@@ -54,20 +55,24 @@ export default function Overview(props) {
       setImageIndex(0);
     }
   };
+
   useEffect(() => {
-    setStyleIndex(0)
+    setImageUrl(currentItem.style[0].photos[0].url);
+    setImagesUrl(currentItem.style[0].photos);
+    setStyleIndex(0);
   }, [currentItem]);
 
   useEffect(() => {
-    setImageUrl(currentItem.style[styleIndex >currentItem.style.length ? 0 : styleIndex].photos[0].url);
-    setImagesUrl(currentItem.style[styleIndex >currentItem.style.length ? 0 : styleIndex].photos);
-  }, [currentItem,styleIndex]);
+    setImageUrl(currentItem.style[styleIndex].photos[0].url);
+    setImagesUrl(currentItem.style[styleIndex].photos);
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [styleIndex]);
 
   return (
     <div id="container" className="container pt-4 h-full mt-10" >
         <div className="image&products flex md:flex-row flex-col items-center">
             <ProductImage img={{imageUrl, imagesUrl, changeImgUrl, carouselNextImage, setNextImage, setPreviousImage}}/>
-            <ProductSelector product={currentItem} styleIndex={{styleIndex, handleSetStyleIndex}} imageUrl={imageUrl} handleToggleCart={props.handleToggleCart} />
+            <ProductSelector product={currentItem} styleIndex={{styleIndex, handleSetStyleIndex}} imageUrl={imageUrl} handleToggleCart={props.handleToggleCart} cart={cart} />
         </div>
         <div className="information ">
             <ProductInfo product={currentItem}/>
