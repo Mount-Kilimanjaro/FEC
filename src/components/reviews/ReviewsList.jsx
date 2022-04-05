@@ -3,8 +3,10 @@ import ReviewTile from './ReviewTile.jsx';
 import ReviewsModal from './ReviewsModal.jsx';
 import Button from './Button.jsx'
 import '../../style/ratings-reviews/reviews.css';
+
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import { sortByDate, sortByRelevance, sortByHelpfulness, sortByStarRating } from '../../utils/reviews/sortingUtils.js';
+
 
 const ReviewsList = (props) => {
 
