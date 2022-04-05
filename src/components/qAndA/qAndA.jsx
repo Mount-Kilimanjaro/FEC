@@ -11,7 +11,7 @@ const QAndA = (props) => {
     "Authorization": process.env.REACT_APP_API_TOKEN
   }
 
-  const QListData = [];
+  let qListFirstQ = null;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,7 +23,9 @@ const QAndA = (props) => {
           console.log('No questions for this product_id.');
         } else {
           const qList = response.data.results;
-          const QListData = `Q: ${qList[0].question_body}`;
+          console.log('QAndA.jsx | Line 26 | qList = ', qList);
+          qListFirstQ = `Q: ${qList[0].question_body}`;
+          console.log('QAndA.jsx | Line 28 | qListFirstQ = ', qListFirstQ);
           // const QListData = qList.map(q =>
           //   <li>
           //     {/* Q: {q.props.children.question_body}               Helpful? Yes({q.props.children.question_helpfulness}) | Add Answer */}
@@ -38,7 +40,7 @@ const QAndA = (props) => {
           //     helpfulness: q.question_helpfulness
           //   });
           // });
-          // console.log('QandA.jsx | Line 38 | QListData = ', QListData);
+          // console.log('QandA.jsx | Line 41 | QListData = ', QListData);
         }
       }
       catch (err) {
@@ -58,7 +60,11 @@ const QAndA = (props) => {
         </form>
         <ul id='q-ul'>
           <li>
-            Q:
+            {() => {
+              if(qListFirstQ) {
+                return qListFirstQ;
+              }
+            }}
           </li>
           <li>
             A:
