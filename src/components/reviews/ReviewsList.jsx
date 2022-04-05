@@ -6,6 +6,7 @@ import { sortByDate } from '../../utils/reviews/sortingUtils.js';
 import '../../style/ratings-reviews/reviews.css';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 const ReviewsList = (props) => {
 
   const [displayList, setDisplay] = useState(props.reviews.slice(0, 2));
