@@ -1,20 +1,16 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import ReviewTile from './ReviewTile.jsx';
 import ReviewsModal from './ReviewsModal.jsx';
 import Button from './Button.jsx'
 import '../../style/ratings-reviews/reviews.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-// import { sortByDate, sortByRelevance } from '../../utils/reviews/sortingUtils.js';
-
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import { sortByDate, sortByRelevance, sortByHelpfulness, sortByStarRating } from '../../utils/reviews/sortingUtils.js';
 
 const ReviewsList = (props) => {
 
   const [displayListLength, setDisplayLength] = useState(2);
   const [displayButton, toggleButton] = useState('inline');
   const [displayModal, toggleModal] = useState(false);
-  const [sortType, setSortDisplay] = useState('relevance');
-  
 
   const addReviews = (e) => {
     if (props.reviews[displayListLength + 2] !== undefined) {
@@ -28,14 +24,15 @@ const ReviewsList = (props) => {
   const sort = (e) => {
     switch (e.target.value) {
       case 'relevance':
-        // sortByRelevance();
+        sortByRelevance();
         break;
       case 'newest':
-        // sortByDate(props.reviews);
-        // setDisplayLength(2);
+        sortByDate(props.reviews);
+        setDisplayLength(2);
         break;
       case 'helpfulness':
-        // function to sort by helpfulness
+        sortByHelpfulness();
+        setDisplayLength(2);
         break;
       default:
         break;
@@ -44,7 +41,6 @@ const ReviewsList = (props) => {
 
   return (
     <div className="container">
-
       <div id="reviewCount"><b>{props.reviews.length} reviews, sorted by</b>
         <select onChange={(e) => sort(e)}>
           <option>relevance</option>

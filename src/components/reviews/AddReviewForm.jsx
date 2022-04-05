@@ -6,7 +6,6 @@ import BreakdownBarLabels from './BreakdownBarLabels.jsx';
 
 const AddReviewForm = (props) => {
 
-
   const labels = ['Poor', 'Fair', 'Average', 'Good', 'Great'];
   const [charCount, setRemaining] = useState(50);
   const [rating, setRating] = useState(0);
@@ -40,7 +39,7 @@ const AddReviewForm = (props) => {
 
         <Form.Group>
           <Form.Label className="mainForm-header">Do you recommend this product?<span className="requiredInput">*</span></Form.Label><br />
-          <Form.Check type="radio" label="Yes" inline />
+          <Form.Check type="radio" label="Yes" inline/>
           <Form.Check type="radio" label="No" inline />
         </Form.Group>
 
