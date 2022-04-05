@@ -17,6 +17,7 @@
 
 #reviewsList-container {
   width: 100%;
+  max-height: 550px;
 }
 
 #ratingBreakdown-container {
@@ -28,16 +29,17 @@
 
 #reviewCount {
   text-align: center;
+  padding-bottom: 10px;
 }
 
 .reviewTile-container {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  height: fit-content;
+  height: 240px;
   width: 100%;
-  padding-top: 35px;
-  padding-bottom: 35px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   border-bottom: solid;
   border-left: white;
   border-right: white;
@@ -63,7 +65,7 @@
 }
 
 .reviewBody, .reviewHelpful, .reviewHeader {
-  font-size: 0.8em;
+  font-size: 1em;
 }
 
 .reviewButtons {
@@ -71,6 +73,11 @@
   border-width: 1px;
   padding: 15px;
   margin: 10px;
+}
+
+.reviewButtons-container {
+  display: flex;
+  justify-content: center;
 }
 
 #rating-summary {
@@ -92,16 +99,31 @@
   padding-top: 15px;
 }
 
+.starsRating-label {
+  align-self: center;
+  padding-left: 3px;
+}
+
 .labels-container {
   display: flex;
   justify-content: space-between;
-  font-size: 0.7em;
-  width: 240px;
+  font-size: 0.8em;
+  width: 200px;
+  margin-left: 25px;
+}
+
+.labels-modalChars {
+  margin-left: 38px;
+  display: flex;
+  width: 200px;
+  padding-bottom: 5px;
 }
 
 div#star-breakdown > div {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: fit-content;
+  padding: 2px;
 }
 
 div#characteristics-breakdown > div {
@@ -111,6 +133,7 @@ div#characteristics-breakdown > div {
 
 .percentageBar-container {
   display: flex;
+  padding: 3px;
 }
 
 .progress {
@@ -131,4 +154,32 @@ div#reviewCount > select {
   margin-left: 5px;
   margin-top: 1px;
   font-size: 0.9em;
+}
+
+#star-breakdown div:hover {
+  background-color: #dee0e2;
+  border-radius: 3px;
+  box-shadow: rgba(147, 145, 145, 0.16) 0px 3px 6px, rgba(102, 100, 100, 0.23) 0px 3px 6px;
+}
+
+.form-label {
+  min-width: 65px;
+  width: fit-content;
+  margin-left: 3px;
+  margin-right: 20px;
+}
+
+.mainForm-header {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin: 15px 0px 15px 0px;
+  padding-bottom: 7px;
+}
+
+.factorLabels {
+  text-decoration: underline;
+}
+
+#rating-star {
+  padding: 0px;
 }
