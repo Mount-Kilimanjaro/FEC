@@ -4,7 +4,7 @@ import ReviewsModal from './ReviewsModal.jsx';
 import Button from './Button.jsx'
 import { sortByDate } from '../../utils/reviews/sortingUtils.js';
 import '../../style/ratings-reviews/reviews.css';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const ReviewsList = (props) => {
 
