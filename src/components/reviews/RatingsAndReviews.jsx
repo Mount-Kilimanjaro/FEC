@@ -20,7 +20,7 @@ const RatingsAndReviews = (props) => {
         const headers = {
           'Authorization': process.env.REACT_APP_API_TOKEN
         };
-        const reviewList = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/?product_id=${id}&count=1000`, { headers });
+        const reviewList = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/?product_id=${id}&sort="relevant"&count=1000`, { headers });
         const metadata = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/meta/?product_id=${id}`, { headers });
 
         setMeta(metadata.data);

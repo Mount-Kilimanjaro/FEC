@@ -10,16 +10,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const ReviewsList = (props) => {
 
-  const [displayList, setDisplay] = useState(2);
+  const [displayListLength, setDisplayLength] = useState(2);
   const [displayButton, toggleButton] = useState('inline');
   const [displayModal, toggleModal] = useState(false);
-
+  const [sortType, setSortDisplay] = useState('relevance');
+  
 
   const addReviews = (e) => {
-    if (props.reviews[displayList + 2] !== undefined) {
-      setDisplay(displayList + 2);
+    if (props.reviews[displayListLength + 2] !== undefined) {
+      setDisplayLength(displayListLength + 2);
     } else {
-      setDisplay(props.reviews.length);
+      setDisplayLength(props.reviews.length);
       toggleButton('none');
     }
   }
@@ -31,7 +32,7 @@ const ReviewsList = (props) => {
         break;
       case 'newest':
         // sortByDate(props.reviews);
-        // setDisplay(2);
+        // setDisplayLength(2);
         break;
       case 'helpfulness':
         // function to sort by helpfulness
@@ -53,12 +54,12 @@ const ReviewsList = (props) => {
       </div>
 
       <div id="reviewsList-container" className="scroller">
-        {props.reviews.slice(0, displayList).map((review) => (
+        {props.reviews.slice(0, displayListLength).map((review) => (
           <div key={JSON.stringify(review)}>
             <ReviewTile review={review} />
           </div>
         ))}
-        {displayList < 1 ? <Button className="reviewButtons" onClick={() => toggleModal(true)} label={"ADD A REVIEW"} /> : <></>}
+        {displayListLength < 1 ? <Button className="reviewButtons" onClick={() => toggleModal(true)} label={"ADD A REVIEW"} /> : <></>}
       </div>
 
       <div className="reviewButtons-container">

@@ -7,9 +7,9 @@ const BreakdownBarLabels = (props) => {
       case 'Size':
         return (
           <div className="labels-container">
-          <div>Too small</div>
-          <div>Too big</div>
-        </div>
+            <div>Too small</div>
+            <div>Too big</div>
+          </div>
         )
       case 'Fit':
         return (
@@ -21,9 +21,9 @@ const BreakdownBarLabels = (props) => {
       case 'Quality':
         return (
           <div className="labels-container">
-          <div>Poor</div>
-          <div>Great</div>
-        </div>
+            <div>Poor</div>
+            <div>Great</div>
+          </div>
         )
       case 'Comfort':
         return (
@@ -35,16 +35,16 @@ const BreakdownBarLabels = (props) => {
       case 'Width':
         return (
           <div className="labels-container">
-          <div>Too narrow</div>
-          <div>Too wide</div>
-        </div>
+            <div>Too narrow</div>
+            <div>Too wide</div>
+          </div>
         )
       case 'Length':
         return (
           <div className="labels-container">
-          <div>Too short</div>
-          <div>Too long</div>
-        </div>
+            <div>Too short</div>
+            <div>Too long</div>
+          </div>
         )
       default:
         break;

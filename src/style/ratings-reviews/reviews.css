@@ -17,6 +17,7 @@
 
 #reviewsList-container {
   width: 100%;
+  min-height: 560px;
 }
 
 #ratingBreakdown-container {
@@ -34,10 +35,10 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  height: fit-content;
+  height: 240px;
   width: 100%;
-  padding-top: 35px;
-  padding-bottom: 35px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   border-bottom: solid;
   border-left: white;
   border-right: white;
@@ -63,7 +64,7 @@
 }
 
 .reviewBody, .reviewHelpful, .reviewHeader {
-  font-size: 0.8em;
+  font-size: 1em;
 }
 
 .reviewButtons {
@@ -99,19 +100,13 @@
 
 .starsRating-label {
   align-self: center;
+  padding-left: 3px;
 }
-
-/* .labels-container {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.7em;
-  width: 240px;
-} */
 
 .labels-container {
   display: flex;
   justify-content: space-between;
-  font-size: 0.75em;
+  font-size: 0.8em;
   width: 200px;
   margin-left: 25px;
 }
@@ -137,6 +132,7 @@ div#characteristics-breakdown > div {
 
 .percentageBar-container {
   display: flex;
+  padding: 3px;
 }
 
 .progress {
@@ -160,8 +156,9 @@ div#reviewCount > select {
 }
 
 #star-breakdown div:hover {
-  background-color: #bbbfc3;
+  background-color: #dee0e2;
   border-radius: 3px;
+  box-shadow: rgba(147, 145, 145, 0.16) 0px 3px 6px, rgba(102, 100, 100, 0.23) 0px 3px 6px;
 }
 
 .form-label {
@@ -180,4 +177,8 @@ div#reviewCount > select {
 
 .factorLabels {
   text-decoration: underline;
+}
+
+#rating-star {
+  padding: 0px;
 }
