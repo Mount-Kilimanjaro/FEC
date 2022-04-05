@@ -8,7 +8,7 @@ import Overview from "./components/overview/Overview.jsx";
 import Header from "./components/overview/header/Header.jsx";
 import RelatedProducts from "./components/relatedProductsWidgetMain/RelatedProductsWidget.jsx";
 import RatingsAndReviews from "./components/reviews/RatingsAndReviews.jsx";
-import QAndA from "./components/QAndA/QAndA.jsx";
+import QAndA from "./components/qAndA/QAndA.jsx";
 
 
 function App() {
