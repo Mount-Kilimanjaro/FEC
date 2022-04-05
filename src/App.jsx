@@ -8,7 +8,7 @@ import Overview from "./components/overview/Overview.jsx";
 import Header from "./components/overview/header/Header.jsx";
 import RelatedProducts from "./components/relatedProductsWidgetMain/RelatedProductsWidget.jsx";
 import RatingsAndReviews from "./components/reviews/RatingsAndReviews.jsx";
-import QuestionAndAnswer from "./components/QuestionsAndAnswers.jsx";
+import QAndA from "./components/QAndA/QAndA.jsx";
 
 
 function App() {
@@ -88,7 +88,7 @@ function App() {
         <Header cart={{handleToggleCart, cartVisibility}}/>
         <Overview handleToggleCart={handleToggleCart}/>
         <RelatedProducts/>
-        <QuestionAndAnswer/>
+        <QAndA/>
         <RatingsAndReviews />
     </div>
   )
