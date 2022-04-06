@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch} from "react-redux";
 import { addToCart } from "../../store/reducer/shoppingCartReducer.js";
-import {validOrderQuantity, resetSizeInputs, resetQuantityInputs, quantityAvailable} from './helperFn/shoppingCart.js'
+import {validOrderQuantity, resetSizeInputs, resetQuantityInputs, quantityAvailable} from './helperFn/shoppingCart.js';
 
 
 export default function ProductSelector(props) {
