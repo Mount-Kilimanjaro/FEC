@@ -14,12 +14,13 @@ const RatingsAndReviews = (props) => {
 
   // API call to retrieve reviews on state change
   useEffect(() => {
+
     const retrieveData = async () => {
       try {
         const headers = {
           'Authorization': process.env.REACT_APP_API_TOKEN
         };
-        const reviewList = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/?product_id=${id}&count=1000`, { headers });
+        const reviewList = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/?product_id=${id}&sort="relevant"&count=1000`, { headers });
         const metadata = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/meta/?product_id=${id}`, { headers });
 
         setMeta(metadata.data);
@@ -30,16 +31,16 @@ const RatingsAndReviews = (props) => {
         console.error(err);
       }
     }
-    retrieveData();
+    if (id) {
+      retrieveData();
+    }
   }, [id]);
 
   return (
     <>
       <div id="reviews-container">
-
         <RatingBreakdown metadata={reviewsMeta} />
         <ReviewsList reviews={reviewList.results} />
-
       </div>
 
     </>
