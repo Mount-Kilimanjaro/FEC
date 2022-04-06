@@ -11,7 +11,6 @@ import { Provider } from 'react-redux';
 import ProductImage from '../ProductImage';
 import ProductInfo from '../ProductInfo';
 import ProductSelector from '../ProductSelector';
-import * as shopperHelper from '../helperFn/shoppingCart.js'
 configure({ adapter: new Adapter() });
 
 // afterEach(cleanup)
@@ -88,7 +87,6 @@ describe('ProductSelector Testing', () => {
   test('renders initial load with no error', () => {
     expect(wrapper.exists()).toBe(true);
   })
-
 })
 
 
