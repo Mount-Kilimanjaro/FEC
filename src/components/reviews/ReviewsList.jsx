@@ -69,7 +69,7 @@ const ReviewsList = (props) => {
       <div className="reviewButtons-container">
         <button className="reviewButtons" onClick={() => addReviews()} style={{ display: displayButton }}>MORE REVIEWS</button>
         <button id="addReview-btn" className="reviewButtons" label={"ADD A REVIEW"} onClick={(e) => openModal(e)}>ADD A REVIEW+</button>
-        <ReviewModal closeModal={closeModal}/>
+        <ReviewModal closeModal={closeModal} metadata={props.metadata}/>
 
       </div>
 

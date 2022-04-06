@@ -3,21 +3,20 @@ import formatDate from '../../utils/reviews/reviewsUtils.js'
 import { RatingStar } from 'rating-star';
 
 const ReviewTile = (props) => {
-
   return (
     <>
-      <div className="reviewTile-container">
+      <div className="reviewTile-container container">
 
-        <div className="reviewHeader tile">
+        <div className="reviewHeader tile container">
 
           <span>
             <div className="reviewTile-stars">
               <RatingStar
-                id={'rating-star'}
+                id="userRating-star"
                 clickable={props.clickable}
                 size={20}
                 maxScore={5}
-                rating={props.rating}
+                rating={props.review.rating}
                 colors={{ rear: 'transparent', stroke: 'black', mask: 'black' }}
               />
             </div>
@@ -26,7 +25,7 @@ const ReviewTile = (props) => {
 
         </div>
 
-        <div className="reviewSummary tile"><b>{props.review.summary}</b></div>
+        <div className="reviewSummary tile container"><b>{props.review.summary}</b></div>
 
         <div className="reviewBody tile">
           {props.review.body}
@@ -34,7 +33,7 @@ const ReviewTile = (props) => {
 
         </div>
 
-        <div className="reviewResponse tile">{props.review.response}</div>
+        <div className="reviewResponse tile container">{props.review.response}</div>
 
         <div className="reviewHelpful tile"> Helpful? <span style={{ textDecoration: 'underline' }}>Yes</span> ({props.review.helpfulness}) | <span style={{ textDecoration: 'underline' }}>Report</span> </div>
       </div>
