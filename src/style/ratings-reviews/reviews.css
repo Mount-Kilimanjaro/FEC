@@ -200,3 +200,79 @@ div#reviewCount > select {
 #rating-star {
   padding: 0px;
 }
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: 15% auto;
+  /* padding: 20px; */
+  border: 1px solid #888;
+  width: 45%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+.modal-header {
+  height: 85px;
+  text-align: center;
+  padding: 15px;
+  background-color:rgba(110, 110, 110, 0.4)
+}
+
+.modal-header h3 {
+  font-size: 1.5em;
+}
+
+.modal-header h5 {
+  font-size: 1.2em;
+}
+.modal-body {
+  height: 700px;
+  padding: 2px 16px;
+}
+
+.modal-footer {
+  height: 85px;
+  padding: 15px;
+  background-color:rgba(110, 110, 110, 0.4)
+}
+
+#submitReview {
+  padding: 10px;
+  margin-top: 6px;
+  border: solid;
+  border-width: 0.5px;
+  float: right;
+}
+
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover, .close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
