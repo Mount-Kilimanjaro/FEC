@@ -1,5 +1,7 @@
 import React from 'react';
-import formatDate from '../../utils/reviewsUtils.js'
+import formatDate from '../../utils/reviews/reviewsUtils.js'
+import { RatingStar } from 'rating-star';
+
 const ReviewTile = (props) => {
 
   return (
@@ -8,7 +10,18 @@ const ReviewTile = (props) => {
 
         <div className="reviewHeader tile">
 
-          <span>{props.review.rating}</span>
+          <span>
+            <div className="reviewTile-stars">
+              <RatingStar
+                id={'rating-star'}
+                clickable={props.clickable}
+                size={20}
+                maxScore={5}
+                rating={props.rating}
+                colors={{ rear: 'transparent', stroke: 'black', mask: 'black' }}
+              />
+            </div>
+          </span>
           <span>{props.review.reviewer_name}, {formatDate(props.review.date)}</span>
 
         </div>

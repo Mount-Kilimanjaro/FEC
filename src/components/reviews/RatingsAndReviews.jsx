@@ -9,52 +9,40 @@ const RatingsAndReviews = (props) => {
 
 
   const id = useSelector((state) => state.category.currentItem.id);
-  const [data, setData] = useState({results: [{id: null}]});
-
-
+  const [reviewList, setList] = useState({product: null, results: []});
+  const [reviewsMeta, setMeta] = useState({product_id: id, ratings: {}, recommended: {}, characteristics: {}});
 
   // API call to retrieve reviews on state change
-  // useEffect(() => {
-  //   const retrieveData = async () => {
-  //     try {
-  //       const headers = {
-  //         'Authorization': process.env.REACT_APP_API_TOKEN
-  //       };
-  //       const response = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/?product_id=${id}`, { headers });
+  useEffect(() => {
 
-  //       setData(response.data);
-  //       console.log(data);
+    const retrieveData = async () => {
+      try {
+        const headers = {
+          'Authorization': process.env.REACT_APP_API_TOKEN
+        };
+        const reviewList = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/?product_id=${id}&sort="relevant"&count=1000`, { headers });
+        const metadata = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/meta/?product_id=${id}`, { headers });
 
-  //     }
-  //     catch (err) {
-  //       console.error(err);
-  //     }
-  //   }
-  //   retrieveData();
-  // }, [id]);
+        setMeta(metadata.data);
+        setList(reviewList.data);
 
-  // const [displayList, addToDisplay] = useState(props.reviews.slice(0, 2));
-
-  const addReviews = (e) => {
-    // var index = displayList.length + 2;
-    // addToDisplay(data.results.slice(0, index));
-  }
+      }
+      catch (err) {
+        console.error(err);
+      }
+    }
+    if (id) {
+      retrieveData();
+    }
+  }, [id]);
 
   return (
     <>
-      <div id="reviews-container" style={{ display: 'flex', padding: '5px', width: '70%' }}>
-
-
-        <RatingBreakdown />
-
-        <ReviewsList reviews={data.results} />
-
+      <div id="reviews-container">
+        <RatingBreakdown metadata={reviewsMeta} />
+        <ReviewsList reviews={reviewList.results} />
       </div>
-      <div>
-        <button className="reviewButtons" onClick={() => addReviews()}>MORE REVIEWS</button>
 
-        <button className="reviewButtons">ADD A REVIEW +</button>
-      </div>
     </>
   )
 }

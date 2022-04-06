@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch} from "react-redux";
 import { addToCart } from "../../store/reducer/shoppingCartReducer.js";
+import {validOrderQuantity, resetSizeInputs, resetQuantityInputs, quantityAvailable} from './helperFn/shoppingCart.js';
 
 
 export default function ProductSelector(props) {
@@ -8,18 +9,13 @@ export default function ProductSelector(props) {
   const {styleIndex, handleSetStyleIndex} = props.styleIndex;
   const [quantity, setQuantity] = useState(null);
   const [order, setOrder] = useState({});
+  const [sku, setSku] = useState('');
   const skus = product.style[styleIndex > product.style.length ? 0 : styleIndex].skus;
   const dispatch = useDispatch();
 
-  const resetInputs = () => {
-    const targetSelectSize = document.querySelector("#overview_select_size");
-    const targetSelectQuantity = document.querySelector("#overview_select_quantity");
-    targetSelectSize.value = "DEFAULT";
-    targetSelectQuantity.value = "DEFAULT";
-  }
-
   const handleSizeChange = (sku) => {
-    setQuantity(skus[sku].quantity);
+    setSku(sku)
+    setQuantity(quantityAvailable({sku, quantity: skus[sku].quantity } ,props.cart));
     const item = {...order};
     item.sku = sku;
     item.size = skus[sku].size;
@@ -29,9 +25,10 @@ export default function ProductSelector(props) {
 
   const handleSetStyle = (index) => {
     setOrder({});
-    setQuantity(0);
+    setQuantity(null);
     handleSetStyleIndex(index);
-    resetInputs()
+    resetSizeInputs();
+    resetQuantityInputs();
   };
 
   const handleAddQuantity = (quantity) => {
@@ -48,14 +45,30 @@ export default function ProductSelector(props) {
     newOrder.img = product.style[styleIndex].photos[0].url;
     newOrder.style_id = product.style[styleIndex].style_id;
     newOrder.maxQuantity = Number(quantity);
-    dispatch(addToCart(newOrder));
+    const result = validOrderQuantity(newOrder, props.cart);
+    if (result.error) {
+      return alert(result.error)
+    }
+    dispatch(addToCart(result));
     props.handleToggleCart(true);
   };
   
   useEffect(() => {
-    resetInputs();
+    resetSizeInputs();
+    resetQuantityInputs();
     setOrder({});
   }, [product])
+
+  useEffect(() => {
+    if (skus[sku]){
+      const getQuantity = quantityAvailable({sku, quantity: skus[sku].quantity } ,props.cart)
+        setQuantity(getQuantity);
+      if (getQuantity === 0) {
+        resetQuantityInputs();
+      }
+    }
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.cart])
   
   return (
     <div id="productSelector" className="md:w-3/6 w-full pl-6  pr-5">
@@ -94,10 +107,10 @@ export default function ProductSelector(props) {
           </div>
           <div id="quantity" className="">
             <select id="overview_select_quantity" className="border-2 p-3 border-black" name="quantity" defaultValue={"DEFAULT"} onChange={(e) => handleAddQuantity(e.target.value)}>
-              <option  value="DEFAULT" disabled>QUANTITY</option>
+              {quantity === 0 ? <option  value="DEFAULT" disabled>OUT OF STOCK</option> : <option  value="DEFAULT" disabled>QUANTITY</option>}
               {Array.from(Array(quantity), (num, i) => {
                 if(quantity) {
-                  return <option key={i}>{i+1}</option>
+                  return <option key={i}>{i + 1}</option>
                 } else {
                   return "";
                 }

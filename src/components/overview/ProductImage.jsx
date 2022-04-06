@@ -23,8 +23,8 @@ export default function ProductImage(props) {
         </div>
         <div className="container flex flex-row justify-center items-center l w-full h-full">
           <div id="overview_arrow" className="flex md:hidden">
-            <img className="overview_image_arrows hover:cursor-pointer opacity-50 hover:opacity-100 select-none mr-80" alt="" onClick={() => setPreviousImage()} src={arrowLeft}/ >
-            <img className="overview_image_arrows hover:cursor-pointer opacity-50 hover:opacity-100 select-none" alt="" onClick={() => setNextImage()} src={arrowRight}/ >
+            <img id="productImages_arrowLeft" className="overview_image_arrows hover:cursor-pointer opacity-50 hover:opacity-100 select-none mr-80" alt="" onClick={() => setPreviousImage()} src={arrowLeft}/ >
+            <img id="productImages_arrowRight"className="overview_image_arrows hover:cursor-pointer opacity-50 hover:opacity-100 select-none" alt="" onClick={() => setNextImage()} src={arrowRight}/ >
           </div>
           <img id="overview_main_img" className="h-full p-3 md:min-h-650" src={imageUrl} alt=""/>
         </div>
