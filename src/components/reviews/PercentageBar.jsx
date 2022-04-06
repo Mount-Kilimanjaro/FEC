@@ -1,11 +1,10 @@
 import React from 'react';
-import ProgressBar from 'react-bootstrap/ProgressBar';
 
 const PercentageBar = (props) => {
 
   return (
     <>
-      <ProgressBar variant="success" now={props.value} max={props.total}/>
+      <meter className="progress" value={props.value} max={props.total}/>
     </>
   )
 }
