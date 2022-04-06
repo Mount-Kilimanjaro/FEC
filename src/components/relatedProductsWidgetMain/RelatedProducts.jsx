@@ -2,18 +2,16 @@ import React from 'react';
 import Card from './RelatedProductCard.jsx';
 
 function RelatedProducts (props) {
-  console.log('from inside RP', props.arr)
   return (
-    <div>
+    <div className='relatedProducts'>
       <h1>Related Products</h1>
-      <div className='relatedProducts'>
+      <div className='relatedProductsContent'>
 
 
-        {props.arr.map((value, index) =>
-          console.log('value', value)
-          // <Card prop1={value} key={index}/>
-        )
-        }
+        {props.arr.map((value, index) => {
+          console.log(props.arr);
+          return <Card prop1={value} key={index}/>
+        })}
       </div>
     </div>
     )
