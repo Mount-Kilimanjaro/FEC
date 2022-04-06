@@ -21,11 +21,16 @@ module.exports = {
     },
     resetSizeInputs: () => {
         const targetSelectSize = document.querySelector("#overview_select_size");
-        targetSelectSize.value = "DEFAULT";
+        if (targetSelectSize) {
+          targetSelectSize.value = "DEFAULT";
+        }
     },
     resetQuantityInputs: () => {
         const targetSelectQuantity = document.querySelector("#overview_select_quantity");
-        targetSelectQuantity.value = "DEFAULT";
+        if (targetSelectQuantity) {
+          targetSelectQuantity.value = "DEFAULT";
+        }
+        
     },
     quantityAvailable: (item,cart) => {
         for (let i = 0; i < cart.length; i++) {

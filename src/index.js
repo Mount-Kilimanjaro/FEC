@@ -1,6 +1,5 @@
 import React from 'react';
-import ReactDOM from "react-dom/client";
-import * as ReactDOMClient from 'react-dom/client';
+import ReactDOM from "react-dom";
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -12,16 +11,15 @@ import { store } from './store/index';
 // let persistor = persistStore(store);
 // const container = document.getElementById('root');
 // const root = ReactDOMClient.createRoot(container);
-const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(
+ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       {/* <PersistGate loading={null} persistor={persistor}> */}
         <App />
       {/* </PersistGate> */}
     </Provider> 
-  </React.StrictMode>,
+  </React.StrictMode>,document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
