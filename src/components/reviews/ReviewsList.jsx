@@ -3,7 +3,6 @@ import ReviewTile from './ReviewTile.jsx';
 import ReviewModal from './ReviewModal.jsx';
 import Button from './Button.jsx'
 import '../../style/ratings-reviews/reviews.css';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import { sortByDate, sortByRelevance, sortByHelpfulness, sortByStarRating } from '../../utils/reviews/sortingUtils.js';
 
 
@@ -40,16 +39,12 @@ const ReviewsList = (props) => {
     }
   }
 
-  var addReviewModal = document.getElementById('addReview-modal');
-  var addReviewBtn = document.getElementById('addReview-btn');
-  var closeModalBtn = document.getElementsByClassName("close")[0];
-
   const openModal = (e) => {
-    addReviewModal.style.display = 'block';
+    document.getElementById('addReview-modal').style.display = 'block';
   }
 
   const closeModal = (e) => {
-    addReviewModal.style.display = 'none';
+    document.getElementById('addReview-modal').style.display = 'none';
   }
 
   return (
@@ -68,13 +63,12 @@ const ReviewsList = (props) => {
             <ReviewTile review={review} />
           </div>
         ))}
-        {displayListLength < 1 ? <Button className="reviewButtons" onClick={() => toggleModal(true)} label={"ADD A REVIEW"} /> : <></>}
+        {displayListLength < 1 ? <Button className="reviewButtons" onClick={(e) => openModal(e)} label={"ADD A REVIEW"} /> : <></>}
       </div>
 
       <div className="reviewButtons-container">
         <button className="reviewButtons" onClick={() => addReviews()} style={{ display: displayButton }}>MORE REVIEWS</button>
         <button id="addReview-btn" className="reviewButtons" label={"ADD A REVIEW"} onClick={(e) => openModal(e)}>ADD A REVIEW+</button>
-        {/* <ReviewsModal show={displayModal} onHide={() => toggleModal(false)} /> */}
         <ReviewModal closeModal={closeModal}/>
 
       </div>

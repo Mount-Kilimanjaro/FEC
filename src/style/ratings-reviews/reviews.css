@@ -89,8 +89,6 @@
   color: red;
 }
 
-
-
 .star-rating {
   margin: 10px;
   padding-top: 15px;
@@ -137,12 +135,6 @@ div#characteristics-breakdown > div {
   padding: 3px;
 }
 
-/* #star-breakdown div:hover {
-  background-color: #dee0e2;
-  border-radius: 3px;
-  box-shadow: rgba(147, 145, 145, 0.16) 0px 3px 6px, rgba(102, 100, 100, 0.23) 0px 3px 6px;
-} */
-
 #star-breakdown div {
   box-shadow: inset 0 0 0 0 #8b8d8e;
   color: #070808;
@@ -177,30 +169,19 @@ div#reviewCount > select {
   font-size: 0.9em;
 }
 
-
-
-.form-label {
-  min-width: 65px;
-  width: fit-content;
-  margin-left: 3px;
-  margin-right: 20px;
-}
-
-.mainForm-header {
-  font-weight: bold;
-  font-size: 1.2em;
-  margin: 15px 0px 15px 0px;
-  padding-bottom: 7px;
-}
-
 .factorLabels {
   text-decoration: underline;
+  display: inline-block;
+  margin-right: 8px;
+  min-width: 60px;
+  margin-left: 5px;
 }
 
 #rating-star {
   padding: 0px;
 }
 
+/* modal CSS  */
 .modal {
   display: none;
   position: fixed;
@@ -218,9 +199,9 @@ div#reviewCount > select {
   position: relative;
   background-color: #fefefe;
   margin: 15% auto;
-  /* padding: 20px; */
   border: 1px solid #888;
   width: 45%;
+  min-width: 500px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
   animation-name: animatetop;
   animation-duration: 0.4s
@@ -230,7 +211,7 @@ div#reviewCount > select {
   height: 85px;
   text-align: center;
   padding: 15px;
-  background-color:rgba(110, 110, 110, 0.4)
+  background-color: #bbbfc32f;
 }
 
 .modal-header h3 {
@@ -241,16 +222,21 @@ div#reviewCount > select {
   font-size: 1.2em;
 }
 .modal-body {
-  height: 700px;
+  height: fit-content;
   padding: 2px 16px;
 }
 
 .modal-footer {
   height: 85px;
   padding: 15px;
-  background-color:rgba(110, 110, 110, 0.4)
+  background-color:#bbbfc32f;
 }
 
+/* submit review button on modal */
+
+form {
+  padding: 15px;
+}
 #submitReview {
   padding: 10px;
   margin-top: 6px;
@@ -275,4 +261,42 @@ div#reviewCount > select {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+/* add new review form on modal */
+
+#user-starRating {
+  padding-left: 0px;
+}
+
+#form-container {
+  margin: 10px;
+  width: 100%;
+  overflow-y: scroll;
+  max-height: 100vh;
+  margin: 0 auto;
+  height: 700px;
+}
+
+.mainForm-header {
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+input[type="radio"] {
+  margin: 10px 10px 10px 10px;
+}
+
+input[type="file"] {
+  color: white;
+}
+
+.reviewInput {
+  border-color: #999fa5;
+  border-width: 0.5px;
+  border-radius: 3px;
+  padding: 7px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }

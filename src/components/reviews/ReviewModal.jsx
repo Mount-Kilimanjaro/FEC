@@ -1,4 +1,5 @@
 import React from 'react';
+import AddReviewForm from './AddReview.jsx';
 
 const AddAReviewModal = (props) => {
 
@@ -19,7 +20,7 @@ const AddAReviewModal = (props) => {
         </div>
         <hr/>
         <div className="modal-body">
-          Add a Review Form
+          <AddReviewForm />
         </div>
         <hr/>
         <div className="modal-footer">
