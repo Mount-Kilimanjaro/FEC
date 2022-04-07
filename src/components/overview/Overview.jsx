@@ -4,7 +4,7 @@ import ProductSelector from "./ProductSelector.jsx";
 import ProductInfo from "./ProductInfo.jsx";
 import "../../style/overView/overView.css";
 import { useSelector } from "react-redux";
-import {updateStatistic} from './helperFn/siteStatistic.js';
+import {updateStatistic} from '../../utils/siteStatistic.js';
 
 export default function Overview(props) {
   const currentItem = useSelector(state => state.category.currentItem);

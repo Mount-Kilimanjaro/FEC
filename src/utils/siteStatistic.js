@@ -1,5 +1,5 @@
-import {store} from '../../../store/index.js';
-import {updateClicks} from '../../../store/reducer/siteStatisticReducer.js';
+import {store} from '../store/index.js';
+import {updateClicks} from '../store/reducer/siteStatisticReducer.js';
 
 export const updateStatistic = (fn, event) => {
     store.dispatch(updateClicks({[event ? event.target ? event.target.name : event : 'unnamed click']:1 }));
