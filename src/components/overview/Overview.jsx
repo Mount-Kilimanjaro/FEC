@@ -12,26 +12,14 @@ export default function Overview(props) {
   const [imageIndex, setImageIndex] = useState(0);
   const [imageUrl, setImageUrl] = useState("");
   const [imagesUrl, setImagesUrl] = useState([]);
+  const [sku, setSku] = useState("");
 
-  const getImageIndex = (url) => {
-    return imagesUrl.map((obj,i) => {
-      if (obj.url === url) {
-        return i;
-      }
-      return null;
-    }).filter(a => a!==null)[0];
-  };
-  
-  const handleSetStyleIndex = (index) => {
-    setImageIndex(0);
-    setStyleIndex(index);
-  };
-
-  const carouselNextImage = () => {
+  const nextImage = () => {
     const imgArr = [...imagesUrl];
     imgArr.push(imgArr.shift());
     setImagesUrl(imgArr);
   };
+
   const changeImgUrl = (url) => {
     setImageIndex(getImageIndex(url));
     setImageUrl(url);
@@ -65,8 +53,8 @@ export default function Overview(props) {
   useEffect(() => {
     setImageUrl(currentItem.style[styleIndex].photos[0].url);
     setImagesUrl(currentItem.style[styleIndex].photos);
-    //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [styleIndex]);
+  }, [currentItem,styleIndex]);
+
 
   return (
     <div id="container" className="container pt-4 h-full mt-10"  >
@@ -76,7 +64,7 @@ export default function Overview(props) {
         </div>
         <div className="information">
             <ProductInfo product={currentItem}/>
-        </div>   
+        </div>
     </div>
   )
 }
