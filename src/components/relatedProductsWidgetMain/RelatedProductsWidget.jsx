@@ -42,6 +42,7 @@ function RelatedProductsWidget () {
 
   return (
     <div id='relatedMain'>
+      <h1>Related Products</h1>
       < RelatedProducts arr={relatedProductA}/>
       < Outfit/>
     </div>

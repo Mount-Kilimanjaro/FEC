@@ -50,17 +50,20 @@ width: 100%;
   list-style: none;
   height: 100%;
   display: flex;
-  background-color: bisque;
+  background-color: red;
   justify-content: center;
   align-items: center;
   gap: 20px;
 }
   /* viewport */
 .relatedProducts {
-  height: 50vh;
-  width: 125vh;
-  background: red;
-  /* overflow: hidden; */
+  height: 450px;
+  width: 500;
+  background: gray;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+  overflow: hidden;
 }
 
 .relatedProductCards {
@@ -70,6 +73,7 @@ width: 100%;
   background-color: #C0C0C0;
   flex-shrink: 0;
   white-space: nowrap;
+
 }
 
 #relatedMain .stars {
@@ -93,4 +97,13 @@ width: 100%;
   width: 25%;
   border: solid 2px;
   background-color: #C0C0C0;
+}
+
+#prev {
+  z-index: 9999;
+
+}
+
+#next {
+  z-index: 9999;
 }
