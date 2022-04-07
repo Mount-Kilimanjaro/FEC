@@ -12,7 +12,7 @@ const {handleToggleCart, cartVisibility} = props.cart;
             <p>logo</p>
         </div>
         <Search/>
-        <div className={`flex items-center justify-center w-3/6  md:w-150 md:rounded-l-2xl ${cartVisibility ? "bg-blue-400" : ""} bg-secondary hover:cursor-pointer hover:bg-blue-400 select-none`} onMouseEnter={() => handleToggleCart(false)}>
+        <div className={`flex items-center justify-center w-3/6  md:w-150 md:rounded-l-2xl ${cartVisibility ? "bg-red-300" : ""} bg-blue-300 hover:cursor-pointer `} onMouseEnter={() => handleToggleCart(false)}>
             <img className="h-50 " src={shoppingCartImg} alt="shopping_Cart"/>
         </div>
         <ShoppingCart shoppingCart={{cartVisibility}}/>
