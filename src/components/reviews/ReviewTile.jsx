@@ -7,7 +7,7 @@ const ReviewTile = (props) => {
   const displayPhotos = () => {
     if (props.review.photos.length > 1) {
       return props.review.photos.map((photo) => (
-        <img src={`${photo.url}`} width="100" height="100" alt="" style={{ padding: '3px', borderRadius: '5px' }}/>
+        <img key={JSON.stringify(photo)} src={`${photo.url}`} width="100" height="100" alt="" style={{ padding: '3px', borderRadius: '5px', objectFit: 'cover'}}/>
       ))
     }
   }
