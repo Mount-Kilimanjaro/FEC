@@ -1,12 +1,15 @@
-import React from 'react';
-import formatDate from '../../utils/reviews/reviewsUtils.js'
+import React, { useState } from 'react';
+import { formatDate, reportHelpful, reportReview } from '../../utils/reviews/reviewTiles.js';
 import { RatingStar } from 'rating-star';
 import ImageModal from './ImageModal.jsx';
 
 const ReviewTile = (props) => {
 
+  const [helpful, disableHelpful] = useState(false);
+  const [reported, disableReport] = useState(false);
+
   const toggleModal = (e) => {
-    var modal = document.getElementById('image-modal');
+    var modal = document.getElementById('img-modal');
     if (modal.style.display === 'block') {
       modal.style.display = 'none';
     } else {
@@ -37,6 +40,22 @@ const ReviewTile = (props) => {
     }
   }
 
+  const handleHelpfulReview = (e) => {
+    if (!helpful) {
+      const reviewId = e.target.getAttribute('dataid');
+      document.getElementById(reviewId).innerText = `(${props.review.helpfulness += 1}) `;
+      reportHelpful(reviewId);
+      disableHelpful(true);
+    }
+  }
+  const report = (e) => {
+    if (!reported) {
+      const reviewId = Number(e.target.getAttribute('dataid'));
+      reportReview(reviewId);
+      disableReport(true);
+      e.target.innerText = '✓ Reported';
+    }
+  }
 
   return (
     <>
@@ -70,7 +89,12 @@ const ReviewTile = (props) => {
 
         {!props.review.response ? <></> : <div className="sellerResponse "><b>Response from seller:</b> {props.review.response} </div>}
 
-        <div className="reviewHelpful"> Helpful? <span style={{ textDecoration: 'underline' }}>Yes</span> ({props.review.helpfulness}) | <span style={{ textDecoration: 'underline' }}>Report</span> </div>
+        <div className="reviewHelpful">
+          <span>Helpful? </span>
+          <span className="helpfulness-buttons" dataid={props.review.review_id} onClick={(e) => handleHelpfulReview(e)}>Yes</span>
+          <span id={props.review.review_id}>({props.review.helpfulness}) | </span>
+          <span className="helpfulness-buttons" dataid={props.review.review_id} onClick={(e) => report(e)}> Report</span>
+        </div>
       </div>
 
     </>

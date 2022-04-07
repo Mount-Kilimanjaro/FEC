@@ -3,7 +3,7 @@ import ReviewTile from './ReviewTile.jsx';
 import ReviewModal from './ReviewModal.jsx';
 import Button from './Button.jsx'
 import '../../style/ratings-reviews/reviews.css';
-import { sortByDate, sortByRelevance, sortByHelpfulness, sortByStarRating } from '../../utils/reviews/sortingUtils.js';
+import { sortByDate, sortByRelevance, sortByHelpfulness, sortByStarRating } from '../../utils/reviews/sorting.js';
 
 
 const ReviewsList = (props) => {

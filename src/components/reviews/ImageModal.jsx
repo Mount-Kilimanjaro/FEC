@@ -4,15 +4,15 @@ const ImageModal = (props) => {
 
 
   return (
-    <div id="image-modal" className="img-modal">
-
-        <span
+    <div id="img-modal" className="img-modal">
+      <div className="img-modal-content">
+        <div
           onClick={(e) => props.toggleModal(e)} className="img-close">
           &times;
-        </span>
+        </div>
 
         <img src={props.img} id="img" className='userImages-modal' alt=''/>
-
+      </div>
     </div>
   )
 }

@@ -11,7 +11,7 @@ const AddAReviewModal = (props) => {
   }
   return (
 
-    <div id="addReview-modal" className="modal container">
+    <div id="addReview-modal" className="modal">
       <div className="modal-content">
         <div className="modal-header">
           <span onClick={(e) => props.closeModal(e)}className="close">&times;</span>
