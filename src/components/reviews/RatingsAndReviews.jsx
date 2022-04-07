@@ -40,7 +40,7 @@ const RatingsAndReviews = (props) => {
     <>
       <div id="reviews-container">
         <RatingBreakdown metadata={reviewsMeta} />
-        <ReviewsList reviews={reviewList.results} />
+        <ReviewsList metadata={reviewsMeta} reviews={reviewList.results} />
       </div>
 
     </>

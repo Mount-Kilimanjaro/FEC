@@ -33,13 +33,13 @@
 }
 
 .reviewTile-container {
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  height: 240px;
+  min-height: 250px;
+  height: fit-content;
   width: 100%;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   border-bottom: solid;
   border-left: white;
   border-right: white;
@@ -55,17 +55,22 @@
 }
 
 .reviewSummary {
+  padding-bottom: 5px;
   overflow-wrap: break-word;
   white-space: nowrap;
   text-overflow: ellipsis;
   max-width: 60ch;
-}
-.tile {
-  margin: 5px;
+  font-size: 1.1em;
 }
 
-.reviewBody, .reviewHelpful, .reviewHeader {
-  font-size: 1em;
+.reviewBody {
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+.reviewHelpful, .reviewHeader {
+  padding: 5px;
+  font-size: 0.9em;
 }
 
 .reviewButtons {
@@ -80,6 +85,13 @@
   justify-content: center;
 }
 
+.sellerResponse {
+  background-color: lightgray;
+  padding: 10px;
+  /* margin: 5px; */
+  border-radius: 3px;
+  width: fit-content;
+}
 #rating-summary {
   display: flex;
   align-items: flex-start;
@@ -87,11 +99,6 @@
 
 .requiredInput {
   color: red;
-}
-
-.percentageBar {
-  padding-left: 10px;
-  height: 10px;
 }
 
 .star-rating {
@@ -131,17 +138,35 @@ div#characteristics-breakdown > div {
   margin-bottom: 10px;
 }
 
+.percentageBar {
+  padding-left: 10px;
+  height: 10px;
+}
 .percentageBar-container {
   display: flex;
   padding: 3px;
 }
 
+#star-breakdown div {
+  box-shadow: inset 0 0 0 0 #8b8d8e;
+  color: #070808;
+  margin: 0 -.25rem;
+  padding: 0 .25rem;
+  transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+#star-breakdown div:hover {
+  box-shadow: inset 300px 0 0 0 #d2d4d5;
+  color: rgb(0, 0, 0);
+  border-radius: 3px;
+}
+
 .progress {
   display: inline-block;
   width: 180px;
-  height: 10;
+  height: 17px;
   margin-left: 10px;
   margin-top: 5px;
+  border-radius: 5px;
 }
 
 div#reviewCount > select {
@@ -156,30 +181,136 @@ div#reviewCount > select {
   font-size: 0.9em;
 }
 
-#star-breakdown div:hover {
-  background-color: #dee0e2;
-  border-radius: 3px;
-  box-shadow: rgba(147, 145, 145, 0.16) 0px 3px 6px, rgba(102, 100, 100, 0.23) 0px 3px 6px;
-}
-
-.form-label {
-  min-width: 65px;
-  width: fit-content;
-  margin-left: 3px;
-  margin-right: 20px;
-}
-
-.mainForm-header {
-  font-weight: bold;
-  font-size: 1.2em;
-  margin: 15px 0px 15px 0px;
-  padding-bottom: 7px;
-}
-
 .factorLabels {
   text-decoration: underline;
+  display: inline-block;
+  margin-right: 8px;
+  min-width: 60px;
+  margin-left: 5px;
 }
 
 #rating-star {
   padding: 0px;
+}
+
+/* modal CSS  */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  min-width: 550px;
+  min-height: 700px;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: 15% auto;
+  border: 1px solid #888;
+  width: 45%;
+  min-width: 500px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+.modal-header {
+  height: 85px;
+  text-align: center;
+  padding: 15px;
+  background-color: #bbbfc32f;
+}
+
+.modal-header h3 {
+  font-size: 1.5em;
+}
+
+.modal-header h5 {
+  font-size: 1.2em;
+}
+.modal-body {
+  height: fit-content;
+  /* padding: 2px 16px; */
+}
+
+#submit-container {
+  height: 85px;
+  padding: 15px;
+  background-color:#bbbfc32f;
+  width: 100%;
+}
+
+#innerForm-container {
+  padding: 15px;
+}
+
+/* submit review button on modal */
+#submitReview {
+  padding: 10px;
+  margin-top: 6px;
+  border: solid;
+  border-width: 0.5px;
+  float: right;
+}
+
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover, .close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* add new review form on modal */
+#user-starRating {
+  padding-left: 0px;
+}
+
+#form-container {
+  margin: 10px;
+  width: 100%;
+  overflow-y: scroll;
+  max-height: 100%;
+  margin: 0 auto;
+  height: 700px;
+}
+
+.mainForm-header {
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+input[type="radio"] {
+  margin: 10px 10px 10px 10px;
+}
+
+input[type="file"] {
+  color: white;
+}
+
+.reviewInput {
+  border-color: #999fa5;
+  border-width: 0.5px;
+  border-radius: 3px;
+  padding: 7px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }

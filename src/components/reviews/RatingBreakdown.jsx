@@ -25,7 +25,7 @@ const RatingBreakdown = (props) => {
     <p style={{ width: '100%', height: '10px' }}>RATINGS & REVIEWS</p>
 
       <div id="rating-summary">
-        <span style={{ fontSize: '4em' }}><b>{calculateRatingAverage(props.metadata.ratings)}</b></span>
+        <span style={{ fontSize: '4em' }} id="averageRating"><b>{calculateRatingAverage(props.metadata.ratings)}</b></span>
         <StarRating rating={Number(calculateRatingAverage(props.metadata.ratings))} /><br/>
       </div>
         <div>{`${calculatePercentRecommend(props.metadata.recommended)}%`} of reviews recommend this product</div>
