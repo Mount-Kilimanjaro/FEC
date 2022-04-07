@@ -3,11 +3,19 @@ import formatDate from '../../utils/reviews/reviewsUtils.js'
 import { RatingStar } from 'rating-star';
 
 const ReviewTile = (props) => {
+
+  const displayPhotos = () => {
+    if (props.review.photos.length > 1) {
+      return props.review.photos.map((photo) => (
+        <img src={`${photo.url}`} width="100" height="100" alt="" style={{ padding: '3px', borderRadius: '5px' }}/>
+      ))
+    }
+  }
   return (
     <>
-      <div className="reviewTile-container container">
+      <div className="reviewTile-container">
 
-        <div className="reviewHeader tile container">
+        <div className="reviewHeader">
 
           <span>
             <div className="reviewTile-stars">
@@ -25,17 +33,17 @@ const ReviewTile = (props) => {
 
         </div>
 
-        <div className="reviewSummary tile container"><b>{props.review.summary}</b></div>
+        <div className="reviewSummary"><b>{props.review.summary}</b></div>
 
-        <div className="reviewBody tile">
-          {props.review.body}
-          {props.review.recommended}
+        <div className="reviewBody ">{props.review.body}</div>
 
-        </div>
+        {!props.review.photos.length ? <></> : <div style={{ display: 'flex' }}>{displayPhotos()}</div>}
 
-        <div className="reviewResponse tile container">{props.review.response}</div>
+        {!props.review.recommend ? <></> : <div style={{ margin: '3px' }}><b>✓</b> I recommend this product </div>}
 
-        <div className="reviewHelpful tile"> Helpful? <span style={{ textDecoration: 'underline' }}>Yes</span> ({props.review.helpfulness}) | <span style={{ textDecoration: 'underline' }}>Report</span> </div>
+        {!props.review.response ? <></> : <div className="sellerResponse "><b>Response from seller:</b> {props.review.response} </div>}
+
+        <div className="reviewHelpful"> Helpful? <span style={{ textDecoration: 'underline' }}>Yes</span> ({props.review.helpfulness}) | <span style={{ textDecoration: 'underline' }}>Report</span> </div>
       </div>
 
     </>

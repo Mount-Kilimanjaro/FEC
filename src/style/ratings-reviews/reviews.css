@@ -33,13 +33,13 @@
 }
 
 .reviewTile-container {
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  height: 240px;
+  min-height: 250px;
+  height: fit-content;
   width: 100%;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   border-bottom: solid;
   border-left: white;
   border-right: white;
@@ -55,17 +55,22 @@
 }
 
 .reviewSummary {
+  padding-bottom: 5px;
   overflow-wrap: break-word;
   white-space: nowrap;
   text-overflow: ellipsis;
   max-width: 60ch;
-}
-.tile {
-  margin: 5px;
+  font-size: 1.1em;
 }
 
-.reviewBody, .reviewHelpful, .reviewHeader {
-  font-size: 1em;
+.reviewBody {
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+.reviewHelpful, .reviewHeader {
+  padding: 5px;
+  font-size: 0.9em;
 }
 
 .reviewButtons {
@@ -80,6 +85,13 @@
   justify-content: center;
 }
 
+.sellerResponse {
+  background-color: lightgray;
+  padding: 10px;
+  /* margin: 5px; */
+  border-radius: 3px;
+  width: fit-content;
+}
 #rating-summary {
   display: flex;
   align-items: flex-start;
@@ -202,8 +214,8 @@ div#reviewCount > select {
   background-color: #fefefe;
   margin: 15% auto;
   border: 1px solid #888;
-  width: 40%;
-  /* min-width: 500px; */
+  width: 45%;
+  min-width: 500px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
   animation-name: animatetop;
   animation-duration: 0.4s
@@ -275,7 +287,7 @@ div#reviewCount > select {
   margin: 10px;
   width: 100%;
   overflow-y: scroll;
-  max-height: 100vh;
+  max-height: 100%;
   margin: 0 auto;
   height: 700px;
 }
