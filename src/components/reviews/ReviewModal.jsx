@@ -22,11 +22,6 @@ const AddAReviewModal = (props) => {
         <div className="modal-body">
           <AddReviewForm metadata={props.metadata}/>
         </div>
-        <hr/>
-        {/* <div className="modal-footer">
-          <button id="submitReview" onClick={(e) => props.closeModal(e)}>Submit Review</button>
-        </div> */}
-
       </div>
     </div>
 

@@ -7,7 +7,6 @@ import ReviewsList from './ReviewsList.jsx';
 
 const RatingsAndReviews = (props) => {
 
-
   const id = useSelector((state) => state.category.currentItem.id);
   const [reviewList, setList] = useState({product: null, results: []});
   const [reviewsMeta, setMeta] = useState({product_id: id, ratings: {}, recommended: {}, characteristics: {}});
