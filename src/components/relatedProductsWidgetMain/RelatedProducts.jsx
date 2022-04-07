@@ -1,19 +1,32 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import Card from './RelatedProductCard.jsx';
 
-function RelatedProducts () {
+function RelatedProducts (props) {
 
+  let currentCard = 0;
+  const nextBut = () => {
+    currentCard++;
+    const container = document.querySelector('.relatedProductsContent')
+    container.style.transitionDuration = '.8s';
+    container.style.transform = `translate( -${currentCard * 245}px)`
+  }
 
+  const prevBut = () => {
+    currentCard--;
+    console.log(currentCard);
+    const container = document.querySelector('.relatedProductsContent')
+    container.style.transitionDuration = '.8s';
+    container.style.transform = `translate( -${currentCard * 245}px)`
+  }
   return (
-    <div>
-      <h1>Related Products</h1>
-      <div className='relatedProducts'>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
+    <div className='relatedProducts'>
+      <button id='prev' onClick={prevBut}>prev</button>
+      <div className='relatedProductsContent'>
+        {props.arr.map((value, index) => {
+          return <Card prop1={value} key={index}/>
+        })}
       </div>
+      <button id='next' onClick={nextBut}>next</button>
     </div>
     )
 }
@@ -22,7 +35,8 @@ export default RelatedProducts;
 
 
 
-{/* <div className='relatedProductCards'>card</div>
-        <div className='relatedProductCards'>card</div>
-        <div className='relatedProductCards'>card</div>
-        <div className='relatedProductCards'>card</div> */}
+
+
+
+
+

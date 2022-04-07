@@ -14,7 +14,21 @@ export default function Overview(props) {
   const [imagesUrl, setImagesUrl] = useState([]);
   const [sku, setSku] = useState("");
 
-  const nextImage = () => {
+  const getImageIndex = (url) => {
+    return imagesUrl.map((obj,i) => {
+      if (obj.url === url) {
+        return i;
+      }
+      return null;
+    }).filter(a => a!==null)[0];
+  };
+
+  const handleSetStyleIndex = (index) => {
+    setImageIndex(0);
+    setStyleIndex(index);
+  };
+
+  const carouselNextImage = () => {
     const imgArr = [...imagesUrl];
     imgArr.push(imgArr.shift());
     setImagesUrl(imgArr);
