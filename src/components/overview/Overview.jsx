@@ -4,6 +4,7 @@ import ProductSelector from "./ProductSelector.jsx";
 import ProductInfo from "./ProductInfo.jsx";
 import "../../style/overView/overView.css";
 import { useSelector } from "react-redux";
+import {updateStatistic} from './helperFn/siteStatistic.js';
 
 export default function Overview(props) {
   const currentItem = useSelector(state => state.category.currentItem);
@@ -71,7 +72,7 @@ export default function Overview(props) {
   return (
     <div id="container" className="container pt-4 h-full mt-10"  >
         <div className="image&products flex md:flex-row flex-col items-center">
-            <ProductImage img={{imageUrl, imagesUrl, changeImgUrl, carouselNextImage, setNextImage, setPreviousImage}}/>
+            <ProductImage img={{imageUrl, imagesUrl, changeImgUrl, carouselNextImage, setNextImage, setPreviousImage, updateStatistic}}/>
             <ProductSelector product={currentItem} styleIndex={{styleIndex, handleSetStyleIndex}} imageUrl={imageUrl} handleToggleCart={props.handleToggleCart} cart={cart} />
         </div>
         <div className="information">
