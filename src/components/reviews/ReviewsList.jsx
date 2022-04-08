@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ReviewTile from './ReviewTile.jsx';
 import ReviewModal from './ReviewModal.jsx';
+import SearchReviews from './SearchReviews.jsx';
 import '../../style/ratings-reviews/reviews.css';
 
 const ReviewsList = (props) => {
@@ -45,14 +46,18 @@ const ReviewsList = (props) => {
 
   return (
     <div className="container">
-      <div id="reviewCount"><b>{props.reviews.length} reviews, sorted by</b>
-        <select onChange={(e) => sort(e)}>
-          <option>relevance</option>
-          <option>newest</option>
-          <option>helpfulness</option>
-        </select>
-      </div>
+      <div id="reviewCount">
+        <div className="searchDropdowns">
+          <b>{props.sort ? props.sortedReviews.length : props.reviews.length} reviews, sorted by</b>
+          <select onChange={(e) => sort(e)}>
+            <option>relevance</option>
+            <option>newest</option>
+            <option>helpfulness</option>
+          </select>
+        </div>
+        <div className="searchReviews-container"><SearchReviews filterBySearch={props.filterBySearch}/></div>
 
+      </div>
       <div id="reviewsList-container" className="scroller">
         {props.sort ? props.sortedReviews.slice(0, displayListLength).map((review) => (
           <div key={JSON.stringify(review)}>

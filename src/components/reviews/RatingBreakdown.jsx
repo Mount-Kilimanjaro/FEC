@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { RatingStar } from 'rating-star';
 import { calculateRatingAverage, calculatePercentRecommend, calculateTotalRatings } from '../../utils/reviews/ratingAverage.js';
-
 import ProductBreakdownBars from './ProductBreakdownBars.jsx';
-
 
 const RatingBreakdown = (props) => {
 

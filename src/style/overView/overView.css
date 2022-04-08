@@ -2,15 +2,13 @@
     max-width: 1280px;
     min-width: 480px;
 }
-
-
 #productImage {
     background-color: #bbbfc3;
     min-height: 450px;
-
 }
 #overview_main_img {
     max-height: 650px;
+    object-fit: cover;
 }
 #productSelector {
     min-height: 650px;
@@ -21,14 +19,17 @@
 #scrollImg {
     width: 100px;
     height: 120px;
+    object-fit: cover;
 }
 
 #imageWheel img {
     max-height: 100px;
+    object-fit: cover;
 }
 #styleThumbNail {
     height: 100px;
     width: 100px;
+    object-fit: cover;
 }
 #overview_selector select {
     width: 195px;

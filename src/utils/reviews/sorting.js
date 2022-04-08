@@ -31,5 +31,14 @@ module.exports = {
       }
       return sortedMany;
     }
+  },
+  filterByKeyword: (keyword, reviews) => {
+    console.log(reviews);
+    // eslint-disable-next-line array-callback-return
+    return reviews.filter((review) => {
+      if (review.body.includes(keyword) || review.summary.includes(keyword)) {
+        return review;
+      }
+    })
   }
 }

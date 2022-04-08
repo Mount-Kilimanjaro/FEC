@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 import RatingBreakdown from './RatingBreakdown.jsx';
 import ReviewsList from './ReviewsList.jsx';
-import { sortByStarRating, sortByDate, sortByHelpfulness } from '../../utils/reviews/sorting.js';
+import { sortByStarRating, sortByDate, sortByHelpfulness, filterByKeyword } from '../../utils/reviews/sorting.js';
 
 
 const RatingsAndReviews = (props) => {
@@ -68,6 +68,25 @@ const RatingsAndReviews = (props) => {
         break;
     }
   }
+
+  const filterBySearch = (keyword) => {
+    console.log(keyword, 'keyword');
+    if (keyword.length >= 3) {
+      if (!sort) {
+        const filtered = filterByKeyword(keyword, reviewList.results);
+        setSorted(filtered);
+        toggleSort(true);
+        console.log(filtered, 'filtered without sort');
+      } else {
+        const filtered = filterByKeyword(keyword, sortedReviews);
+        setSorted(filtered);
+        console.log(filtered, 'filterd with sort');
+      }
+    } else if (!keyword) {
+      toggleSort(false);
+    }
+  }
+
   return (
     <div id="reviews-container">
       <RatingBreakdown metadata={reviewsMeta} sortByStars={sortByStars}/>
@@ -77,6 +96,7 @@ const RatingsAndReviews = (props) => {
         sort={sort}
         sortedReviews={sortedReviews}
         sortByDropdown={sortByDropdown}
+        filterBySearch={filterBySearch}
       />
     </div>
   )
