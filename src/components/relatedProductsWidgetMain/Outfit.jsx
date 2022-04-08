@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Outfit () {
+function Outfit (props) {
 
 
   return (

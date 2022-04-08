@@ -46,22 +46,32 @@ width: 100%;
 
 /* relatedProduct */
 
-.relatedProducts {
-  height: 380px;
-  width: 1200px;
-  gap: 10px;
-  background: white;
+.relatedProductsContent {
+  list-style: none;
+  height: 100%;
   display: flex;
+  background-color: white;
   justify-content: center;
   align-items: center;
-
+  gap: 20px;
+}
+  /* viewport */
+.relatedProducts {
+  height: 450px;
+  width: 500;
+  background: white;
+ display: flex;
+  overflow: hidden;
+  -webkit-mask: linear-gradient(to left, transparent 0% , black 35% );
 }
 
 .relatedProductCards {
   height: 330px;
   width: 225px;
-  border: solid 1px;
+  border: 2px solid black;
   background-color: #C0C0C0;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 #relatedMain .stars {
@@ -85,4 +95,16 @@ width: 100%;
   width: 25%;
   border: solid 2px;
   background-color: #C0C0C0;
+}
+
+#relatedMain svg {
+  position: relative;
+  z-index: 9999;
+  /* transform: translate(50%); */
+}
+
+.containerr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
