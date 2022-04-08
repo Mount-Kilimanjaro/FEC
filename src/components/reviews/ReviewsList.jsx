@@ -18,11 +18,10 @@ const ReviewsList = (props) => {
       toggleButton('none');
     }
   }
-
   const sort = (e) => {
     switch (e.target.value) {
       case 'relevance':
-        props.reviews = sortByRelevance();
+        props.sorted = false;
         setDisplayLength(2);
         break;
       case 'newest':
@@ -57,7 +56,11 @@ const ReviewsList = (props) => {
       </div>
 
       <div id="reviewsList-container" className="scroller">
-        {props.reviews.slice(0, displayListLength).map((review) => (
+        {props.sort ? props.sortedReviews.slice(0, displayListLength).map((review) => (
+          <div key={JSON.stringify(review)}>
+            <ReviewTile review={review} />
+          </div>
+        )) : props.reviews.slice(0, displayListLength).map((review) => (
           <div key={JSON.stringify(review)}>
             <ReviewTile review={review} />
           </div>

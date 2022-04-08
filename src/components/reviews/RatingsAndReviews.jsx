@@ -39,11 +39,7 @@ const RatingsAndReviews = (props) => {
   }, [id]);
 
   var sortByStars = (appliedFilters) => {
-    if (appliedFilters.length > 1) {
-      const sorted = sortByStarRating(appliedFilters, sortedReviews.results);
-      setSorted(sorted);
-      toggleSort(true);
-    } else if (appliedFilters.length === 1) {
+    if (appliedFilters.length) {
       const sorted = sortByStarRating(appliedFilters, reviewList.results);
       setSorted(sorted);
       toggleSort(true);

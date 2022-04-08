@@ -21,10 +21,9 @@ const ReviewTile = (props) => {
   const displayPhotos = () => {
     if (props.review.photos.length > 1) {
       return props.review.photos.map((photo, index) => (
-        <>
+        <div key={JSON.stringify(photo)}>
           <img
             className="userImages"
-            key={JSON.stringify(photo)}
             src={`${photo.url}`}
             width="100"
             height="100"
@@ -35,7 +34,7 @@ const ReviewTile = (props) => {
           <ImageModal
             toggleModal={toggleModal}
           />
-        </>
+        </div>
       ))
     }
   }

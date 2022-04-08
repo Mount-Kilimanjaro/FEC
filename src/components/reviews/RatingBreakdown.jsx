@@ -24,7 +24,6 @@ const RatingBreakdown = (props) => {
 
   const filterByStarRating = (e) => {
     const rating = e.target.getAttribute('name');
-    console.log(activeFilters, 'pre');
     if (!activeFilters.includes(Number(rating))) {
       setActiveFilters([...activeFilters, Number(rating)]);
       props.sortByStars([...activeFilters, Number(rating)]);
@@ -57,10 +56,10 @@ const RatingBreakdown = (props) => {
     <p id="ratingBreakdown-title">RATINGS & REVIEWS</p>
 
       <div id="rating-summary">
-        <span id="averageRating">{calculateRatingAverage(props.metadata.ratings)}</span>
+        <span id="averageRating">{ Object.keys(props.metadata.ratings).length ? calculateRatingAverage(props.metadata.ratings) : '' }</span>
         <RatingStar
           id="ratingBreakdownStars"
-          rating={Number(calculateRatingAverage(props.metadata.ratings))}
+          rating={ Object.keys(props.metadata.ratings).length ? Number(calculateRatingAverage(props.metadata.ratings)) : '' }
           size={20}
           colors={{ rear: 'transparent', stroke: 'black', mask: 'black' }}
         />

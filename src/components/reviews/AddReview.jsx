@@ -2,7 +2,6 @@ import React, { useReducer, useState } from 'react';
 import { RatingStar } from 'rating-star';
 import BreakdownBarLabels from './BreakdownBarLabels.jsx';
 import { formatData } from '../../utils/reviews/submitReview.js';
-import ImageModal from './ImageModal.jsx';
 
 const formReducer = (state, event) => {
   return {
@@ -143,7 +142,6 @@ const AddReviewForm = (props) => {
 
             <div>
               {[0, 1, 2, 3, 4].map((index) => (
-                <>
                   <img
                     key={JSON.stringify(index)}
                     id={`output${index}`}
@@ -152,7 +150,6 @@ const AddReviewForm = (props) => {
                     alt='userImg'
                     src=""
                    />
-                </>
               ))}
             </div>
           </div>
