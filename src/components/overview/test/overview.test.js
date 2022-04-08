@@ -16,7 +16,7 @@ configure({ adapter: new Adapter() });
 // afterEach(cleanup)
 
 const currentItem = {
-  style: [{skus:1, photos: [{url:'https://picsum.photos/200/300'}]}],slogan: 'my slogan', description:'my description', features: [{feature:'feature 1', value:'value 1'},{feature:'feature 2', value:'value 2'}]
+  style: [{skus: {1:{quantity:1, size:'xs'}}, photos: [{url:'https://picsum.photos/200/300'}]}],slogan: 'my slogan', description:'my description', features: [{feature:'feature 1', value:'value 1'},{feature:'feature 2', value:'value 2'}]
 }
 
 
@@ -74,19 +74,54 @@ describe('ProductInfo Testing', () => {
 
 describe('ProductSelector Testing', () => {
   let styleIndex = 0;
+  const cart = [];
 
   // jest.mock('react-redux', () => ({
   //   use: jest.fn(fn => fn()),
   // }));
 
-  const wrapper = mount(
-    <Provider store ={store}>
-      <ProductSelector styleIndex={{styleIndex, handleSetStyleIndex: () => {}}} product={currentItem}  />
-    </Provider>
-  )
-  test('renders initial load with no error', () => {
-    expect(wrapper.exists()).toBe(true);
+  let wrapper
+  beforeEach(() => {
+    wrapper = mount(
+      <Provider store ={store}>
+        <ProductSelector styleIndex={{styleIndex, handleSetStyleIndex: () => {}}} product={currentItem} cart={cart} />
+      </Provider>
+    )
   })
+
+
+  test('renders initial load with no error', () => {
+    expect(wrapper.exists()).toBe(true)
+  })
+
+  test('Should have a Select Element for size change', () => {
+    expect(wrapper.find('#overview_select_size').exists()).toBe(true)
+  })
+
+  test('Size value should change', () => {
+  // const handleClick = jest.spyOn(React, "useState");
+  // handleClick.mockImplementation(order => [order, setOrder]);
+    wrapper.find("#overview_select_size").simulate('change', {target: {value: 1}})
+    expect(wrapper.find('#overview_select_size').props().value).toBe(
+      'xs'
+    );
+  })
+
+  test('Should have a Select Element for quantity change', () => {
+    expect(wrapper.find('#overview_select_quantity').exists()).toBe(true)
+  })
+
+  test('Quantity value should change', () => {
+    wrapper.find("#overview_select_quantity").simulate('change', {target:{value: 1}})
+    expect(wrapper.find('#overview_select_quantity').props().value).toBe(
+      1
+    );
+  })
+
+  test('Should have a Button Element for Adding item to cart', () => {
+    expect(wrapper.find('#overview_addedItemToCart').exists()).toBe(true)
+  })
+
 })
 
 

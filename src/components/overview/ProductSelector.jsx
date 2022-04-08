@@ -12,7 +12,6 @@ export default function ProductSelector(props) {
   const [sku, setSku] = useState('');
   const skus = product.style[styleIndex > product.style.length ? 0 : styleIndex].skus;
   const dispatch = useDispatch();
-
   const handleSizeChange = (sku) => {
     setSku(sku)
     setQuantity(quantityAvailable({sku, quantity: skus[sku].quantity } ,props.cart));
@@ -96,7 +95,7 @@ export default function ProductSelector(props) {
       <div id="overview_selector">
         <div className="flex justify-between p-5">
           <div id="size">
-            <select id="overview_select_size" className="border-2 p-3 border-black " name="size"  defaultValue={"DEFAULT"} onChange={(e) => {
+            <select id="overview_select_size" className="border-2 p-3 border-black " value={order.size} name="size"  defaultValue={"DEFAULT"} onChange={(e) => {
               handleSizeChange(e.target.value)
             }}>
               <option value="DEFAULT" disabled>SELECT SIZE</option>
@@ -106,7 +105,7 @@ export default function ProductSelector(props) {
             </select>
           </div>
           <div id="quantity" className="">
-            <select id="overview_select_quantity" className="border-2 p-3 border-black" name="quantity" defaultValue={"DEFAULT"} onChange={(e) => handleAddQuantity(e.target.value)}>
+            <select id="overview_select_quantity" className="border-2 p-3 border-black" value={order.quantity} name="quantity" defaultValue={"DEFAULT"} onChange={(e) => handleAddQuantity(e.target.value)}>
               {quantity === 0 ? <option  value="DEFAULT" disabled>OUT OF STOCK</option> : <option  value="DEFAULT" disabled>QUANTITY</option>}
               {Array.from(Array(quantity), (num, i) => {
                 if(quantity) {
@@ -119,7 +118,7 @@ export default function ProductSelector(props) {
           </div>
         </div>
         <div id="styleButton" className="flex justify-between p-5">
-          <button className="border-2 p-3  border-black whitespace-pre grow hover:bg-blue-300" onClick={() => handleAddToCart()} >ADD TO BAG   +</button>
+          <button id="overview_addedItemToCart" className="border-2 p-3  border-black whitespace-pre grow hover:bg-blue-300" onClick={() => handleAddToCart()} >ADD TO BAG   +</button>
         </div>
       </div>
     </div>
