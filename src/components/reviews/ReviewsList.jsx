@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import ReviewTile from './ReviewTile.jsx';
 import ReviewModal from './ReviewModal.jsx';
 import '../../style/ratings-reviews/reviews.css';
-import { sortByDate, sortByRelevance, sortByHelpfulness } from '../../utils/reviews/sorting.js';
-
 
 const ReviewsList = (props) => {
 
@@ -21,15 +19,15 @@ const ReviewsList = (props) => {
   const sort = (e) => {
     switch (e.target.value) {
       case 'relevance':
-        props.sorted = false;
+        props.sortByDropdown('relevance');
         setDisplayLength(2);
         break;
       case 'newest':
-        sortByDate(props.reviews);
+        props.sortByDropdown('newest');
         setDisplayLength(2);
         break;
       case 'helpfulness':
-        sortByHelpfulness(props.reviews);
+        props.sortByDropdown('helpfulness');
         setDisplayLength(2);
         break;
       default:

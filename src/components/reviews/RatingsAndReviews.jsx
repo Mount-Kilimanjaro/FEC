@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 import RatingBreakdown from './RatingBreakdown.jsx';
 import ReviewsList from './ReviewsList.jsx';
-import { sortByStarRating } from '../../utils/reviews/sorting.js';
+import { sortByStarRating, sortByDate, sortByHelpfulness } from '../../utils/reviews/sorting.js';
 
 
 const RatingsAndReviews = (props) => {
@@ -48,6 +48,26 @@ const RatingsAndReviews = (props) => {
     }
   }
 
+  const sortByDropdown = (target) => {
+    var list = sort ? sortedReviews : reviewList.results;
+    switch (target) {
+      case 'relevance':
+        toggleSort(false);
+        break;
+      case 'newest':
+        const newest = sortByDate(list);
+        setSorted(newest);
+        toggleSort(true);
+        break;
+      case 'helpfulness':
+        const helpful = sortByHelpfulness(list);
+        setSorted(helpful);
+        toggleSort(true);
+        break;
+      default:
+        break;
+    }
+  }
   return (
     <div id="reviews-container">
       <RatingBreakdown metadata={reviewsMeta} sortByStars={sortByStars}/>
@@ -56,6 +76,7 @@ const RatingsAndReviews = (props) => {
         reviews={reviewList.results}
         sort={sort}
         sortedReviews={sortedReviews}
+        sortByDropdown={sortByDropdown}
       />
     </div>
   )
