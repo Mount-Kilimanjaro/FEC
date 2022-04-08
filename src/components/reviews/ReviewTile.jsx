@@ -58,46 +58,40 @@ const ReviewTile = (props) => {
   }
 
   return (
-    <>
-      <div className="reviewTile-container">
 
-        <div className="reviewHeader">
-
-          <span>
-            <div className="reviewTile-stars">
-              <RatingStar
-                id="userRating-star"
-                clickable={props.clickable}
-                size={20}
-                maxScore={5}
-                rating={props.review.rating}
-                colors={{ rear: 'transparent', stroke: 'black', mask: 'black' }}
-              />
-            </div>
-          </span>
-          <span>{props.review.reviewer_name}, {formatDate(props.review.date)}</span>
-
-        </div>
-
-        <div className="reviewSummary"><b>{props.review.summary}</b></div>
-
-        <div className="reviewBody ">{props.review.body}</div>
-
-        {!props.review.photos.length ? <></> : <div style={{ display: 'flex' }}>{displayPhotos()} </div>}
-
-        {!props.review.recommend ? <></> : <div style={{ margin: '3px' }}><b>✓</b> I recommend this product </div>}
-
-        {!props.review.response ? <></> : <div className="sellerResponse "><b>Response from seller:</b> {props.review.response} </div>}
-
-        <div className="reviewHelpful">
-          <span>Helpful? </span>
-          <span className="helpfulness-buttons" dataid={props.review.review_id} onClick={(e) => handleHelpfulReview(e)}>Yes</span>
-          <span id={props.review.review_id}>({props.review.helpfulness}) | </span>
-          <span className="helpfulness-buttons" dataid={props.review.review_id} onClick={(e) => report(e)}> Report</span>
-        </div>
+    <div className="reviewTile-container">
+      <div className="reviewHeader">
+        <span>
+          <div className="reviewTile-stars">
+            <RatingStar
+              id="userRating-star"
+              size={20}
+              maxScore={5}
+              rating={props.review.rating}
+              colors={{ rear: 'transparent', stroke: 'black', mask: 'black' }}
+            />
+          </div>
+        </span>
+        <span>{props.review.reviewer_name}, {formatDate(props.review.date)}</span>
       </div>
 
-    </>
+      <div className="reviewSummary"><b>{props.review.summary}</b></div>
+
+      <div className="reviewBody ">{props.review.body}</div>
+
+      {!props.review.photos.length ? <></> : <div style={{ display: 'flex' }}>{displayPhotos()} </div>}
+
+      {!props.review.recommend ? <></> : <div style={{ margin: '3px' }}><b>✓</b> I recommend this product </div>}
+
+      {!props.review.response ? <></> : <div className="sellerResponse "><b>Response from seller:</b> {props.review.response} </div>}
+
+      <div className="reviewHelpful">
+        <span>Helpful? </span>
+        <span className="helpfulness-buttons" dataid={props.review.review_id} onClick={(e) => handleHelpfulReview(e)}>Yes</span>
+        <span id={props.review.review_id}>({props.review.helpfulness}) | </span>
+        <span className="helpfulness-buttons" dataid={props.review.review_id} onClick={(e) => report(e)}> Report</span>
+      </div>
+    </div>
   )
 }
 

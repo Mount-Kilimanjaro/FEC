@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import ReviewTile from './ReviewTile.jsx';
 import ReviewModal from './ReviewModal.jsx';
-import Button from './Button.jsx'
 import '../../style/ratings-reviews/reviews.css';
-import { sortByDate, sortByRelevance, sortByHelpfulness, sortByStarRating } from '../../utils/reviews/sorting.js';
+import { sortByDate, sortByRelevance, sortByHelpfulness } from '../../utils/reviews/sorting.js';
 
 
 const ReviewsList = (props) => {
 
   const [displayListLength, setDisplayLength] = useState(2);
   const [displayButton, toggleButton] = useState('inline');
-  const [displayModal, toggleModal] = useState(false);
 
   const addReviews = (e) => {
     if (props.reviews[displayListLength + 2] !== undefined) {
@@ -24,14 +22,15 @@ const ReviewsList = (props) => {
   const sort = (e) => {
     switch (e.target.value) {
       case 'relevance':
-        sortByRelevance();
+        props.reviews = sortByRelevance();
+        setDisplayLength(2);
         break;
       case 'newest':
         sortByDate(props.reviews);
         setDisplayLength(2);
         break;
       case 'helpfulness':
-        sortByHelpfulness();
+        sortByHelpfulness(props.reviews);
         setDisplayLength(2);
         break;
       default:
@@ -63,7 +62,7 @@ const ReviewsList = (props) => {
             <ReviewTile review={review} />
           </div>
         ))}
-        {displayListLength < 1 ? <Button className="reviewButtons" onClick={(e) => openModal(e)} label={"ADD A REVIEW"} /> : <></>}
+        {displayListLength < 1 ? <button className="reviewButtons" onClick={(e) => openModal(e)} label={"ADD A REVIEW"}>ADD A REVIEW+</button> : <></>}
       </div>
 
       <div className="reviewButtons-container">

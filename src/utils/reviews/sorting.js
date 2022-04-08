@@ -13,7 +13,7 @@ module.exports = {
     });
     return sorted.reverse();
   },
-  sortByRelevance: async (id, reviews) => {
+  sortByRelevance: async (id) => {
     try {
       var headers = {
         'Authorization': process.env.REACT_APP_API_TOKEN
@@ -26,11 +26,17 @@ module.exports = {
       console.error(err);
     }
   },
-  sortByStarRating: (rating, reviews) => {
-    return reviews.filter((review) => {
-      if (review.rating === rating) {
-        return review;
-      }
-    });
+  sortByStarRating: (ratingList, reviews) => {
+    console.log(ratingList, 'ratingList');
+    console.log(reviews, 'reviews');
+    // var copies = [...reviews];
+    // if (ratingList.length > 1) {
+
+    // }
+    // return reviews.filter((review) => {
+    //   if (review.rating === rating) {
+    //     return review;
+    //   }
+    // });
   }
 }

@@ -27,6 +27,11 @@
   height: 600px;
 }
 
+#ratingBreakdown-title {
+  width: 100%;
+  height: 10px;
+}
+
 #reviewCount {
   text-align: center;
   padding-bottom: 10px;
@@ -97,9 +102,15 @@
 .helpfulness-buttons {
   text-decoration: underline;
 }
+
 #rating-summary {
   display: flex;
   align-items: flex-start;
+}
+
+#averageRating {
+  font-size: 4em;
+  font-weight: bold;
 }
 
 .requiredInput {
@@ -146,10 +157,16 @@ div#characteristics-breakdown > div {
 .percentageBar {
   padding-left: 10px;
   height: 10px;
+  display: inline-flex;
 }
+
 .percentageBar-container {
   display: flex;
   padding: 3px;
+}
+
+#ratingBreakdownStars {
+  padding-top: 25px;
 }
 
 #star-breakdown div {
@@ -159,10 +176,16 @@ div#characteristics-breakdown > div {
   padding: 0 .25rem;
   transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
 }
+
 #star-breakdown div:hover {
   box-shadow: inset 300px 0 0 0 #d2d4d5;
   color: rgb(0, 0, 0);
   border-radius: 3px;
+}
+
+.star-filter {
+  display: inline-flex;
+  text-decoration: underline;
 }
 
 .progress {
@@ -192,10 +215,6 @@ div#reviewCount > select {
   margin-right: 8px;
   min-width: 60px;
   margin-left: 5px;
-}
-
-#rating-star {
-  padding: 0px;
 }
 
 /* modal CSS  */
@@ -243,7 +262,6 @@ div#reviewCount > select {
 }
 .modal-body {
   height: fit-content;
-  /* padding: 2px 16px; */
 }
 
 #submit-container {
@@ -373,5 +391,34 @@ input[type="file"] {
     width: 100%;
   }
 }
+#applied-filters {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 250px;
+}
 
+.filter-on {
+  font-size: 0.9em;
+  height: 28px;
+  background-color: lightgray;
+  width: fit-content;
+  border-radius: 8px;
+  margin: 3px;
+  padding: 5px;
+  max-height: 35px;
+}
+#removeFilters-container {
+  width: 250px;
+}
 
+#removeFilters-btn {
+  display: none;
+  min-width: 250px;
+  text-align: center;
+  background-color: lightgray;
+  font-size: 0.9em;
+  margin: 3px;
+  border-radius: 8px;
+  padding: 5px;
+  max-height: 35px;
+}
