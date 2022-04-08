@@ -50,10 +50,10 @@ const RatingBreakdown = (props) => {
 
 
   return (
-    <div id="ratingBreakdown-container">
+    <div id="ratingBreakdown-container" className="container sm:w-150">
     <p id="ratingBreakdown-title">RATINGS & REVIEWS</p>
 
-      <div id="rating-summary">
+      <div id="rating-summary" className="container sm:w-250">
         <span id="averageRating">{ Object.keys(props.metadata.ratings).length ? calculateRatingAverage(props.metadata.ratings) : '' }</span>
         <RatingStar
           id="ratingBreakdownStars"

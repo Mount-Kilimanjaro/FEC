@@ -167,7 +167,7 @@ const AddReviewForm = (props) => {
               Enter your email
               <span className="requiredInput">*</span>
             </div>
-            <input type="text" className="reviewInput" maxLength="60" name="email" placeholder="jackson11@email.com" onChange={handleChange} required /><br />
+            <input type="email" className="reviewInput" maxLength="60" name="email" placeholder="jackson11@email.com" onChange={handleChange} required /><br />
             <span>For authentication reasons, you will not be emailed.</span>
           </div>
         </div>

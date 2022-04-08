@@ -88,7 +88,7 @@ const RatingsAndReviews = (props) => {
   }
 
   return (
-    <div id="reviews-container">
+    <div id="reviews-container" className="container">
       <RatingBreakdown metadata={reviewsMeta} sortByStars={sortByStars}/>
       <ReviewsList
         metadata={reviewsMeta}

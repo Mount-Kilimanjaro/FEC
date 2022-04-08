@@ -12,7 +12,7 @@ const AddAReviewModal = (props) => {
   return (
 
     <div id="addReview-modal" className="modal">
-      <div className="modal-content">
+      <div className="modal-content" tabindex="0">
         <div className="modal-header">
           <span onClick={(e) => props.closeModal(e)}className="close">&times;</span>
           <h3>Write your review</h3>
