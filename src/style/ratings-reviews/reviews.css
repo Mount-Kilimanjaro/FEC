@@ -96,7 +96,7 @@
 }
 
 .sellerResponse {
-  background-color: lightgray;
+  background-color: #bbbfc34b;
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -347,14 +347,27 @@ input[type="file"] {
 .userImages-modal {
   border-radius: 5px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 300ms;
   margin: auto;
   display: block;
   width: 80%;
   max-width: 700px;
   animation-name: zoom;
-  animation-duration: 0.3s;
+  animation-duration: 450ms;
   position: relative;
+}
+
+.userImages, .userPhotos-addReview {
+  max-width: 100px;
+  max-height: 120px;
+  object-fit: contain;
+  padding: 3px;
+  border-radius: 5px;
+}
+
+.userImages-container {
+  display: flex;
+  align-items: center;
 }
 
 @keyframes zoom {

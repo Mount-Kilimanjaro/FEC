@@ -22,18 +22,8 @@ const ReviewTile = (props) => {
     if (props.review.photos.length > 1) {
       return props.review.photos.map((photo, index) => (
         <div key={JSON.stringify(photo)}>
-          <img
-            className="userImages"
-            src={`${photo.url}`}
-            width="100"
-            height="100"
-            alt=""
-            style={{ padding: '3px', borderRadius: '5px', objectFit: 'cover'}}
-            onClick={(e) => toggleModal(e)}
-          />
-          <ImageModal
-            toggleModal={toggleModal}
-          />
+          <img className="userImages" src={`${photo.url}`} alt="" onClick={(e) => toggleModal(e)} />
+          <ImageModal toggleModal={toggleModal} />
         </div>
       ))
     }
@@ -78,7 +68,7 @@ const ReviewTile = (props) => {
 
       <div className="reviewBody ">{props.review.body}</div>
 
-      {!props.review.photos.length ? <></> : <div style={{ display: 'flex' }}>{displayPhotos()} </div>}
+      {!props.review.photos.length ? <></> : <div className="userImages-container">{displayPhotos()} </div>}
 
       {!props.review.recommend ? <></> : <div style={{ margin: '3px' }}><b>✓</b> I recommend this product </div>}
 
