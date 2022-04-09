@@ -5,20 +5,23 @@ import {validOrderQuantity, resetSizeInputs, resetQuantityInputs, quantityAvaila
 
 
 export default function ProductSelector(props) {
-  const {product} = props;
+  const {product, updateStatistic} = props;
   const {styleIndex, handleSetStyleIndex} = props.styleIndex;
   const [quantity, setQuantity] = useState(null);
   const [order, setOrder] = useState({});
   const [sku, setSku] = useState('');
   const skus = product.style[styleIndex > product.style.length ? 0 : styleIndex].skus;
   const dispatch = useDispatch();
+  
   const handleSizeChange = (sku) => {
     setSku(sku)
     setQuantity(quantityAvailable({sku, quantity: skus[sku].quantity } ,props.cart));
     const item = {...order};
     item.sku = sku;
     item.size = skus[sku].size;
+    item.quantity = undefined;
     setOrder(item);
+    resetQuantityInputs();
   };
 
 
@@ -88,15 +91,15 @@ export default function ProductSelector(props) {
         <div id="style" className="flex flex-row flex-wrap gap-5 p-4 justify-center">
           {product.style.map((style, i) => {
             return (
-              <img key={i} id="styleThumbNail" className={`rounded-full hover:cursor-pointer border-2 hover:border-black hover:drop-shadow-lg ${styleIndex === i ? "border-blue-300 border-4" : ""}`} src={product.style[i].photos[0].url} alt="" onClick={() => handleSetStyle(i)}/>
+              <img key={i} id="styleThumbNail" className={`rounded-full hover:cursor-pointer border-2 hover:border-black hover:drop-shadow-lg ${styleIndex === i ? "border-blue-300 border-4" : ""}`} name='overview_productSelector_change_style' src={product.style[i].photos[0].url} alt="" onClick={(e) => updateStatistic(handleSetStyle(i),e)}/>
             )})}
         </div>
       </div>
       <div id="overview_selector">
         <div className="flex justify-between p-5">
           <div id="size">
-            <select id="overview_select_size" className="border-2 p-3 border-black " value={order.size} name="size"  defaultValue={"DEFAULT"} onChange={(e) => {
-              handleSizeChange(e.target.value)
+            <select id="overview_select_size" className="border-2 p-3 border-black " name="overview_productSelector_size_change"  defaultValue={"DEFAULT"} onChange={(e) => {
+              updateStatistic(handleSizeChange(e.target.value),e)
             }}>
               <option value="DEFAULT" disabled>SELECT SIZE</option>
               {Object.keys(skus).map((sku,i) => 
@@ -105,7 +108,9 @@ export default function ProductSelector(props) {
             </select>
           </div>
           <div id="quantity" className="">
-            <select id="overview_select_quantity" className="border-2 p-3 border-black" value={order.quantity} name="quantity" defaultValue={"DEFAULT"} onChange={(e) => handleAddQuantity(e.target.value)}>
+            <select id="overview_select_quantity" className="border-2 p-3 border-black"  value={order.quantity} name="overview_productSelector_quantity_change" defaultValue={"DEFAULT"} 
+              onChange={(e) => updateStatistic(handleAddQuantity(e.target.value),e)
+              }>
               {quantity === 0 ? <option  value="DEFAULT" disabled>OUT OF STOCK</option> : <option  value="DEFAULT" disabled>QUANTITY</option>}
               {Array.from(Array(quantity), (num, i) => {
                 if(quantity) {
@@ -118,7 +123,9 @@ export default function ProductSelector(props) {
           </div>
         </div>
         <div id="styleButton" className="flex justify-between p-5">
-          <button id="overview_addedItemToCart" className="border-2 p-3  border-black whitespace-pre grow hover:bg-blue-300" onClick={() => handleAddToCart()} >ADD TO BAG   +</button>
+          <button id="overview_addedItemToCart" className="border-2 p-3 border-black whitespace-pre grow hover:bg-blue-300" name='overview_productSelector_add_to_cart'
+          onClick={(e) => updateStatistic(handleAddToCart(),e)} 
+          >ADD TO BAG   +</button>
         </div>
       </div>
     </div>

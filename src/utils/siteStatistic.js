@@ -3,7 +3,7 @@ import {updateClicks} from '../store/reducer/siteStatisticReducer.js';
 
 export const updateStatistic = (fn, event) => {
     store.dispatch(updateClicks({[event ? event.target ? event.target.name : event : 'unnamed click']:1 }));
-    if (fn) return fn;
+    if(fn) return fn;
 }
 
 /* HOW TO USE

@@ -73,7 +73,7 @@ export default function Overview(props) {
     <div id="container" className="container pt-4 h-full mt-10"  >
         <div className="image&products flex md:flex-row flex-col items-center">
             <ProductImage img={{imageUrl, imagesUrl, changeImgUrl, carouselNextImage, setNextImage, setPreviousImage, updateStatistic}}/>
-            <ProductSelector product={currentItem} styleIndex={{styleIndex, handleSetStyleIndex}} imageUrl={imageUrl} handleToggleCart={props.handleToggleCart} cart={cart} />
+            <ProductSelector product={currentItem} styleIndex={{styleIndex, handleSetStyleIndex}} imageUrl={imageUrl} handleToggleCart={props.handleToggleCart} cart={cart} updateStatistic={updateStatistic}/>
         </div>
         <div className="information">
             <ProductInfo product={currentItem}/>
