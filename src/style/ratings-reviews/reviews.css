@@ -6,31 +6,33 @@
   margin: 0 auto;
   height: 550px;
 }
-
 #reviews-container {
   display: flex;
-  padding: 20px;
+  padding: 1.5%;
   width: 100%;
   max-width: 1280px;
   min-width: 480px;
-  max-height: 600px;
+
 }
 
 #reviewsList-container {
   width: 100%;
-  max-height: 550px;
+  height: 600px;
 }
+
 
 #ratingBreakdown-container {
   display: flex;
   flex-direction: column;
-  min-width: 350px;
-  height: 600px;
+  min-width: 23%;
+  /* width: 360px; */
+  height: 100%;
+  margin-right: 3%;
 }
 
 #ratingBreakdown-title {
   width: 100%;
-  height: 10px;
+  height: fit-content;
 }
 
 #reviewCount {
@@ -40,7 +42,7 @@
   position: relative;
   padding-bottom: 10px;
   height: 40px;
-  width: 900px;
+  width: 100%;
 }
 
 .reviewTile-container {
@@ -57,6 +59,7 @@
   border-top: white;
   border-width: 0.5px;
   justify-content: space-between;
+  margin-left: 5px;
 }
 
 .reviewHeader {
@@ -174,6 +177,8 @@ div#characteristics-breakdown > div {
 .breakdownBars {
   -webkit-appearance: none;
   width: 100%;
+  display: inline-block;
+  max-width: 245px;
 }
 
 input[type=range]::-webkit-slider-thumb {
@@ -234,6 +239,9 @@ input[type=range]::-webkit-slider-runnable-track {
   display: inline-flex;
   text-decoration: underline;
 }
+.percentRec {
+  width: max-content;
+}
 
 .progress {
   display: inline-block;
@@ -284,9 +292,9 @@ div#reviewCount > select {
   display: block;
   position: relative;
   background-color: #fefefe;
-  margin: 10% auto;
+  margin: 5% auto;
   border: 1px solid #888;
-  width: 45%;
+  width: 48%;
   min-width: 500px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
   animation-name: animatetop;
@@ -426,7 +434,7 @@ input[type="file"] {
   position: fixed;
   z-index: 999;
   min-width: 500px;
-  padding-top: 200px;
+  padding-top: 6%;
   left: 0;
   top: 0;
   width: 100%;
@@ -439,7 +447,8 @@ input[type="file"] {
 .img-close {
   position: absolute;
   top: 0vh;
-  right: 25vw;
+  left: 25vh;
+  align-content: center;
   color: #f1f1f1;
   font-size: 40px;
   font-weight: bold;
@@ -491,17 +500,17 @@ input[type="file"] {
 
 .searchDropdowns {
   min-width: 260px;
-  margin-right: 20%;
-  margin-left: 35%;
+  position: relative;
+  top: 0;
+  left: 38%;
 }
 
 .searchBar-container {
   display: flex;
-  width: 208px;
+  min-width: 208px;
   border-radius: 15px;
   border: 0.5px solid #bbbfc34b;
   background-color: #bbbfc34b;
-  margin-left: -30%;
 }
 
 button#searchBar-btn > img {
@@ -511,6 +520,81 @@ button#searchBar-btn > img {
 }
 
 .searchReviews-container {
-  display: inline-block;
-  margin-left: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+ /* @media (min-width: 300px) and (max-width: 480px) {
+  #reviews-container {
+    margin: 1%;
+    height: fit-content;
+    transform: scale(0.8);
+    margin-left: -18%;
+  }
+  #reviewsList-container {
+    min-width: 60vw;
+    overflow-x: scroll;
+  }
+  #ratingBreakdown-container {
+    margin-right: 4px;
+  }
+  #reviewCount {
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 5px;
+  }
+  .progress {
+    width: 150px;
+  }
+  .breakdownBars {
+    width: 200px;
+  }
+  .labels-container {
+    margin-left: 0;
+  }
+  .reviewTile-container {
+    height: fit-content;
+    min-width: 200px;
+  }
+} */
+
+@media only screen and (max-width: 1150px) {
+  #reviews-container {
+    transform: scale(0.8);
+    left: 0;
+  }
+}
+
+@media only screen and (max-width: 1000) {
+  #reviews-container {
+    transform: scale(0.6);
+    left: 0;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  #ratingBreakdown-container {
+    position: relative;
+    right: 10%;
+  }
+  #reviewsList-container {
+    max-width: 100vw;
+    width: fit-content;
+    position: relative;
+    left: 15%;
+  }
+
+  #reviewCount {
+    flex-direction: column;
+    height: fit-content;
+  }
+  .searchReviews-container {
+    position: relative;
+    left: 35%;
+  }
+  .searchDropdowns {
+    position: relative;
+    right: 5%;
+  }
 }

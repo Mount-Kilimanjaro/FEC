@@ -45,7 +45,7 @@ const ReviewsList = (props) => {
   }
 
   return (
-    <div className="container">
+    <div className="container reviewsList-outer">
       <div id="reviewCount">
         <div className="searchDropdowns">
           <b>{props.sort ? props.sortedReviews.length : props.reviews.length} reviews, sorted by</b>

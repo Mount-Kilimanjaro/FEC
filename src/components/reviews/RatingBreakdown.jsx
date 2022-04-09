@@ -53,7 +53,7 @@ const RatingBreakdown = (props) => {
     <div id="ratingBreakdown-container" className="container sm:w-150">
     <p id="ratingBreakdown-title">RATINGS & REVIEWS</p>
 
-      <div id="rating-summary" className="container sm:w-250">
+      <div id="rating-summary" className="container">
         <span id="averageRating">{ Object.keys(props.metadata.ratings).length ? calculateRatingAverage(props.metadata.ratings) : '' }</span>
         <RatingStar
           id="ratingBreakdownStars"
@@ -64,7 +64,7 @@ const RatingBreakdown = (props) => {
         <span className="starsRating-label">{labels[Math.round(props.rating - 1)]}</span>
         <br/>
       </div>
-        <div>{`${calculatePercentRecommend(props.metadata.recommended)}%`} of reviews recommend this product</div>
+        <div className="percentRec">{`${calculatePercentRecommend(props.metadata.recommended)}%`} of reviews recommend this product</div>
 
 
       <div id="star-breakdown">
