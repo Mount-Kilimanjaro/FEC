@@ -9,7 +9,7 @@ const ImageModal = (props) => {
         <div
           onClick={(e) => props.toggleModal(e)} className="img-close">
           &times;
-        <img src={props.img} id="img" className='userImages-modal' alt=''/>
+        <img src={props.img} id="img" className="userImages-modal" alt=""/>
         </div>
       </div>
     </div>
