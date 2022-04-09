@@ -3,6 +3,7 @@ import CartCard from "./CartCard.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import "../../../style/header/header.css";
 import {removeFromCart, modifyOrder} from "../../../store/reducer/shoppingCartReducer.js"
+import {resetQuantityInputs} from '../helperFn/shoppingCart.js'
 
 
 export default function ShoppingCart(props) {
@@ -16,6 +17,7 @@ export default function ShoppingCart(props) {
     
     const handleModifyOrder = (value, order) => {
         dispatch(modifyOrder({value, order}));
+        resetQuantityInputs();
     };
 
   return (

@@ -13,7 +13,6 @@ export default function Overview(props) {
   const [imageIndex, setImageIndex] = useState(0);
   const [imageUrl, setImageUrl] = useState("");
   const [imagesUrl, setImagesUrl] = useState([]);
-  const [sku, setSku] = useState("");
 
   const getImageIndex = (url) => {
     return imagesUrl.map((obj,i) => {
