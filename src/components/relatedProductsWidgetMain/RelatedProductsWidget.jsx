@@ -40,6 +40,10 @@ function RelatedProductsWidget () {
   //eslint-disable-next-line react-hooks/exhaustive-deps
 }, [myItem])
 
+useEffect ( () => {
+  
+})
+
 const comparisonChart = (event) => {
 for (var i = 0; i < relatedProductA.length; i++) {
   if (relatedProductA[i].style_id === Number(event.target.attributes.name.nodeValue)) {
