@@ -50,6 +50,8 @@ export const categorySlice = createSlice(
         ],
         related: []
       },
+      averageRating: 0,
+      myFavorite: [],
   },
     reducers: {
       setCategory: (state, {payload} ) => {
@@ -61,9 +63,19 @@ export const categorySlice = createSlice(
       setCurrentId: (state, {payload}) => {
         state.currentItemId = payload;
       },
+      addToFavorite: (state, {payload}) => {
+        const cpyState = [...state.myFavorite]
+        payload.push(cpyState);
+        state.currentItemId = payload;
+        state.myFavorite = cpyState;
+      },
+      removeFromFavorite: (state, {payload}) => {
+        const cpyState = [...state.myFavorite];
+        cpyState.splice(cpyState.indexOf(payload),1);
+        state.myFavorite = cpyState;
+      },
     },
-
   },
 );
 
-export const { setCategory , setCurrentItem, setCurrentId } = categorySlice.actions;
+export const { setCategory , setCurrentItem, setCurrentId, addToFavorite, removeFromFavorite } = categorySlice.actions;
