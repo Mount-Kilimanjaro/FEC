@@ -37,8 +37,8 @@ const AddReviewForm = (props) => {
     } else {
       var photoURLs = [];
       for (var key in e.target.files) {
-        let img = document.getElementById(`output${key}`);
         let url = URL.createObjectURL(e.target.files[key]);
+        let img = document.getElementById(`output${key}`);
         img.src = url;
         img.style.display = 'inline-block';
         photoURLs.push(url);
@@ -63,6 +63,7 @@ const AddReviewForm = (props) => {
       // formatData(props.metadata.characteristics, formData);
     }
   }
+
 
   return (
     <div id="form-container">
@@ -140,8 +141,14 @@ const AddReviewForm = (props) => {
             <input type="file" name="photos" id="uploadPhotos" accept="image/jpeg image/png" onChange={(e) => loadFile(e)} multiple />
 
             <div>
-              {[0, 1, 2, 3, 4, 5].map((index) => (
-                <img key={JSON.stringify(index)} id={`output${index}`} width="200" style={{ display: 'none' }} alt='userImg' />
+              {[0, 1, 2, 3, 4].map((index) => (
+                  <img
+                    key={JSON.stringify(index)}
+                    id={`output${index}`}
+                    className="userPhotos-addReview"
+                    alt=''
+                    src=""
+                   />
               ))}
             </div>
           </div>
@@ -160,7 +167,7 @@ const AddReviewForm = (props) => {
               Enter your email
               <span className="requiredInput">*</span>
             </div>
-            <input type="text" className="reviewInput" maxLength="60" name="email" placeholder="jackson11@email.com" onChange={handleChange} required /><br />
+            <input type="email" className="reviewInput" maxLength="60" name="email" placeholder="jackson11@email.com" onChange={handleChange} required /><br />
             <span>For authentication reasons, you will not be emailed.</span>
           </div>
         </div>
