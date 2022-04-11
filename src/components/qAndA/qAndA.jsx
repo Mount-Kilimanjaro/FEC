@@ -39,7 +39,9 @@ const QAndA = (props) => {
         console.log(err);
       }
     };
-    fetchQuestions();
+      if (currentItemId) {
+        fetchQuestions();
+      }
     }, [currentItemId]);
 
   /*
