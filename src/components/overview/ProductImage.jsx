@@ -29,7 +29,12 @@ export default function ProductImage(props) {
             <img id="productImages_arrowLeft" className="overview_image_arrows hover:cursor-pointer opacity-50 hover:opacity-100 select-none mr-80" name='overview_productImage_main_arrow_left' alt="" onClick={(e) => updateStatistic(setPreviousImage(),e)} src={arrowLeft}/ >
             <img id="productImages_arrowRight"className="overview_image_arrows hover:cursor-pointer opacity-50 hover:opacity-100 select-none" name='overview_productImage_main_arrow_right' alt="" onClick={(e) => updateStatistic(setNextImage(),e)} src={arrowRight}/ >
           </div>
-          <img id="overview_main_img" className="h-full p-3 md:min-h-650" src={imageUrl} alt="" onClick={() => toggleModal(true)}/>
+          <img id="overview_main_img" className="h-full p-3 md:min-h-650 md:hover:cursor-pointer" src={imageUrl} alt="" 
+          onClick={() => {
+            if (window.innerWidth > 500) {
+              toggleModal(true)
+            }
+            }}/>
         </div>
         <Modal visibility={modal} toggleModal={toggleModal}>
             <img className="md:max-w-1280 md:max-h-1000" src={imageUrl} alt=""/>
