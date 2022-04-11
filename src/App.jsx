@@ -82,7 +82,6 @@ function App() {
       }
     }
     //invoke fetchItem
-
     fetchItem();
     //eslint-disable-next-line react-hooks/exhaustive-deps
   },[currentItemId]);

@@ -43,9 +43,9 @@ module.exports = {
     },
     hideOverFlow: (boolean) => {
       if (boolean) {
-          document.body.classList.add('hideOverFlow');
+          document.body.classList.add("hideOverFlow");
        }else {
-          document.body.classList.remove('hideOverFlow');
+          document.body.classList.remove("hideOverFlow");
        }
   },
 };
