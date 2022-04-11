@@ -11,7 +11,7 @@ const AddAReviewModal = (props) => {
   }
   return (
 
-    <div id="addReview-modal" className="modal container">
+    <div id="addReview-modal" className="modal">
       <div className="modal-content">
         <div className="modal-header">
           <span onClick={(e) => props.closeModal(e)}className="close">&times;</span>
@@ -22,11 +22,6 @@ const AddAReviewModal = (props) => {
         <div className="modal-body">
           <AddReviewForm metadata={props.metadata}/>
         </div>
-        <hr/>
-        {/* <div className="modal-footer">
-          <button id="submitReview" onClick={(e) => props.closeModal(e)}>Submit Review</button>
-        </div> */}
-
       </div>
     </div>
 

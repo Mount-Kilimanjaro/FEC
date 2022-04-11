@@ -1,6 +1,10 @@
 .App {
   min-width: 480px;
 }
+.hideOverFlow {
+  overflow: hidden;
+  padding-right: 16px;
+}
 
 /* .App-logo {
   height: 40vmin;

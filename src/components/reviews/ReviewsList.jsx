@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
 import ReviewTile from './ReviewTile.jsx';
 import ReviewModal from './ReviewModal.jsx';
-import Button from './Button.jsx'
+import SearchReviews from './SearchReviews.jsx';
 import '../../style/ratings-reviews/reviews.css';
-import { sortByDate, sortByRelevance, sortByHelpfulness, sortByStarRating } from '../../utils/reviews/sortingUtils.js';
-
 
 const ReviewsList = (props) => {
 
   const [displayListLength, setDisplayLength] = useState(2);
   const [displayButton, toggleButton] = useState('inline');
-  const [displayModal, toggleModal] = useState(false);
 
   const addReviews = (e) => {
     if (props.reviews[displayListLength + 2] !== undefined) {
@@ -20,18 +17,18 @@ const ReviewsList = (props) => {
       toggleButton('none');
     }
   }
-
   const sort = (e) => {
     switch (e.target.value) {
       case 'relevance':
-        sortByRelevance();
+        props.sortByDropdown('relevance');
+        setDisplayLength(2);
         break;
       case 'newest':
-        sortByDate(props.reviews);
+        props.sortByDropdown('newest');
         setDisplayLength(2);
         break;
       case 'helpfulness':
-        sortByHelpfulness();
+        props.sortByDropdown('helpfulness');
         setDisplayLength(2);
         break;
       default:
@@ -48,22 +45,30 @@ const ReviewsList = (props) => {
   }
 
   return (
-    <div className="container">
-      <div id="reviewCount"><b>{props.reviews.length} reviews, sorted by</b>
-        <select onChange={(e) => sort(e)}>
-          <option>relevance</option>
-          <option>newest</option>
-          <option>helpfulness</option>
-        </select>
-      </div>
+    <div className="container reviewsList-outer">
+      <div id="reviewCount">
+        <div className="searchDropdowns">
+          <b>{props.sort ? props.sortedReviews.length : props.reviews.length} reviews, sorted by</b>
+          <select onChange={(e) => sort(e)}>
+            <option>relevance</option>
+            <option>newest</option>
+            <option>helpfulness</option>
+          </select>
+        </div>
+        <div className="searchReviews-container"><SearchReviews filterBySearch={props.filterBySearch}/></div>
 
+      </div>
       <div id="reviewsList-container" className="scroller">
-        {props.reviews.slice(0, displayListLength).map((review) => (
+        {props.sort ? props.sortedReviews.slice(0, displayListLength).map((review) => (
+          <div key={JSON.stringify(review)}>
+            <ReviewTile review={review} />
+          </div>
+        )) : props.reviews.slice(0, displayListLength).map((review) => (
           <div key={JSON.stringify(review)}>
             <ReviewTile review={review} />
           </div>
         ))}
-        {displayListLength < 1 ? <Button className="reviewButtons" onClick={(e) => openModal(e)} label={"ADD A REVIEW"} /> : <></>}
+        {displayListLength < 1 ? <button className="reviewButtons" onClick={(e) => openModal(e)} label={"ADD A REVIEW"}>ADD A REVIEW+</button> : <></>}
       </div>
 
       <div className="reviewButtons-container">

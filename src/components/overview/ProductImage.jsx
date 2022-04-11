@@ -1,10 +1,13 @@
-import React from "react"
+import React, { useState } from "react"
 import arrowDown from "./assets/down_arrow.png"
 import arrowRight from "./assets/right_arrow.png"
 import arrowLeft from "./assets/left_arrow.png"
+import Modal from "./Modal"
 
 export default function ProductImage(props) {
   const {imageUrl, imagesUrl, changeImgUrl, carouselNextImage, setNextImage, setPreviousImage, updateStatistic} = props.img
+  const [modal , toggleModal] = useState(false)
+
   return (
       <div id="productImage" className="container w:full md:w-4/6 h-300 md:h-full ">
           <div id="imageWheel" className="p-2 hidden md:block absolute z-10">
@@ -26,8 +29,16 @@ export default function ProductImage(props) {
             <img id="productImages_arrowLeft" className="overview_image_arrows hover:cursor-pointer opacity-50 hover:opacity-100 select-none mr-80" name='overview_productImage_main_arrow_left' alt="" onClick={(e) => updateStatistic(setPreviousImage(),e)} src={arrowLeft}/ >
             <img id="productImages_arrowRight"className="overview_image_arrows hover:cursor-pointer opacity-50 hover:opacity-100 select-none" name='overview_productImage_main_arrow_right' alt="" onClick={(e) => updateStatistic(setNextImage(),e)} src={arrowRight}/ >
           </div>
-          <img id="overview_main_img" className="h-full p-3 md:min-h-650" src={imageUrl} alt=""/>
+          <img id="overview_main_img" className="h-full p-3 md:min-h-650 md:hover:cursor-pointer" src={imageUrl} alt="" 
+          onClick={() => {
+            if (window.innerWidth > 500) {
+              toggleModal(true)
+            }
+            }}/>
         </div>
+        <Modal visibility={modal} toggleModal={toggleModal}>
+            <img className="md:max-w-1280 md:max-h-1000" src={imageUrl} alt=""/>
+        </Modal>
       </div>
     )
 }

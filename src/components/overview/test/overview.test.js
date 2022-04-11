@@ -84,7 +84,7 @@ describe('ProductSelector Testing', () => {
   beforeEach(() => {
     wrapper = mount(
       <Provider store ={store}>
-        <ProductSelector styleIndex={{styleIndex, handleSetStyleIndex: () => {}}} product={currentItem} cart={cart} />
+        <ProductSelector styleIndex={{styleIndex, handleSetStyleIndex: () => {}}} product={currentItem} cart={cart} updateStatistic={(fn) => fn}/>
       </Provider>
     )
   })
@@ -103,7 +103,7 @@ describe('ProductSelector Testing', () => {
   // handleClick.mockImplementation(order => [order, setOrder]);
     wrapper.find("#overview_select_size").simulate('change', {target: {value: 1}})
     expect(wrapper.find('#overview_select_size').props().value).toBe(
-      'xs'
+      1
     );
   })
 

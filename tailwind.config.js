@@ -17,6 +17,9 @@ module.exports = {
       minHeight: {
         '650': '650px',
       },
+      maxHeight: {
+        '1000': '1000px',
+      },
       width: {
         '25' : '25px',
         '40' : '40px',
@@ -36,9 +39,12 @@ module.exports = {
       },
       minWidth: {
         '600': '600px',
+        '1280': '1280px',
       },
       maxWidth: {
+        '700': '1000px',
         '70': '900px',
+        '1280': '1280px',
       }
     },
   },
