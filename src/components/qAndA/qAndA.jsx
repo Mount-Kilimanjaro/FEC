@@ -14,7 +14,7 @@ const QAndA = (props) => {
   //const [aListData, aListUpdater] = useState([]);
 
   const headers = {
-    "Authorization": process.env.REACT_APP_API_TOKEN
+    'Authorization': process.env.REACT_APP_API_TOKEN
   };
 
   /*
@@ -27,20 +27,20 @@ const QAndA = (props) => {
     -calls the List Questions API whenever the state of customerItemId changes
   */
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchQuestions = async () => {
       try {
-        const response = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions/?product_id=${currentItemId}`, {headers});
-        // console.log('QAndA.jsx|Line 19|response = ', response);
-        // console.log('QAndA.jsx|Line 20|response.data = ', response.data);
-        // console.log('QAndA.jsx|Line 21|response.data.results = ', response.data.results);
+        let url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions/?product_id=${currentItemId}`;
+        const response = await axios.get(url, {headers});
+        console.log('QAndA.jsx|Line 19|response = ', response);
+        console.log('QAndA.jsx|Line 20|response.data = ', response.data);
+        console.log('QAndA.jsx|Line 21|response.data.results = ', response.data.results);
         qListUpdater(response.data.results);
-      }
-      catch (err) {
+      } catch (err) {
         console.log(err);
       }
     };
-    fetchData();
-  }, [currentItemId]);
+    fetchQuestions();
+    }, [currentItemId]);
 
   /*
   useEffect
