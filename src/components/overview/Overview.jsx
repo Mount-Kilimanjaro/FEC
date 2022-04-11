@@ -5,6 +5,7 @@ import ProductInfo from "./ProductInfo.jsx";
 import "../../style/overView/overView.css";
 import { useSelector } from "react-redux";
 import {updateStatistic} from '../../utils/siteStatistic.js';
+import Modal from "./Modal.jsx";
 
 export default function Overview(props) {
   const currentItem = useSelector(state => state.category.currentItem);
@@ -13,7 +14,6 @@ export default function Overview(props) {
   const [imageIndex, setImageIndex] = useState(0);
   const [imageUrl, setImageUrl] = useState("");
   const [imagesUrl, setImagesUrl] = useState([]);
-  const [sku, setSku] = useState("");
 
   const getImageIndex = (url) => {
     return imagesUrl.map((obj,i) => {
@@ -72,14 +72,15 @@ export default function Overview(props) {
 
 
   return (
-    <div id="container" className="container pt-4 h-full mt-10"  >
+    <div id="container" className="container pt-4 h-full mt-10 "  >
         <div className="image&products flex md:flex-row flex-col items-center">
             <ProductImage img={{imageUrl, imagesUrl, changeImgUrl, carouselNextImage, setNextImage, setPreviousImage, updateStatistic}}/>
-            <ProductSelector product={currentItem} styleIndex={{styleIndex, handleSetStyleIndex}} imageUrl={imageUrl} handleToggleCart={props.handleToggleCart} cart={cart} />
+            <ProductSelector product={currentItem} styleIndex={{styleIndex, handleSetStyleIndex}} imageUrl={imageUrl} handleToggleCart={props.handleToggleCart} cart={cart} updateStatistic={updateStatistic}/>
         </div>
         <div className="information">
             <ProductInfo product={currentItem}/>
         </div>
+        <Modal/>
     </div>
   )
 }

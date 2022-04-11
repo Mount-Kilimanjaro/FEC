@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import {setCurrentId} from "../../store/reducer/categoryReducer.js"
+import {hideOverFlow} from "./helperFn/shoppingCart.js"
 
 export default function SearchModal(props) {
     const [pagination, setPagination] = useState([[0,10]]);
@@ -30,6 +31,10 @@ export default function SearchModal(props) {
             setPagination([[0,props.filteredData.length]])
         }
       }, [props.filteredData]);
+
+      useEffect(() => {
+        hideOverFlow(modalVisible);
+       }, [modalVisible])
 
   return (
       <div id="overview_search_modal" className={`w-full fixed  top-[110px] md:top-[60px] left-0 justify-center ${modalVisible ? "flex " : "hidden"}`}>

@@ -41,4 +41,11 @@ module.exports = {
           }
         return item.quantity;
     },
+    hideOverFlow: (boolean) => {
+      if (boolean) {
+          document.body.classList.add("hideOverFlow");
+       }else {
+          document.body.classList.remove("hideOverFlow");
+       }
+  },
 };
