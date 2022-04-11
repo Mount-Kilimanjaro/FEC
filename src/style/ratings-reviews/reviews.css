@@ -126,7 +126,9 @@
   font-size: 0.8em;
   justify-content: space-between;
   margin-left: 25px;
-  max-width: 200px;
+  width: 200px;
+  /* max-width: 200px;
+  min-width: 200px; */
 }
 
 .labels-modalChars {
@@ -224,8 +226,9 @@ input[type=range]::-webkit-slider-runnable-track {
   display: inline-flex;
   text-decoration: underline;
 }
+
 .percentRec {
-  width: max-content;
+  width: fit-content;
 }
 
 .progress {
@@ -317,8 +320,7 @@ div#reviewCount > select {
 
 /* submit review button on modal */
 #submitReview {
-  border-width: 0.5px;
-  border: solid;
+  border: 0.5px solid black;
   float: right;
   margin-top: 6px;
   padding: 10px;
@@ -418,7 +420,7 @@ input[type="file"] {
 .img-modal {
   display: none;
   position: fixed;
-  z-index: 999;
+  z-index: 2;
   min-width: 500px;
   padding-top: 6%;
   left: 0;
@@ -432,10 +434,13 @@ input[type="file"] {
 
 .img-close {
   position: absolute;
-  top: 0vh;
-  left: 25vh;
+  top: 30%;
+  left: 30%;
   align-content: center;
   color: #f1f1f1;
+  width: 500px;
+  height: 400px;
+  object-fit: cover;
   font-size: 40px;
   font-weight: bold;
   transition: 0.2s;

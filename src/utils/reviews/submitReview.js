@@ -20,7 +20,7 @@ const postData = (data) => {
   const headers = {
       'Authorization': process.env.REACT_APP_API_TOKEN
   };
-  axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/', data, { headers })
+  axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/', { data }, { headers })
     .then((response) => console.log(response.data))
     .catch((err) => console.error('Unsuccessful POST: ', err));
 }
