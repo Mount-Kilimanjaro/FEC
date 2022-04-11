@@ -74,7 +74,6 @@ function App() {
           item.related = getRelated.data
           item.averageRating = calculateRatingAverage(ratings)
           //dispatch to set redux state
-          console.log(item)
           dispatch(setCurrentItem(item))
         }
       }
@@ -88,8 +87,8 @@ function App() {
     //eslint-disable-next-line react-hooks/exhaustive-deps
   },[currentItemId]);
   return (
-    <div className="App h-full w-full flex flex-col items-center relative">
-      <div className={`w-full h-full absolute inset-0 z-[70] bg-black/50 ${blurBG ? "block" : "hidden"}`} onMouseEnter={() => disableToggle ? "" :handleToggleCart() }></div>
+    <div className="App h-full w-full flex flex-col items-center relative ">
+      <div className={`w-full h-full absolute inset-0 z-[70] bg-black/50 ${blurBG ? "block" : "hidden"}`}></div>
         <Header cart={{handleToggleCart, cartVisibility}}/>
         <Overview handleToggleCart={handleToggleCart}/>
         <RelatedProducts/>

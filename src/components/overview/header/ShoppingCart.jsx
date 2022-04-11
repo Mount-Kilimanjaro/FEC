@@ -1,9 +1,10 @@
-import React from "react"
+import React, {useEffect} from "react"
 import CartCard from "./CartCard.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import "../../../style/header/header.css";
 import {removeFromCart, modifyOrder} from "../../../store/reducer/shoppingCartReducer.js"
 import {resetQuantityInputs} from '../helperFn/shoppingCart.js'
+import {hideOverFlow} from "../helperFn/shoppingCart.js"
 
 
 export default function ShoppingCart(props) {
@@ -20,8 +21,12 @@ export default function ShoppingCart(props) {
         resetQuantityInputs();
     };
 
+    useEffect(() => {
+        hideOverFlow(cartVisibility);
+    }, [cartVisibility]);
+
   return (
-    <div id="header_shopping_cart" className={`absolute right-0 top-14 mt-1 bg-white border-2 z-[60] ${cartVisibility ? "w-full md:w-300 " : "w-0 h-0"}`}>
+    <div id="header_shopping_cart" className={`absolute right-0 top-14 mt-1 bg-white border-2 z-[60] ${cartVisibility ? "w-full md:w-300 " : "w-0 h-0"}`} onMouseLeave={() =>props.handleToggleCart()}>
         {cart.length > 0 ?
             <div>
                 <div className="mt-10 border-t-2 ">  
