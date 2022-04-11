@@ -5,7 +5,6 @@ import RatingBreakdown from './RatingBreakdown.jsx';
 import ReviewsList from './ReviewsList.jsx';
 import { sortByStarRating, sortByDate, sortByHelpfulness, filterByKeyword } from '../../utils/reviews/sorting.js';
 
-
 const RatingsAndReviews = (props) => {
 
   const id = useSelector((state) => state.category.currentItem.id);

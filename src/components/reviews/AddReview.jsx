@@ -146,7 +146,7 @@ const AddReviewForm = (props) => {
                     key={JSON.stringify(index)}
                     id={`output${index}`}
                     className="userPhotos-addReview"
-                    alt='userImg'
+                    alt=''
                     src=""
                    />
               ))}
