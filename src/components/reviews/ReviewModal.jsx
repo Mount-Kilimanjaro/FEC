@@ -14,13 +14,13 @@ const AddAReviewModal = (props) => {
     <div id="addReview-modal" className="modal">
       <div className="modal-content">
         <div className="modal-header">
-          <span onClick={(e) => props.closeModal(e)}className="close">&times;</span>
+          <span onClick={(e) => props.updateStatistic(props.closeModal(e), 'Ratings/Reviews: close add review modal')}className="close">&times;</span>
           <h3>Write your review</h3>
           <h5>About the { style } { product }</h5>
         </div>
         <hr/>
         <div className="modal-body">
-          <AddReviewForm metadata={props.metadata}/>
+          <AddReviewForm metadata={props.metadata} updateStatistic={props.updateStatistic}/>
         </div>
       </div>
     </div>

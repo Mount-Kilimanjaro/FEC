@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { RatingStar } from 'rating-star';
 import { calculateRatingAverage, calculatePercentRecommend, calculateTotalRatings } from '../../utils/reviews/ratingAverage.js';
 import ProductBreakdownBars from './ProductBreakdownBars.jsx';
+import { updateStatistic } from '../../utils/siteStatistic.js';
 
 const RatingBreakdown = (props) => {
 
@@ -49,10 +50,10 @@ const RatingBreakdown = (props) => {
   }
 
   return (
-    <div id="ratingBreakdown-container" className="container sm:w-150">
+    <div id="ratingBreakdown-container">
     <p id="ratingBreakdown-title">RATINGS & REVIEWS</p>
 
-      <div id="rating-summary" className="container">
+      <div id="rating-summary">
         <span id="averageRating">{ Object.keys(props.metadata.ratings).length ? calculateRatingAverage(props.metadata.ratings) : '' }</span>
         <RatingStar
           id="ratingBreakdownStars"
@@ -65,12 +66,12 @@ const RatingBreakdown = (props) => {
 
         <br/>
       </div>
-        <div className="percentRec">{`${calculatePercentRecommend(props.metadata.recommended)}%`} of reviews recommend this product</div>
+        <div className="percentRec">{`${calculatePercentRecommend(props.metadata.recommended)}%`} of {`${calculateTotalRatings(props.metadata.ratings)}`} total reviews recommend this product</div>
 
 
       <div id="star-breakdown">
         {[5, 4, 3, 2, 1].map((rating, index) => (
-          <div key={index} className="percentageBar-container" name={rating} onClick={(e) => filterByStarRating(e)}>
+          <div key={index} className="percentageBar-container" name={rating} onClick={(e) => updateStatistic(filterByStarRating(e), `Ratings/Reviews: ${rating} stars filter button`)}>
             <span className="star-filter" name={rating}>{rating} stars</span>
             <meter className="progress" value={props.metadata.ratings[rating]} max={calculateTotalRatings(props.metadata.ratings)} name={rating}/>
             <span name={rating} className="reviewCount-span">{props.metadata.ratings[rating]}</span>
@@ -80,11 +81,11 @@ const RatingBreakdown = (props) => {
 
       <div id="applied-filters">
         {activeFilters.map((rating) => (
-          <div onClick={(e) => toggleFilters(e)} key={JSON.stringify(`${rating}-filter`)} className="filter-on" id={`${rating}-filter`}>{`ⓧ ${rating} stars`}</div>
+          <div onClick={(e) => updateStatistic(toggleFilters(e), `Ratings/Reviews: ${rating} star remove filter button`)} key={JSON.stringify(`${rating}-filter`)} className="filter-on" id={`${rating}-filter`}>{`ⓧ ${rating} stars`}</div>
         ))}
       </div>
       <div id="removeFilters-container">
-        <div id="removeFilters-btn" onClick={(e) => toggleFilters(e)}> ⓧ REMOVE ALL FILTERS </div>
+        <div id="removeFilters-btn" onClick={(e) => updateStatistic(toggleFilters(e), 'Ratings/Reviews: remove all filters button')}> ⓧ REMOVE ALL FILTERS </div>
       </div>
       <div id="characteristics-breakdown">
           {generateBreakdown()}
