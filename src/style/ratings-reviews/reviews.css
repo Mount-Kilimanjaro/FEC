@@ -74,6 +74,7 @@
 .reviewHelpful {
   font-size: 0.9em;
   align-self: flex-end;
+  width: fit-content;
 }
 
 .reviewButtons-container {
@@ -119,6 +120,11 @@
   padding-bottom: 20px;
 }
 
+.formStars-label {
+  padding-top: 10px;
+}
+
+
 .labels-container {
   display: flex;
   font-size: 0.8em;
@@ -160,7 +166,7 @@ div#characteristics-breakdown > div {
 .breakdownBars {
   -webkit-appearance: none;
   display: inline-block;
-  max-width: 245px;
+  max-width: 250px;
   min-width: 220px;
   width: 100%;
 }
@@ -236,6 +242,10 @@ input[type=range]::-webkit-slider-runnable-track {
   width: 190px;
 }
 
+#recommendProduct {
+  width: fit-content;
+}
+
 div#reviewCount > select {
   background-color: white;
   font-weight: bold;
@@ -299,15 +309,9 @@ div#reviewCount > select {
 .modal-header h5 {
   font-size: 1.2em;
 }
+
 .modal-body {
   height: fit-content;
-}
-
-#submit-container {
-  background-color:#bbbfc32f;
-  height: 85px;
-  padding: 15px;
-  width: 100%;
 }
 
 #innerForm-container {
@@ -316,9 +320,12 @@ div#reviewCount > select {
 
 /* submit review button on modal */
 #submitReview {
-  border: 0.5px solid black;
+  background-color: #bbbfc32f;
+  border: 0.5px solid #999fa5;
   float: right;
   margin-top: 6px;
+  margin-right: 35px;
+  margin-bottom: 15px;
   padding: 10px;
 }
 
@@ -391,12 +398,20 @@ input[type="file"] {
   position: relative;
 }
 
+.userPhotos-addReview {
+  display: none;
+}
+
 .userImages, .userPhotos-addReview {
   max-width: 100px;
   max-height: 120px;
   object-fit: contain;
   padding: 3px;
   border-radius: 5px;
+}
+
+.addReview-warnings {
+  font-size: 0.8em;
 }
 
 .userImages-container {
