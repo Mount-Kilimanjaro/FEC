@@ -53,10 +53,10 @@ export default function SearchModal(props) {
             </p>
         </div> */}
         <div className="w-full md:min-w-600 md:max-w-70  flex flex-col bg-white items-center justify-center border-2 border-black " >
-            <div>
-                <select defaultValue={"DEFAULT"}>
+            <div className="p-2">
+                <select className="border-black hover:cursor-pointer border-2" defaultValue={"DEFAULT"}>
                     <option value="DEFAULT" disabled>Sort by</option>
-                    <option>Price: Low to High</option>
+                    <option >Price: Low to High</option>
                     <option>Price: High to High</option>
                 </select>
             </div>
