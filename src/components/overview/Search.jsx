@@ -64,7 +64,8 @@ export default function Search(props) {
       }else {
         toggleModalVisible(false);
         props.toggleBlurBG(false);
-      } 
+      }
+      //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [search,filter])
              
   return (
