@@ -5,21 +5,22 @@ import { useSelector } from "react-redux";
 
 function ComparisonM (props) {
   const myItem = useSelector(state => state.category.currentItem);
-
+console.log(props.prop1)
 
 
 if (props.showModal) {
   return (
     <div className="modalBackground">
 <div className='ComparisonModal'>
+  <h3>comparing</h3>
       <svg onClick={props.closeModal} xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 cancel_but" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
   <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
 </svg>
 <table>
   <tr>
-    <th>Basic</th>
-    <th>Pro</th>
-    <th>comparison</th>
+    <th className="tableLeft">{myItem.name}</th>
+
+    <th className="tableRight">{props.prop1.name}</th>
   </tr>
   <tr>
     <td>Sample text</td>

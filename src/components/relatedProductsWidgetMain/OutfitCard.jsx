@@ -5,6 +5,11 @@ import asset from './assets/asset.jpg';
 
 
 function OutfitCard (props) {
+
+  const RemoveProduct = () => {
+    // useDispatch(removeFromFavorite())
+  }
+
   if (props.prop1.photos[0].thumbnail_url) {
   return (
    <div className='relatedProductCards'>

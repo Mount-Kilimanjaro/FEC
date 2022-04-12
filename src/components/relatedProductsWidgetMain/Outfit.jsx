@@ -3,7 +3,7 @@ import OutfitCard from './OutfitCard.jsx';
 import { useSelector } from "react-redux";
 
 function Outfit (props) {
-  const myItem = useSelector(state => state.category.currentItem);
+  const outfitArray = useSelector(state => state.myFavorite);
 const [currentCard, setCard] = useState(0)
 
   const nextBut = () => {

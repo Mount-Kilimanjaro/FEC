@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Card from './RelatedProductCard.jsx';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 function RelatedProducts (props) {
-  const myItem = useSelector(state => state.category.currentItem);
+  const outfitArray = useSelector(state => state.myFavorite);
 const [currentCard, setCard] = useState(0)
-
+// useDispatch(addToFavorite(item))
   const nextBut = () => {
     setCard(currentCard + 1)
   }

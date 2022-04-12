@@ -68,9 +68,10 @@ width: 100%;
 .relatedProductCards {
   height: 350px;
   width: 225px;
-  border: 2px solid black;
+  border: 1px solid rgb(0 0 0 / 20%);
   background-color: #C0C0C0;
   flex-shrink: 0;
+  box-shadow: rgb(0 0 0 / 15%) 0px 15px 25px, rgb(0 0 0 / 5%) 0px 5px 10px;
   /* white-space:normal; */
 }
 
@@ -128,7 +129,7 @@ width: 100%;
 .cancel_but {
   position:absolute;
   left:98%;
-  transform: translate(-100%);
+  transform: translate(-90%, -90%);
 }
 
 .comparison_but {
@@ -137,16 +138,9 @@ width: 100%;
   transform: translate(201px);
 }
 
-.is-blurred {
-  filter: blur(2px);
-  -webkit-filter: blur(2px);
-}
-
 th {
-  padding-top: 30px;
+  padding-top: 10px;
 }
-
-
 
 .OutfitContent {
   list-style: none;
