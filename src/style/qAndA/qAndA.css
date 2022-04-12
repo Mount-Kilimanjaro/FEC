@@ -1,9 +1,21 @@
-#q-input-form {
-  border-style: solid;
-  border-width: 2px;
-  padding: 2px 5px;
+.q-and-a-container {
+  background-color: rgb(19, 218, 19);
 }
 
-#q-input-label {
+.q-and-a-title {
+  font-weight: 800;
+}
+
+.q-input-form {
+  border: thin solid;
+  padding: 2px 5px;
+  width: 100%;
+}
+
+.q-input-label {
   font-style: bold;
+}
+
+.q-ul {
+  border: thin solid;
 }
