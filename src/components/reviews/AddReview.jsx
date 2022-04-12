@@ -173,7 +173,7 @@ const AddReviewForm = (props) => {
         </div>
 
         <div id="submit-container">
-          <button id="submitReview" type="submit" onClick={() => submit()}>Submit Review</button>
+          <button id="submitReview" type="submit" onClick={() => props.updateStatistic(submit(), 'Ratings/Reviews: submit new review button')}>Submit Review</button>
         </div>
 
       </form>

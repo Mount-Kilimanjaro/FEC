@@ -9,28 +9,26 @@
 
 #reviews-container {
   display: flex;
-  height: 650px;
+  height: 100%;
   max-width: 1280px;
   min-width: 480px;
   padding: 1.5%;
   width: 100%;
 }
 
-#reviewsList-container {
+.reviewsList-outer {
   width: 100%;
 }
-
 
 #ratingBreakdown-container {
   display: flex;
   flex-direction: column;
   margin-right: 3%;
-  min-width: 23%;
-  width: 25%;
+  min-width: 300px;
 }
 
 #ratingBreakdown-title {
-  width: 100%;
+  width: fit-content;
 }
 
 #reviewCount {
@@ -42,23 +40,22 @@
 }
 
 .reviewTile-container {
-  border-color: white white black;
-  border-width: 0.5px;
-  box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+  border-radius: 6px;
   display: flex;
   flex-direction: column;
   height: fit-content;
   justify-content: space-between;
+  margin: 10px;
   min-height: 250px;
-  padding-bottom: 1%;
-  padding: 1% 0 1%;
-  width: 100%;
+  padding: 15px;
+  width: 95%;
 }
 
 .reviewHeader {
   display: flex;
   justify-content: space-between;
-  padding: 1% 0 1%;
+  font-size: 0.9em;
 }
 
 .reviewSummary {
@@ -74,8 +71,9 @@
   margin: 5px 0 5px;
 }
 
-.reviewHelpful, .reviewHeader {
+.reviewHelpful {
   font-size: 0.9em;
+  align-self: flex-end;
 }
 
 .reviewButtons-container {
@@ -127,8 +125,6 @@
   justify-content: space-between;
   margin-left: 25px;
   width: 200px;
-  /* max-width: 200px;
-  min-width: 200px; */
 }
 
 .labels-modalChars {
@@ -228,7 +224,7 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 .percentRec {
-  width: fit-content;
+  width: 90%;
 }
 
 .progress {
@@ -247,7 +243,7 @@ div#reviewCount > select {
 }
 
 .reviewCount-span {
-  font-size: 0.9em;
+  font-size: 0.85em;
   margin-left: 5px;
   margin-top: 1px;
 }
@@ -345,8 +341,8 @@ div#reviewCount > select {
 }
 
 /* add new review form on modal */
-#user-starRating {
-  padding-left: 0px;
+#userRating-star {
+  padding: 0px;
 }
 
 #form-container {
@@ -434,7 +430,7 @@ input[type="file"] {
 
 .img-close {
   position: absolute;
-  top: 30%;
+  top: 20%;
   left: 30%;
   align-content: center;
   color: #f1f1f1;
@@ -493,7 +489,8 @@ input[type="file"] {
   min-width: 260px;
   position: relative;
   top: 0;
-  left: 38%;
+  /* left: 38%; */
+  left: 30%;
 }
 
 .searchBar-container {
@@ -513,7 +510,8 @@ button#searchBar-btn > img {
 .searchReviews-container {
   position: absolute;
   top: 0;
-  right: 0;
+  /* right: 0; */
+  right: 4%;
 }
 
 /* @media only screen and (max-width: 1150px) {
@@ -530,10 +528,9 @@ button#searchBar-btn > img {
   }
 } */
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 720px) and (min-width: 300px) {
   #reviews-container {
     flex-direction: column;
-    min-height: max-content;
   }
   #reviewCount {
     margin-bottom: 2%;
@@ -541,23 +538,20 @@ button#searchBar-btn > img {
   #ratingBreakdown-container {
     min-width: 480px;
     align-items: center;
-    justify-content: center;
-    transform: scale(1.12);
   }
   #ratingBreakdown-container {
-    margin-bottom: 15%;
+    margin-bottom: 5%;
   }
   #star-breakdown {
     padding-bottom: 5px;
   }
-  #rating-summary, #ratingBreakdown-title {
-    transform: scale(1.2);
+  #rating-summary {
     position: relative;
-    left: 13%;
+    right: 17%;
   }
   .percentRec {
     position: relative;
-    right: 17%;
+    right: 8%;
   }
   #characteristics-breakdown {
     padding-top: 20px;
@@ -567,10 +561,6 @@ button#searchBar-btn > img {
   #reviewsList-container {
     min-width: 480px;
     font-size: 1.2em;
-    min-height: fit-content;
-  }
-  .reviewsList-outer {
-    min-height: fit-content;
   }
   #review-count {
     flex-direction: column;
@@ -584,6 +574,7 @@ button#searchBar-btn > img {
     left: 0;
     font-size: 1.2em;
     text-align: center;
+    padding-bottom: 5px;
   }
   .progress, .breakdownBars, .labels-container {
     min-width: 350px;
@@ -595,5 +586,26 @@ button#searchBar-btn > img {
     box-shadow: inset 438px 0 0 0 #bbbfc34b;
     color: rgb(0, 0, 0);
     border-radius: 3px;
+  }
+  #applied-filters, #removeFilters-container {
+    max-width: 100vw;
+  }
+}
+
+@media (max-width: 1125px) {
+  #reviewcount {
+    flex-direction: column;
+  }
+  .searchDropdowns {
+    left: 2%;
+  }
+}
+
+@media (max-width: 841px) {
+  #reviewCount {
+    flex-direction: column;
+  }
+  .searchDropdowns, .searchReviews-container {
+    position: static;
   }
 }

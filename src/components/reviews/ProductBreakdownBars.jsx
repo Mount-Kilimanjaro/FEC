@@ -5,7 +5,7 @@ const ProductBreakdownBars = (props) => {
 
   return (
     <div className="breakdownBar-container">
-      <input type="range" className="breakdownBars" defaultValue={props.metadata.value} min="0" max="5"/>
+      <input type="range" className="breakdownBars" defaultValue={props.metadata.value} title={props.metadata.value.slice(0, 3)} min="0" max="5"/>
 
       <BreakdownBarLabels char={props.char}/>
     </div>

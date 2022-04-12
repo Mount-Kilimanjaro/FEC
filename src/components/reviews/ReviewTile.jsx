@@ -22,8 +22,8 @@ const ReviewTile = (props) => {
     if (props.review.photos.length > 1) {
       return props.review.photos.map((photo, index) => (
         <div key={JSON.stringify(photo)}>
-          <img className="userImages" src={`${photo.url}`} alt="" onClick={(e) => toggleModal(e)} />
-          <ImageModal toggleModal={toggleModal} />
+          <img className="userImages" src={`${photo.url}`} alt="" onClick={(e) => props.updateStatistic(toggleModal(e), 'Ratings/Reviews: toggle review image modal')} />
+          <ImageModal toggleModal={toggleModal} updateStatistic={props.updateStatistic}/>
         </div>
       ))
     }
@@ -76,9 +76,9 @@ const ReviewTile = (props) => {
 
       <div className="reviewHelpful">
         <span>Helpful? </span>
-        <span className="helpfulness-buttons" dataid={props.review.review_id} onClick={(e) => handleHelpfulReview(e)}>Yes</span>
+        <span className="helpfulness-buttons" dataid={props.review.review_id} onClick={(e) => props.updateStatistic(handleHelpfulReview(e), 'Ratings/Reviews: report review helpful button')}>Yes</span>
         <span id={props.review.review_id}>({props.review.helpfulness}) | </span>
-        <span className="helpfulness-buttons" dataid={props.review.review_id} onClick={(e) => report(e)}> Report</span>
+        <span className="helpfulness-buttons" dataid={props.review.review_id} onClick={(e) => props.updateStatistic(report(e), 'Ratings/Reviews: report review button')}> Report</span>
       </div>
     </div>
   )
