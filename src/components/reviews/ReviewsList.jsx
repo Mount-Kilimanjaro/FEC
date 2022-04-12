@@ -3,6 +3,7 @@ import ReviewTile from './ReviewTile.jsx';
 import ReviewModal from './ReviewModal.jsx';
 import SearchReviews from './SearchReviews.jsx';
 import '../../style/ratings-reviews/reviews.css';
+import { updateStatistic } from '../../utils/siteStatistic.js';
 
 const ReviewsList = (props) => {
 
@@ -45,7 +46,7 @@ const ReviewsList = (props) => {
   }
 
   return (
-    <div className="container reviewsList-outer">
+    <div className="reviewsList-outer">
       <div id="reviewCount">
         <div className="searchDropdowns">
           <b>{props.sort ? props.sortedReviews.length : props.reviews.length} reviews, sorted by</b>
@@ -61,20 +62,24 @@ const ReviewsList = (props) => {
       <div id="reviewsList-container" className="scroller">
         {props.sort ? props.sortedReviews.slice(0, displayListLength).map((review) => (
           <div key={JSON.stringify(review)}>
-            <ReviewTile review={review} />
+            <ReviewTile review={review} updateStatistic={updateStatistic}/>
           </div>
         )) : props.reviews.slice(0, displayListLength).map((review) => (
           <div key={JSON.stringify(review)}>
-            <ReviewTile review={review} />
+            <ReviewTile review={review} updateStatistic={updateStatistic} />
           </div>
         ))}
-        {displayListLength < 1 ? <button className="reviewButtons" onClick={(e) => openModal(e)} label={"ADD A REVIEW"}>ADD A REVIEW+</button> : <></>}
+        {displayListLength < 1 ? <button className="reviewButtons" onClick={(e) => updateStatistic(openModal(e), 'Ratings/Reviews: add review button')} label={"ADD A REVIEW"}>ADD A REVIEW+</button> : <></>}
       </div>
 
       <div className="reviewButtons-container">
-        <button className="reviewButtons" onClick={() => addReviews()} style={{ display: displayButton }}>MORE REVIEWS</button>
-        <button id="addReview-btn" className="reviewButtons" label={"ADD A REVIEW"} onClick={(e) => openModal(e)}>ADD A REVIEW+</button>
-        <ReviewModal closeModal={closeModal} metadata={props.metadata}/>
+        <button className="reviewButtons" onClick={(e) => updateStatistic(addReviews(), 'Ratings/Reviews: more reviews button')} style={{ display: displayButton }}>MORE REVIEWS</button>
+        <button id="addReview-btn" className="reviewButtons" label={"ADD A REVIEW"} onClick={(e) => updateStatistic(openModal(e), 'Ratings/Reviews: add review button')}>ADD A REVIEW+</button>
+        <ReviewModal
+          closeModal={closeModal}
+          metadata={props.metadata}
+          updateStatistic={updateStatistic}
+        />
 
       </div>
 

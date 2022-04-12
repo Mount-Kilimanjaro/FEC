@@ -22,8 +22,8 @@ const ReviewTile = (props) => {
     if (props.review.photos.length > 1) {
       return props.review.photos.map((photo, index) => (
         <div key={JSON.stringify(photo)}>
-          <img className="userImages" src={`${photo.url}`} alt="" onClick={(e) => toggleModal(e)} />
-          <ImageModal toggleModal={toggleModal} />
+          <img className="userImages" src={`${photo.url}`} alt="" onClick={(e) => props.updateStatistic(toggleModal(e), 'Ratings/Reviews: toggle review image modal')} />
+          <ImageModal toggleModal={toggleModal} updateStatistic={props.updateStatistic}/>
         </div>
       ))
     }
@@ -70,15 +70,18 @@ const ReviewTile = (props) => {
 
       {!props.review.photos.length ? <></> : <div className="userImages-container">{displayPhotos()} </div>}
 
-      {!props.review.recommend ? <></> : <div style={{ margin: '3px' }}><b>✓</b> I recommend this product </div>}
+      {!props.review.recommend ? <></> : <div id="recommendProduct" style={{ margin: '3px' }}>
+        <svg xmlns="http://www.w3.org/2000/svg" style={{ display: 'inline' }} class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+        </svg> I recommend this product</div>}
 
       {!props.review.response ? <></> : <div className="sellerResponse "><b>Response from seller:</b> {props.review.response} </div>}
 
       <div className="reviewHelpful">
         <span>Helpful? </span>
-        <span className="helpfulness-buttons" dataid={props.review.review_id} onClick={(e) => handleHelpfulReview(e)}>Yes</span>
+        <span className="helpfulness-buttons" dataid={props.review.review_id} onClick={(e) => props.updateStatistic(handleHelpfulReview(e), 'Ratings/Reviews: report review helpful button')}>Yes</span>
         <span id={props.review.review_id}>({props.review.helpfulness}) | </span>
-        <span className="helpfulness-buttons" dataid={props.review.review_id} onClick={(e) => report(e)}> Report</span>
+        <span className="helpfulness-buttons" dataid={props.review.review_id} onClick={(e) => props.updateStatistic(report(e), 'Ratings/Reviews: report review button')}> Report</span>
       </div>
     </div>
   )
