@@ -3,12 +3,13 @@
     min-width: 480px;
 }
 #productImage {
-    background-color: #bbbfc3;
+    /* background-color: #bbbfc3; */
     min-height: 450px;
 }
 #overview_main_img {
     max-height: 650px;
-    object-fit: cover;
+    /* object-fit: cover; */
+    box-shadow: rgb(0 0 0 / 15%) 0px 15px 25px, rgb(0 0 0 / 5%) 0px 5px 10px;
 }
 #productSelector {
     min-height: 650px;
@@ -32,7 +33,7 @@
     object-fit: cover;
 }
 #overview_selector select {
-    width: 195px;
+    width: 175px;
 
 }
 .overview_image_arrows {
@@ -41,9 +42,4 @@
 
 #overview_arrow {
     position: absolute;
-}
-
-#overview_modal{
-
-
 }
