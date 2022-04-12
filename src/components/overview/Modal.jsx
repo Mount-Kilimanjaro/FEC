@@ -8,7 +8,7 @@ export default function Modal(props) {
     useEffect(() => {
         hideOverFlow(props.visibility);
         const onResize = () => {
-            if (window.innerWidth < 501 && props.visibility) {
+            if (window.innerWidth < 766 && props.visibility) {
                 hideOverFlow(false);
                 props.toggleModal(false);
             }
@@ -23,7 +23,7 @@ export default function Modal(props) {
   return (
     <div className={`${props.visibility ? "hidden md:block" : "hidden"}`} >
         <div className="">
-            <div id="overview_modal" className="fixed z-[100] bg-white top-16">
+            <div id="overview_modal" className="fixed z-[100] bg-white top-2/4 w-full max-w-1280 flex justify-center">
                 <div>
                 {props.children}
                 </div>    
