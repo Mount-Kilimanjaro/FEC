@@ -11,14 +11,12 @@ const Q = ({qObj, highlightedString}) => {
   } else {
     return (
       <div className='q-list-result'>
-        <span className='q-list-q-content'>
-          <h4 className='q-list-q-body'>Q: {qObj.question_body}  |</h4>
-            <span className='q-li-helpful'>|  Helpful?</span>
+        <span className='q-list-q-body'>Q: {qObj.question_body}  |</span>
+            <span className='q-li-helpful'>|  Helpful?  |</span>
               <span className='q-li-helpful-count' onClick={() => alert('Yes clicked in QAndA Widget')}>|  Yes</span>
               ({qObj.question_helpfulness}) |
                 <span className='q-li-add-a' onClick={() => setShow(true)}>|  Add Answer</span>
                   <AddAModal show={show} onClose={() => setShow(false)} />
-        </span>
         {/*Answers forEach Question*/}
           {Object.values(qObj.answers)
           .sort((a, b) => { return b.helpfulness - a.helpfulness })
