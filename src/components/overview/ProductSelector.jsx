@@ -94,7 +94,7 @@ export default function ProductSelector(props) {
           id={'rating-star'}
           size={20}
           maxScore={5}
-          rating={product.averageRating}
+          rating={Number(product.averageRating) || 0}
           colors={{ rear: 'transparent', stroke: 'black', mask: 'black' }}
         />
         <p className="ml-2 underline hover:text-blue-300 hover:cursor-pointer"  onClick={(e) => updateStatistic(scrollToReviews(),"overview_productSelector_all_reviews")}>Read all reviews</p>
@@ -113,7 +113,7 @@ export default function ProductSelector(props) {
         <div id="style" className="flex flex-row flex-wrap gap-5 p-4 justify-center">
           {product.style.map((style, i) => {
             return (
-              <img key={i} id="styleThumbNail" className={`rounded-full hover:cursor-pointer border-2 hover:border-black hover:drop-shadow-lg ${styleIndex === i ? "border-blue-300 border-4" : ""}`} name='overview_productSelector_change_style' src={product.style[i].photos[0].url} alt="" onClick={(e) => updateStatistic(handleSetStyle(i),e)}/>
+              <img key={i} id="styleThumbNail" className={`rounded-full hover:cursor-pointer border-2 hover:border-black hover:drop-shadow-lg ${styleIndex === i ? "border-blue-300 border-4" : ""}`} name='overview_productSelector_change_style' src={product.style[i].photos[0].thumbnail_url} alt="" onClick={(e) => updateStatistic(handleSetStyle(i),e)}/>
             )})}
         </div>
       </div>
