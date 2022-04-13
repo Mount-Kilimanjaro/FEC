@@ -64,7 +64,8 @@ export default function Search(props) {
       }else {
         toggleModalVisible(false);
         props.toggleBlurBG(false);
-      } 
+      }
+      //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [search,filter])
              
   return (
@@ -78,14 +79,7 @@ export default function Search(props) {
                     props.toggleBlurBG(true);
                     toggleModalVisible(true);
                 }
-                
-                
-            }}          
-            onKeyPress={(e) => {
-                if (e.key === "Enter") {
-                 return handleSearch();
-                 }
-             }}/>
+            }}/>
             <div className="flex  ml-2">
              <select className="border-black border-2" onChange={(e) =>setFilter(e.target.value)}>
                 <option value="">All</option>
@@ -104,7 +98,6 @@ export default function Search(props) {
         cartVisibility={cartVisibility} 
         toggleBlurBG={props.toggleBlurBG}
         />
-        
     </div>
   )
 }
