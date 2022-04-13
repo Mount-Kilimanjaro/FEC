@@ -9,20 +9,22 @@ import Overview from "./components/overview/Overview.jsx";
 import Header from "./components/overview/header/Header.jsx";
 import RelatedProducts from "./components/relatedProductsWidgetMain/RelatedProductsWidget.jsx";
 import RatingsAndReviews from "./components/reviews/RatingsAndReviews.jsx";
-import QAndA from "./components/qAndA/qAndA.jsx";
+import QAndA from "./components/qAndA/QAndA.jsx";
+import SiteStatistic from "./components/SiteStatistic";
+
 
 
 function App() {
   // add redux state to this component
   const currentItemId = useSelector(state => state.category.currentItemId);
-  const [blurBG ,toggleBlurBG] = useState(false)
+  const [blurBG, toggleBlurBG] = useState(false)
   const [cartVisibility, toggleCartVisibility] = useState(false);
-  const [disableToggle, setDisableToggle] = useState(false);
+  // const [disableToggle, setDisableToggle] = useState(false);
 
   const handleToggleCart = (boolean) => {
-    setDisableToggle((boolean))
-    toggleCartVisibility(!cartVisibility);
-    toggleBlurBG(!blurBG);
+    // setDisableToggle((boolean))
+    toggleCartVisibility(boolean);
+    toggleBlurBG(boolean);
   };
 
   const dispatch = useDispatch();
@@ -88,11 +90,12 @@ function App() {
   return (
     <div className="App h-full w-full flex flex-col items-center relative ">
       <div className={`w-full h-full absolute inset-0 z-[70] bg-black/50 ${blurBG ? "block" : "hidden"}`}></div>
-        <Header cart={{handleToggleCart, cartVisibility}}/>
+        <Header cart={{handleToggleCart, cartVisibility}} toggleBlurBG={toggleBlurBG}/>
         <Overview handleToggleCart={handleToggleCart}/>
         <RelatedProducts/>
         <QAndA/>
         <RatingsAndReviews />
+        <SiteStatistic/>
     </div>
   )
 }

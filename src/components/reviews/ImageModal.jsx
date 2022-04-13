@@ -7,7 +7,7 @@ const ImageModal = (props) => {
     <div id="img-modal" className="img-modal">
       <div className="img-modal-content">
         <div
-          onClick={(e) => props.toggleModal(e)} className="img-close">
+          onClick={(e) => props.updateStatistic(props.toggleModal(e), 'Ratings/Reviews: close image modal button') }className="img-close">
           &times;
         <img src={props.img} id="img" className="userImages-modal" alt=""/>
         </div>

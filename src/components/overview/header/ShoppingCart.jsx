@@ -22,11 +22,16 @@ export default function ShoppingCart(props) {
     };
 
     useEffect(() => {
-        hideOverFlow(cartVisibility);
+        if (!props.modalVisible && !cartVisibility) {
+            hideOverFlow(false);
+        } else {
+            hideOverFlow(true);
+        }
+        //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [cartVisibility]);
 
   return (
-    <div id="header_shopping_cart" className={`absolute right-0 top-14 mt-1 bg-white border-2 z-[60] ${cartVisibility ? "w-full md:w-300 " : "w-0 h-0"}`} onMouseLeave={() =>props.handleToggleCart()}>
+    <div id="header_shopping_cart" className={`absolute right-0 top-14 mt-1 bg-white z-[60] ${cartVisibility ? "w-full md:w-300 border-2 " : "w-0 h-0"}`} onMouseLeave={() =>props.handleToggleCart()}>
         {cart.length > 0 ?
             <div>
                 <div className="mt-10 border-t-2 ">  

@@ -56,12 +56,15 @@ const AddReviewForm = (props) => {
   }
 
   const submit = (e) => {
-    e.preventDefault();
-    setFormData({ name: 'product_id', value: props.metadata.product_id });
-    if (formData[rating]) {
-      document.getElementById('addReview-modal').style.display = 'none';
-      // formatData(props.metadata.characteristics, formData);
-    }
+    console.log(e);
+    // e.preventDefault();
+    // setFormData({ name: 'product_id', value: props.metadata.product_id });
+    // if (formData[rating]) {
+    //   document.getElementById('addReview-modal').style.display = 'none';
+    //   formatData(props.metadata.characteristics, formData);
+    // } else {
+    //   // if rating is not filled out
+    // }
   }
 
 
@@ -84,7 +87,7 @@ const AddReviewForm = (props) => {
                 colors={{ rear: 'transparent', stroke: 'black', mask: 'black' }}
               />
               <input style={{ display: 'none' }} />
-              <span className="starsRating-label">{labels[rating - 1]}</span>
+              <span className="formStars-label">{labels[rating - 1]}</span>
             </div>
           </div>
 
@@ -159,7 +162,7 @@ const AddReviewForm = (props) => {
               <span className="requiredInput">*</span>
             </div>
             <input className="reviewInput" type="text" maxLength="60" placeholder="jackson11!" name="name" onChange={handleChange} required /><br />
-            <span>For privacy reasons, do not use your full name or email address.</span>
+            <span className="addReview-warnings">For privacy reasons, do not use your full name or email address.</span>
           </div>
 
           <div id="email-container">
@@ -168,12 +171,12 @@ const AddReviewForm = (props) => {
               <span className="requiredInput">*</span>
             </div>
             <input type="email" className="reviewInput" maxLength="60" name="email" placeholder="jackson11@email.com" onChange={handleChange} required /><br />
-            <span>For authentication reasons, you will not be emailed.</span>
+            <span className="addReview-warnings">For authentication reasons, you will not be emailed.</span>
           </div>
         </div>
 
         <div id="submit-container">
-          <button id="submitReview" type="submit" onClick={() => submit()}>Submit Review</button>
+          <button id="submitReview" onClick={() => props.updateStatistic(submit(), 'Ratings/Reviews: submit new review button')}>Submit Review</button>
         </div>
 
       </form>

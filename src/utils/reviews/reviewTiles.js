@@ -7,15 +7,23 @@ module.exports = {
     return formatted.slice(0, 11);
   },
 
-  reportHelpful: function(reviewId) {
-    axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/${reviewId}/helpful`, { 'Authorization': process.env.REACT_APP_API_TOKEN })
+  reportHelpful: function (reviewId) {
+    axios({
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/${reviewId}/helpful`,
+      method: 'put',
+      headers: {'Authorization': process.env.REACT_APP_API_TOKEN }
+    })
       .then((response) => console.log(response))
-      .catch((err) => console.error('Unsuccessful PUT request to /reviews/:report_id/helpful ', err));
+      .catch((err) => console.error(`Unsuccessful PUT request to /reviews/${reviewId}/helpful `, err));
   },
 
-  reportReview: async function(reviewId) {
-    axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/${reviewId}/report`, { 'Authorization': process.env.REACT_APP_API_TOKEN })
+  reportReview: function (reviewId) {
+    axios({
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/${reviewId}/report`,
+      method: 'put',
+      headers: {'Authorization': process.env.REACT_APP_API_TOKEN }
+    })
       .then((response) => console.log(response))
-      .catch((err) => console.error('Unsuccessful PUT to /reviews/:review_id/report ', err));
+      .catch((err) => console.error(`Unsuccessful PUT to /reviews/${reviewId}}/report `, err));
   }
 }
