@@ -59,7 +59,7 @@ const QAndA = (props) => {
 
   return (
     <div className='q-and-a-container'>
-      <h4 className='q-and-a-title'>{`QUESTIONS & ANSWERS`}</h4>
+      <p className='q-and-a-title'>{`QUESTIONS & ANSWERS`}</p>
       <div className='q-and-a-components-container'>
         <QSearch onSearchKeystroke={onSearchKeystroke} />
         {qData && filteredData ? <QList qData={filteredData} highlightedString={highlightedString} /> : null}

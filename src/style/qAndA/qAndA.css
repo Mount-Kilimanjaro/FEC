@@ -1,9 +1,21 @@
+.a-modal-input {
+  width: 100%;
+  font-size: 1.6rem;
+  cursor: pointer;
+  margin: 5px 1px 3px 1px;
+}
+
 .q-and-a-container {
-  background-color: rgb(19, 218, 19);
+  color: #3a3b3c;
+  font-family: sans-serif;
+  background-color: transparent;
+  margin: 40px;
+  padding: 0.25em 1em;
 }
 
 .q-and-a-title {
-  font-weight: 800;
+  padding-top: 3em;
+  font-size: 2rem;
 }
 
 .q-input-form {
@@ -14,6 +26,36 @@
 
 .q-input-label {
   font-style: bold;
+}
+
+.q-list-q {
+  color: #3a3b3c;
+  background: transparent;
+  margin: 0 1em;
+  padding: 0.25em 1em;
+}
+
+.q-list-q-body {
+  padding: .25em 0em .25em;
+  display: block;
+  font-size: 1.5rem;
+}
+
+.q-search-box {
+  height: 3rem;
+  font-size: 2rem;
+  border-radius: 2px;
+  outline: 1px solid #3a3b3c;
+  border: transparent;
+  padding: 3px;
+  width: 80%;
+  cursor: pointer;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  flex-grow: 1;
+  /* &:hover {
+    outline: 3px solid #bbb;
+  } */
 }
 
 .q-ul {
