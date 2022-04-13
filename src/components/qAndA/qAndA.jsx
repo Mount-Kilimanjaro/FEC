@@ -59,18 +59,11 @@ const QAndA = (props) => {
 
   return (
     <div className='q-and-a-container'>
-      <p className='q-and-a-title'>{`QUESTIONS & ANSWERS`}</p>
+      <h3 className='q-and-a-title-h3'>{`QUESTIONS & ANSWERS`}</h3>
       <div className='q-and-a-components-container'>
         <QSearch onSearchKeystroke={onSearchKeystroke} />
         {qData && filteredData ? <QList qData={filteredData} highlightedString={highlightedString} /> : null}
       </div>
-        {/* <ul id='q-ul'>
-          {qListData.map((item, index) => <li key={index}>Q: {item.question_body}</li>)}
-        </ul>
-
-        <button className='add-question-button' onClick = {() => alert('ADD A QUESTION + Clicked')}>
-          <span>ADD A QUESTION +</span>
-        </button> */}
     </div>
   )
 };

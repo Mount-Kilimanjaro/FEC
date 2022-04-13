@@ -14,17 +14,19 @@
   color: #3a3b3c;
   font-family: sans-serif;
   background-color: transparent;
-  margin: 40px;
   padding: 0.25em 1em;
+  width: 85%;
+  margin-top: 60px;
 }
 
-.q-and-a-title {
-  padding-top: 3em;
-  font-size: 2rem;
+.q-and-a-title-h3 {
+  font-weight: 200;
+  width: fit-content;
+  margin-bottom: 15px;
 }
 
 .q-input-form {
-  border: thin solid;
+  border: .75px solid #3a3b3c;
   padding: 2px 5px;
   width: 100%;
 }
@@ -50,21 +52,25 @@
   font-size: 1.5rem;
 }
 
-.q-search-box {
-  height: 3rem;
-  font-size: 2rem;
-  border-radius: 2px;
-  outline: 1px solid #3a3b3c;
-  border: transparent;
+.q-search {
+  border: 1px solid #3a3b3c;
+  display: flex;
+  min-width: 420px;
   padding: 3px;
-  width: 80%;
-  cursor: pointer;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  flex-grow: 1;
-  /* &:hover {
-    outline: 3px solid #bbb;
-  } */
+  padding-left: 7px;
+}
+
+.q-search-button {
+  justify-self: right;
+}
+
+.q-search-form {
+  width: 100%
+}
+
+.q-search-text {
+  justify-content: center;
+  text-align: center;
 }
 
 .q-ul {
