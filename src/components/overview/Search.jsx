@@ -8,29 +8,9 @@ export default function Search(props) {
     const data = useSelector(state => state.category.category)
     const [search, setSearch] = useState("");
     const [filteredData, setFilteredData] = useState([]);
-    // const [modalVisible , toggleModalVisible] = useState(false);
+
     const [filter, setFilter] = useState('');
     const {modalVisible, toggleModalVisible} = props.modal
-    // const handleSearch = () => {
-    //     if(search.length < 3) {
-    //         return alert("search much include atleast 3 character");
-    //     }
-    //     const filteredData = data.filter(obj => {
-    //         const searchStr = search.toLowerCase().trim();
-    //         if (
-    //             obj.name.toLowerCase().includes(searchStr) || 
-    //             obj.slogan.toLowerCase().includes(searchStr) || 
-    //             obj.description.toLowerCase().includes(searchStr) || 
-    //             obj.category.toLowerCase().includes(searchStr) || 
-    //             obj.default_price.toLowerCase().includes(searchStr)
-    //             ) {
-    //                 return obj;
-    //         }
-    //         return null;
-    //     })
-    //     setFilteredData(filteredData);
-    //         toggleModalVisible(true);
-    // };
 
     const handleSearch = (value) => {
             setSearch(value);
@@ -87,9 +67,6 @@ export default function Search(props) {
                 <option value="name">Name</option>
                 <option value="description">Description</option> 
              </select>
-            {/* <img className="p-1 border-black border-l-2 bg-white hover:bg-blue-300 hover:cursor-pointer" 
-            src={searchIcon} alt="search icon" 
-            onClick={() => handleSearch()}/> */}
             </div>   
         </div>
         <SearchModal 
