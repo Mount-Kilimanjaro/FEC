@@ -8,6 +8,7 @@ import {hideOverFlow} from "../helperFn/shoppingCart.js"
 
 
 export default function ShoppingCart(props) {
+    const updateStatistic = props.updateStatistic;
     const cart = useSelector(state => state.shoppingCart.cart);
     const {cartVisibility} = props.shoppingCart;
     const dispatch = useDispatch();
@@ -36,11 +37,11 @@ export default function ShoppingCart(props) {
             <div>
                 <div className="mt-10 border-t-2 ">  
                     {cart.map((order,i) => 
-                           <CartCard key={i} cart= {{order, handleModifyOrder, handleRemoveOrder, cartVisibility }}/>
+                           <CartCard key={i} cart= {{order, handleModifyOrder, handleRemoveOrder, cartVisibility, updateStatistic }}/>
                     )}
                 </div>
                 <div className={`flex flex-row mt-8 p-2 ${cartVisibility ? "" : "hidden"}`}>
-                    <button className="border-2 p-3  border-black whitespace-pre grow bg-white hover:bg-blue-300" onClick={() =>{}} >CHECKOUT</button>
+                    <button className="border-2 p-3  border-black whitespace-pre grow bg-white hover:bg-blue-300" name="header_shopping_cart_checkout_button"onClick={(e) =>updateStatistic(null,e)} >CHECKOUT</button>
                 </div>
             </div>
          :
