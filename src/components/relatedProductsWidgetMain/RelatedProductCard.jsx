@@ -6,15 +6,11 @@ import asset from './assets/asset.jpg';
 
 function RelatedProductCard (props) {
 
-  const addProduct = (item) => {
- // useDispatch(addToFavorite(item))
-  }
-
  if (props.prop1.results[0].photos[0].thumbnail_url) {
   return (
    <div name={props.prop1.product_id} className='relatedProductCards'>
      <svg onClick={(props.prop2)} xmlns="http://www.w3.org/2000/svg" name={props.prop1.product_id} className="h-5 w-5 comparison_but" viewBox="0 0 20 20" fill="currentColor">
-  <path fill-rule="evenodd" name={props.prop1.product_id} d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+  <path fillRule="evenodd" name={props.prop1.product_id} d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
 </svg>
 <div onClick={props.addCard} name={props.prop1.product_id}>
 <img alt='shoe' src={props.prop1.results[0].photos[0].thumbnail_url} name={props.prop1.product_id}></img>
@@ -29,7 +25,7 @@ function RelatedProductCard (props) {
  } else {
     return<div name={props.prop1.product_id} className='relatedProductCards'>
       <svg onClick={props.prop2} xmlns="http://www.w3.org/2000/svg" name={props.prop1.product_id} className="h-5 w-5 comparison_but" viewBox="0 0 20 20" fill="currentColor">
-  <path fill-rule="evenodd" name={props.prop1.product_id} d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+  <path fillRule="evenodd" name={props.prop1.product_id} d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
 </svg>
 <div onClick={props.addCard} name={props.prop1.product_id}>
 <img name={props.prop1.product_id} alt='whatever' src={require('./assets/asset.jpg')}></img>

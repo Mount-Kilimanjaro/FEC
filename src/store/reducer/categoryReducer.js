@@ -65,13 +65,21 @@ export const categorySlice = createSlice(
       },
       addToFavorite: (state, {payload}) => {
         const cpyState = [...state.myFavorite]
-        payload.push(cpyState);
-        state.currentItemId = payload;
+        cpyState.push(payload);
+        // state.currentItemId = payload;
         state.myFavorite = cpyState;
       },
       removeFromFavorite: (state, {payload}) => {
+        let index;
         const cpyState = [...state.myFavorite];
-        cpyState.splice(cpyState.indexOf(payload),1);
+
+        // cpyState.splice(cpyState.indexOf(payload),1);
+        cpyState.forEach((obj, i) => {
+          if (obj.id === payload) {
+            index = i
+          }
+        })
+        cpyState.splice(index, 1);
         state.myFavorite = cpyState;
       },
     },

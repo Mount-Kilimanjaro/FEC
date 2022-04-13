@@ -1,19 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Outfit from "./Outfit.jsx";
 import RelatedProducts from "./RelatedProducts.jsx";
 import "../../style/relatedProductsStyles/relatedProducts.css";
 import axios from 'axios';
 import ComparisonM from "./ComparisonModal.jsx"
+import {addToFavorite} from "../../store/reducer/categoryReducer.js"
 
 
 function RelatedProductsWidget () {
+const dispatch = useDispatch()
+
+
   const myItem = useSelector(state => state.category.currentItem);
   const headers = {
     'Authorization': process.env.REACT_APP_API_TOKEN
   }
   const [relatedProductA, setRPA] = useState([]);
   const [compareThis, setCompare] = useState({});
+  const [compareFeat, setFeat]    = useState({})
   const [compareThisHelper, setCompareHelper] = useState({});
   const [showModal, setShow] = useState(false);
   const [OutfitStuff, setOutfit] = useState([]);
@@ -23,7 +28,6 @@ function RelatedProductsWidget () {
       try{
           const response = await axios.all(myItem.related.map((endpoint) => axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/${endpoint}/styles`,{headers}))).then(
           (data) => {
-            console.log(data)
             var result = []
             for(var i = 0; i < data.length; i++) {
               result.push(data[i].data)
@@ -59,7 +63,6 @@ useEffect ( () => {
 
 const comparisonChart = (event) => {
 for (var i = 0; i < relatedProductA.length; i++) {
-  console.log(compareThisHelper[i].id, event.target.attributes.name.nodeValue )
   if (compareThisHelper[i].id === Number(event.target.attributes.name.nodeValue)) {
     var result = compareThisHelper[i];
   setCompare(compareThisHelper[i]);
@@ -68,7 +71,6 @@ for (var i = 0; i < relatedProductA.length; i++) {
 // iterate through feature of both item 1 and 2
 var compareObj = {};
 for (var x = 0; x < 5; x ++) {
-  console.log( result, "hello", myItem);
   if (result.features[x]) {
     if (compareObj[result.features[x].feature]) {
       compareObj[result.features[x].feature].right = result.features[x].value;
@@ -79,7 +81,7 @@ for (var x = 0; x < 5; x ++) {
   }
   if (myItem.features[x]) {
 
-    if (compareObj[myItem.features[x]]) {
+    if (compareObj[myItem.features[x].feature]) {
       compareObj[myItem.features[x].feature].left = myItem.features[x].value;
     } else {
       compareObj[myItem.features[x].feature] = {};
@@ -87,7 +89,7 @@ for (var x = 0; x < 5; x ++) {
     }
   }
 }
-console.log(compareObj);
+setFeat(compareObj);
  setShow(true);
 }
 
@@ -101,12 +103,9 @@ const closeModal = () => {
 
   const addCard = (event) => {
     for (var i = 0; i < relatedProductA.length; i++) {
-      if (relatedProductA[i].style_id === Number(event.target.attributes.name.nodeValue)) {
+      if (relatedProductA[i].product_id === event.target.attributes.name.nodeValue) {
         var result = relatedProductA[i];
-        var arr = OutfitStuff;
-        arr.push(result);
-      setOutfit(arr);
-      console.log(OutfitStuff);
+        dispatch(addToFavorite(result))
       }
     }
   }
@@ -119,7 +118,7 @@ const closeModal = () => {
       < RelatedProducts addCard={addCard} compare={comparisonChart} arr={relatedProductA}/>
       <h1>Outfit</h1>
       < Outfit outfitCards={OutfitStuff}/>
-      < ComparisonM closeModal={closeModal} showModal={showModal} prop1={compareThis}/>
+      < ComparisonM closeModal={closeModal} showModal={showModal} feat={compareFeat} prop1={compareThis}/>
     </div>
   )
 
