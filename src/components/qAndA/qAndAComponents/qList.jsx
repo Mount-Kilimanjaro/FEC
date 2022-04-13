@@ -7,7 +7,7 @@ const QList = ({ qData, highlightedString }) => {
   const [show, setShow] = useState(false);
 
   return (
-    <div className='q-list-container'>
+    <div className='q-list-div'>
       <div className = 'q-a-list'>
         {qData
           .sort((a, b) => {
