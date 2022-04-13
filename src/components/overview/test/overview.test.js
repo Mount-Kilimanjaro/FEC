@@ -32,7 +32,7 @@ describe('OverView Testing', () => {
 })
 
 describe('ProductImage Component test', () => {
-  let imageUrl ='https://picsum.photos/200/300'
+  let imageUrl ={url:'https://picsum.photos/200/300',thumbnail_url: 'https://picsum.photos/200/300'}
   let imagesUrl = ['https://picsum.photos/200/300','https://picsum.photos/200/300','https://picsum.photos/200/300']
 
   const img = {imageUrl, imagesUrl, changeImgUrl: () => {}, carouselNextImage: () => {} , setNextImage: () => {}, setPreviousImage: () => {}}
@@ -46,7 +46,7 @@ describe('ProductImage Component test', () => {
     expect(wrapper.find("#scrollImg").length).toBe(3)
   })
   test('main image to load', () => {
-    expect(wrapper.find("#overview_main_img").prop('src')).toBe(imageUrl);
+    expect(wrapper.find("#overview_main_img").prop('src')).toBe(imageUrl.url);
   })
 })
 

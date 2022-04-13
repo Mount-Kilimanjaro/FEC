@@ -4,6 +4,7 @@ import {setCurrentId} from "../../store/reducer/categoryReducer.js"
 import {hideOverFlow} from "./helperFn/shoppingCart.js"
 
 export default function SearchModal(props) {
+    const updateStatistic = props.updateStatistic;
     const [pagination, setPagination] = useState([[0,10]]);
     const [pagiIndex, setPagiIndex] = useState(0);
     const [sort, setSort] = useState(null);
@@ -44,18 +45,9 @@ export default function SearchModal(props) {
 
   return (
     <div id="overview_search_modal" className={`w-full fixed  top-[110px] md:top-[60px] left-0 justify-center ${modalVisible ? "flex " : "hidden"}`}>
-        {/* <div className=" flex flex-row bg-blue-300 items-center hover:bg-red-300 hover:cursor-pointer" onClick={() => {
-            props.toggleBlurBG(false)
-            toggleModalVisible(false)
-        }
-            }>
-            <p className="p-1.5">
-                {`<`}
-            </p>
-        </div> */}
         <div className="w-full md:min-w-600 md:max-w-70  flex flex-col bg-white items-center justify-center border-2 border-black " >
             <div className="p-2">
-                <select className="border-black hover:cursor-pointer border-2" defaultValue={"DEFAULT"} onChange={(e) => {setSort(e.target.value)}}>
+                <select className="border-black hover:cursor-pointer border-2" defaultValue={"DEFAULT"} name="header_search_filter" onChange={(e) => {updateStatistic(setSort(e.target.value),e)}}>
                     <option value="DEFAULT" disabled>Sort by</option>
                     <option value="low">Price: Low to High</option>
                     <option value="high">Price: High to High</option>
@@ -75,8 +67,9 @@ export default function SearchModal(props) {
                   }).slice(pagination[pagiIndex][0],pagination[pagiIndex][1]).map((items,i) => {
                     const {name, id, description, category, default_price} = items
                     return (
-                        <div key={i} className="flex flex-col items-center p-2 border-b-4 w-full hover:bg-slate-200 hover:cursor-pointer text-sm md:text-base" 
-                        onClick={() => {
+                        <div key={i} className="flex flex-col items-center p-2 border-b-4 w-full hover:bg-slate-200 hover:cursor-pointer text-sm md:text-base"
+                        onClick={(e) => {
+                            updateStatistic(null,"heder_search_result")
                             props.toggleBlurBG(false);
                             handleSetItemId(id);
                             }}>
@@ -103,7 +96,7 @@ export default function SearchModal(props) {
             <div className="flex ">
                 {pagination.length > 1 ?
                     pagination.map((arr,i) => 
-                    <div key={i} className={`p-3 hover:bg-slate-400 hover:cursor-pointer ${pagiIndex === i ? "bg-slate-300" : ""} ${modalVisible ? "" : "hidden"}`} onClick={() => {handlePagination(i)}}>
+                    <div key={i} className={`p-3 hover:bg-slate-400 hover:cursor-pointer ${pagiIndex === i ? "bg-slate-300" : ""} ${modalVisible ? "" : "hidden"}`} onClick={() => updateStatistic(handlePagination(i),"header_search_pagination")}>
                         <h1>{i+1}</h1>
                     </div>
                 )
@@ -112,6 +105,7 @@ export default function SearchModal(props) {
                 }
             </div>
             <div className=" flex justify-center w-full bg-red-300 hover:bg-red-400 hover:cursor-pointer mt-1" onClick={() => {
+                updateStatistic(null,"heder_search_modal_close")
                 props.toggleBlurBG(false)
                 toggleModalVisible(false)
                  }
