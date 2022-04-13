@@ -76,7 +76,6 @@ width: 100%;
 }
 
 #relatedMain .stars {
-  margin-left: 6px;
 }
 
 /* Outfit */
@@ -222,4 +221,9 @@ td {
   vertical-align: middle;
   align-content: center;
 } */
+#relatedMain .rating-star {
+  padding: 0px;
+}
+
+
 

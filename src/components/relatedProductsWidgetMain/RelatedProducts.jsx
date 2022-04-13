@@ -7,11 +7,17 @@ function RelatedProducts (props) {
 const [currentCard, setCard] = useState(0)
 // useDispatch(addToFavorite(item))
   const nextBut = () => {
-    setCard(currentCard + 1)
+    if (currentCard < props.arr.length -1) {
+      setCard(currentCard + 1)
+    }
+
   }
 
   const prevBut = () => {
-    setCard(currentCard - 1)
+    if (currentCard>0) {
+      setCard(currentCard - 1)
+    }
+
   }
 
   useEffect(() => {

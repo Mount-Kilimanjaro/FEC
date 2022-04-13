@@ -26,17 +26,16 @@ const dispatch = useDispatch()
     if(myItem.id) {
     const getData = async () => {
       try{
+          var resultt = []
           const response = await axios.all(myItem.related.map((endpoint) => axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/${endpoint}/styles`,{headers}))).then(
           (data) => {
-            var result = []
             for(var i = 0; i < data.length; i++) {
-              result.push(data[i].data)
+              resultt.push(data[i].data)
             }
-            return setRPA(result);
-
           }
-            ).then(() => {
-              const response = axios.all(myItem.related.map((endpoint) => axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/${endpoint}`,{headers}))).then(
+            )
+
+              const responseee = axios.all(myItem.related.map((endpoint) => axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/${endpoint}`,{headers}))).then(
           (data) => {
             var result = []
             for(var i = 0; i < data.length; i++) {
@@ -45,7 +44,29 @@ const dispatch = useDispatch()
             return setCompareHelper(result);
           }
             )
+
+            const responsee =  await axios.all(myItem.related.map((endpoint) => axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/?product_id=${endpoint}&sort="relevant"&count=1000`,{headers}))).then(
+                (data) => {
+                  var result = []
+
+            for(var i = 0; i < data.length; i++) {
+
+              var average = 0;
+              for (var x = 0; x < data[i].data.results.length; x++) {
+
+                average = average + data[i].data.results[x].rating
+              }
+              average = average/data[i].data.results.length
+              result.push(average);
+            }
+            for (var z = 0; z < resultt.length; z ++) {
+              resultt[z]['rating'] = result[z]
+            }
+
             })
+            await setRPA(resultt)
+
+
 
         }
       catch(err) {
@@ -62,6 +83,7 @@ useEffect ( () => {
 })
 
 const comparisonChart = (event) => {
+  console.log('look at me', compareThisHelper)
 for (var i = 0; i < relatedProductA.length; i++) {
   if (compareThisHelper[i].id === Number(event.target.attributes.name.nodeValue)) {
     var result = compareThisHelper[i];

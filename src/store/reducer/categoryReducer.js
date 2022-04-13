@@ -75,10 +75,11 @@ export const categorySlice = createSlice(
 
         // cpyState.splice(cpyState.indexOf(payload),1);
         cpyState.forEach((obj, i) => {
-          if (obj.id === payload) {
+          if (obj.product_id === payload) {
             index = i
           }
         })
+
         cpyState.splice(index, 1);
         state.myFavorite = cpyState;
       },

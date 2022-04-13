@@ -7,11 +7,15 @@ function Outfit (props) {
   const [currentCard, setCard] = useState(0);
 
   const nextBut = () => {
-    setCard(currentCard + 1)
+    if (currentCard < outfitArray.length - 1 ) {
+      setCard(currentCard + 1)
+    }
   }
 
   const prevBut = () => {
-    setCard(currentCard - 1)
+    if (currentCard > 0) {
+      setCard(currentCard - 1)
+    }
   }
 
   useEffect(() => {
@@ -19,6 +23,8 @@ function Outfit (props) {
     container.style.transitionDuration = '.8s';
     container.style.transform = `translate( -${currentCard * 245}px)`
   }, [currentCard])
+
+
   return (
     <div className='containerr'>
       <svg onClick={prevBut} xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 scroll_but" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

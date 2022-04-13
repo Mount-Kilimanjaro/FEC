@@ -1,11 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import asset from './assets/asset.jpg';
+import { RatingStar } from 'rating-star';
 
 
 
 function RelatedProductCard (props) {
-
  if (props.prop1.results[0].photos[0].thumbnail_url) {
   return (
    <div name={props.prop1.product_id} className='relatedProductCards'>
@@ -17,7 +17,15 @@ function RelatedProductCard (props) {
       <h3 name={props.prop1.product_id}>SHOES</h3>
       <p name={props.prop1.product_id}>{props.prop1.results[0].name}</p>
       <span name={props.prop1.product_id}>{props.prop1.results[0].original_price}</span>
-      <div name={props.prop1.product_id} className='stars'>review here</div>
+      <div className="start">
+      <RatingStar
+       name={props.prop1.product_id} id='userRating-star'
+       size={20}
+       maxScore={5}
+       rating={props.prop1.rating}
+       colors={{ rear: 'transparent', stroke: 'black', mask: 'black' }}
+       />
+      </div>
 </div>
 
     </div>
@@ -32,7 +40,15 @@ function RelatedProductCard (props) {
       <h3 name={props.prop1.product_id}>SHOES</h3>
     <p name={props.prop1.product_id}>{props.prop1.results[0].name}</p>
     <span name={props.prop1.product_id}>{props.prop1.results[0].original_price}</span>
-    <div name={props.prop1.product_id} className='stars'>review here</div>
+    <div className="start">
+      <RatingStar
+       name={props.prop1.product_id} id='userRating-star'
+       size={20}
+       maxScore={5}
+       rating={props.prop1.rating}
+       colors={{ rear: 'transparent', stroke: 'black', mask: 'black' }}
+       />
+      </div>
 </div>
 
     </div>
