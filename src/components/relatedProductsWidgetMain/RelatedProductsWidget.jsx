@@ -83,7 +83,6 @@ useEffect ( () => {
 })
 
 const comparisonChart = (event) => {
-  console.log('look at me', compareThisHelper)
 for (var i = 0; i < relatedProductA.length; i++) {
   if (compareThisHelper[i].id === Number(event.target.attributes.name.nodeValue)) {
     var result = compareThisHelper[i];
