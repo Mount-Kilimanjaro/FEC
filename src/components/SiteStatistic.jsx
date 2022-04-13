@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import {hideOverFlow} from './overview/helperFn/shoppingCart.js'
 
 export default function SiteStatistic() {
-    const [visibility, setVisibility] = useState(true);
+    const [visibility, setVisibility] = useState(false);
     const statistic = useSelector((state) => state.statistic.clickCount)
     const statisticKeys = Object.keys(statistic);
     useEffect(() => {
