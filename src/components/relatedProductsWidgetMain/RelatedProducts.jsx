@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from "react";
 import Card from './RelatedProductCard.jsx';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 function RelatedProducts (props) {
-  const myItem = useSelector(state => state.category.currentItem);
+  const outfitArray = useSelector(state => state.myFavorite);
 const [currentCard, setCard] = useState(0)
-
+// useDispatch(addToFavorite(item))
   const nextBut = () => {
-    setCard(currentCard + 1)
+    if (currentCard < props.arr.length -1) {
+      setCard(currentCard + 1)
+    }
+
   }
 
   const prevBut = () => {
-    setCard(currentCard - 1)
+    if (currentCard>0) {
+      setCard(currentCard - 1)
+    }
+
   }
 
   useEffect(() => {
@@ -33,8 +39,8 @@ const [currentCard, setCard] = useState(0)
         })}
       </div>
     </div>
-    <svg onClick={nextBut} xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 scroll_but" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+    <svg onClick={nextBut} xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 scroll_but" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
 </svg>
     </div>
 
