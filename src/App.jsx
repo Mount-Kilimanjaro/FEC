@@ -9,7 +9,8 @@ import Overview from "./components/overview/Overview.jsx";
 import Header from "./components/overview/header/Header.jsx";
 import RelatedProducts from "./components/relatedProductsWidgetMain/RelatedProductsWidget.jsx";
 import RatingsAndReviews from "./components/reviews/RatingsAndReviews.jsx";
-import QAndA from "./components/qAndA/qAndA.jsx";
+import QAndA from "./components/qAndA/QAndA.jsx";
+import SiteStatistic from "./components/SiteStatistic";
 
 
 function App() {
@@ -93,6 +94,7 @@ function App() {
         <RelatedProducts/>
         <QAndA/>
         <RatingsAndReviews />
+        <SiteStatistic/>
     </div>
   )
 }
