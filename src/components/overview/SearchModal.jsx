@@ -5,11 +5,12 @@ import {hideOverFlow} from "./helperFn/shoppingCart.js"
 
 export default function SearchModal(props) {
     const [pagination, setPagination] = useState([[0,10]]);
-    const [pagiIndex, setPagiIndex] =useState(0)
+    const [pagiIndex, setPagiIndex] = useState(0);
+    const [sort, setSort] = useState(null);
     const {modalVisible, toggleModalVisible} = props.modal;
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const handlePagination = (index) => {
-        setPagiIndex(index)
+        setPagiIndex(index);
     };
     const handleSetItemId = (id) => {
         toggleModalVisible(false);
@@ -22,13 +23,13 @@ export default function SearchModal(props) {
             let count = 10;
             const arr = [];
             while (dataLength > 1) {
-                arr.push([count - 10 < 0 ? 0 : count - 10,count])
-                count +=10
-                dataLength -= 10
+                arr.push([count - 10 < 0 ? 0 : count - 10,count]);
+                count +=10;
+                dataLength -= 10;
             }
-            setPagination(arr)
+            setPagination(arr);
         } else {
-            setPagination([[0,props.filteredData.length]])
+            setPagination([[0,props.filteredData.length]]);
         }
       }, [props.filteredData]);
 
@@ -54,17 +55,31 @@ export default function SearchModal(props) {
         </div> */}
         <div className="w-full md:min-w-600 md:max-w-70  flex flex-col bg-white items-center justify-center border-2 border-black " >
             <div className="p-2">
-                <select className="border-black hover:cursor-pointer border-2" defaultValue={"DEFAULT"}>
+                <select className="border-black hover:cursor-pointer border-2" defaultValue={"DEFAULT"} onChange={(e) => {setSort(e.target.value)}}>
                     <option value="DEFAULT" disabled>Sort by</option>
-                    <option >Price: Low to High</option>
-                    <option>Price: High to High</option>
+                    <option value="low">Price: Low to High</option>
+                    <option value="high">Price: High to High</option>
                 </select>
             </div>
               {props.filteredData.length > 0 ? 
-                  props.filteredData.slice(pagination[pagiIndex][0],pagination[pagiIndex][1]).map((items,i) => {
+                  props.filteredData.sort((a,b) => {
+                      if (sort) {
+                        if (sort === 'low') {
+                            return a.default_price - b.default_price;
+                        }
+                        if (sort === 'high') {
+                            return b.default_price - a.default_price;
+                        }
+                      }
+                      return null;
+                  }).slice(pagination[pagiIndex][0],pagination[pagiIndex][1]).map((items,i) => {
                     const {name, id, description, category, default_price} = items
                     return (
-                        <div key={i} className="flex flex-col items-center p-2 border-b-4 w-full hover:bg-slate-200 hover:cursor-pointer text-sm md:text-base" onClick={() => handleSetItemId(id)}>
+                        <div key={i} className="flex flex-col items-center p-2 border-b-4 w-full hover:bg-slate-200 hover:cursor-pointer text-sm md:text-base" 
+                        onClick={() => {
+                            props.toggleBlurBG(false);
+                            handleSetItemId(id);
+                            }}>
                             <div className="flex p-1 w-full">
                                 <div className="w-[33%] ml-20 ">
                                     <p className="pr-2"><span className="font-bold">CATEGORY</span>: {category}</p>

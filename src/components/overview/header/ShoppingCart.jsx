@@ -27,6 +27,7 @@ export default function ShoppingCart(props) {
         } else {
             hideOverFlow(true);
         }
+        //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [cartVisibility]);
 
   return (
