@@ -42,20 +42,20 @@ export default function Overview(props) {
   };
   const setPreviousImage = () => {
     if (imageIndex !== 0) {
-      setImageUrl(imagesUrl[imageIndex - 1].url);
+      setImageUrl(imagesUrl[imageIndex - 1]);
       setImageIndex(imageIndex - 1);
     } else {
-      setImageUrl(imagesUrl[imagesUrl.length - 1].url);
+      setImageUrl(imagesUrl[imagesUrl.length - 1]);
       setImageIndex(imagesUrl.length - 1);
     }
   };
 
   const setNextImage = () => {
     if (imageIndex + 1 !== imagesUrl.length) {
-      setImageUrl(imagesUrl[imageIndex + 1].url);
+      setImageUrl(imagesUrl[imageIndex + 1]);
       setImageIndex(imageIndex + 1);
     } else {
-      setImageUrl(imagesUrl[0].url);
+      setImageUrl(imagesUrl[0]);
       setImageIndex(0);
     }
   };
