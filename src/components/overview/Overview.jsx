@@ -14,6 +14,7 @@ export default function Overview(props) {
   const [imageIndex, setImageIndex] = useState(0);
   const [imageUrl, setImageUrl] = useState("");
   const [imagesUrl, setImagesUrl] = useState([]);
+  console.log(imagesUrl)
 
   const getImageIndex = (url) => {
     return imagesUrl.map((obj,i) => {
@@ -35,8 +36,8 @@ export default function Overview(props) {
     setImagesUrl(imgArr);
   };
 
-  const changeImgUrl = (url) => {
-    setImageIndex(getImageIndex(url));
+  const changeImgUrl = (url,i) => {
+    setImageIndex(i);
     setImageUrl(url);
   };
   const setPreviousImage = () => {
@@ -66,7 +67,7 @@ export default function Overview(props) {
   }, [currentItem]);
 
   useEffect(() => {
-    setImageUrl(currentItem.style[styleIndex].photos[0].url);
+    setImageUrl(currentItem.style[styleIndex].photos[0]);
     setImagesUrl(currentItem.style[styleIndex].photos);
   }, [currentItem,styleIndex]);
 
