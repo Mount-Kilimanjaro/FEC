@@ -37,6 +37,7 @@ const ReviewTile = (props) => {
       disableHelpful(true);
     }
   }
+  
   const report = (e) => {
     if (!reported) {
       const reviewId = Number(e.target.getAttribute('dataid'));
