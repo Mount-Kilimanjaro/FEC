@@ -5,6 +5,11 @@
   margin: 5px 1px 3px 1px;
 }
 
+.q-a-list-div {
+  max-height: '350px';
+  overflow-y: 'scroll';
+}
+
 .q-and-a-container {
   color: #3a3b3c;
   font-family: sans-serif;
@@ -26,6 +31,10 @@
 
 .q-input-label {
   font-style: bold;
+}
+
+.q-list-div {
+  width: 95%;
 }
 
 .q-list-q {
