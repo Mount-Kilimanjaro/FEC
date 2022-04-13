@@ -10,7 +10,7 @@ export default function ProductImage(props) {
 
   return (
       <div id="productImage" className="container w:full md:w-4/6 h-300 md:h-full ">
-          <div id="imageWheel" className="p-4 hidden md:block absolute z-10">
+          <div id="imageWheel" className="p-4 hidden md:block absolute z-v">
             {imagesUrl.slice(0,5).map((photo,i) => 
             <div key={i} className={`p-0.5`}>
               <img id="scrollImg" name='overview_productImage_carousel_image' src={photo.url} alt="" className={`border-2 opacity-75 hover:opacity-100 hover:cursor-pointer hover:border-black ${imageUrl === imagesUrl[i].url? "border-b-blue-300 border-b-8 opacity-100" : ""}`} onClick={(e) => updateStatistic(changeImgUrl(photo.url), e)} />
