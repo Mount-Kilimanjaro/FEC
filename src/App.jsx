@@ -9,7 +9,7 @@ import Overview from "./components/overview/Overview.jsx";
 import Header from "./components/overview/header/Header.jsx";
 import RelatedProducts from "./components/relatedProductsWidgetMain/RelatedProductsWidget.jsx";
 import RatingsAndReviews from "./components/reviews/RatingsAndReviews.jsx";
-import QAndA from "./components/qAndA/QAndA.jsx";
+import QAndA from "./components/qAndA/qAndA.jsx";
 
 
 function App() {
@@ -90,7 +90,7 @@ function App() {
       <div className={`w-full h-full absolute inset-0 z-[70] bg-black/50 ${blurBG ? "block" : "hidden"}`}></div>
         <Header cart={{handleToggleCart, cartVisibility}}/>
         <Overview handleToggleCart={handleToggleCart}/>
-        <RelatedProducts/>
+        {/* <RelatedProducts/> */}
         <QAndA/>
         <RatingsAndReviews />
     </div>

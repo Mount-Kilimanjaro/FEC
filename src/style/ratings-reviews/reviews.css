@@ -23,7 +23,7 @@
 #ratingBreakdown-container {
   display: flex;
   flex-direction: column;
-  margin-right: 3%;
+  margin-left: 3%;
   min-width: 300px;
 }
 
@@ -41,13 +41,14 @@
 
 .reviewTile-container {
   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+  border: 0.25px solid #bbbfc32f;
   border-radius: 6px;
   display: flex;
   flex-direction: column;
   height: fit-content;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 10px;
-  min-height: 250px;
+  min-height: 200px;
   padding: 15px;
   width: 95%;
 }
@@ -83,7 +84,6 @@
 }
 
 .reviewButtons {
-
   border: 0.5px solid black;
   margin: 1%;
   padding: 1.5%;
@@ -211,17 +211,13 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 #star-breakdown div {
-  box-shadow: inset 0 0 0 0 #bbbfc34b;
-  color: #070808;
   margin: 0 -.25rem;
   padding: 0 .25rem;
-  transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
 }
 
 #star-breakdown div:hover {
-  border-radius: 3px;
-  box-shadow: inset 300px 0 0 0 #bbbfc34b;
-  color: rgb(0, 0, 0);
+  transform: scale(1.05);
+  cursor: pointer;
 }
 
 .star-filter {
@@ -230,7 +226,7 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 .percentRec {
-  width: 90%;
+  width: 95%;
 }
 
 .progress {
@@ -403,11 +399,20 @@ input[type="file"] {
 }
 
 .userImages, .userPhotos-addReview {
+
   max-width: 100px;
   max-height: 120px;
   object-fit: contain;
-  padding: 3px;
+  /* padding: 3px; */
+  margin: 3px;
   border-radius: 5px;
+}
+
+.userImages:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+  cursor: pointer;
+  transform: scale(1.05);
 }
 
 .addReview-warnings {
@@ -417,6 +422,13 @@ input[type="file"] {
 .userImages-container {
   display: flex;
   align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+
+  border: 1px solid #bbbfc34b;
+  width: fit-content;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
 }
 
 @keyframes zoom {
@@ -529,19 +541,6 @@ button#searchBar-btn > img {
   right: 4%;
 }
 
-/* @media only screen and (max-width: 1150px) {
-  #reviews-container {
-    transform: scale(0.8);
-    left: 0;
-  }
-}
-
-@media only screen and (max-width: 1000) {
-  #reviews-container {
-    transform: scale(0.6);
-    left: 0;
-  }
-} */
 
 @media only screen and (max-width: 720px) and (min-width: 300px) {
   #reviews-container {
@@ -562,14 +561,15 @@ button#searchBar-btn > img {
   }
   #rating-summary {
     position: relative;
-    right: 17%;
+    right: 15%;
   }
   .percentRec {
     position: relative;
-    right: 8%;
+    left: 11%;
   }
   #characteristics-breakdown {
     padding-top: 20px;
+    font-size: 0.9em;
     transform: scale(1.2);
     margin-bottom: 5%;
   }
