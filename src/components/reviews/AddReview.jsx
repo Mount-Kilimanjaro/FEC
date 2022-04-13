@@ -56,12 +56,15 @@ const AddReviewForm = (props) => {
   }
 
   const submit = (e) => {
-    e.preventDefault();
-    setFormData({ name: 'product_id', value: props.metadata.product_id });
-    if (formData[rating]) {
-      document.getElementById('addReview-modal').style.display = 'none';
-      // formatData(props.metadata.characteristics, formData);
-    }
+    console.log(e);
+    // e.preventDefault();
+    // setFormData({ name: 'product_id', value: props.metadata.product_id });
+    // if (formData[rating]) {
+    //   document.getElementById('addReview-modal').style.display = 'none';
+    //   formatData(props.metadata.characteristics, formData);
+    // } else {
+    //   // if rating is not filled out
+    // }
   }
 
 
@@ -173,7 +176,7 @@ const AddReviewForm = (props) => {
         </div>
 
         <div id="submit-container">
-          <button id="submitReview" type="submit" onClick={() => props.updateStatistic(submit(), 'Ratings/Reviews: submit new review button')}>Submit Review</button>
+          <button id="submitReview" onClick={() => props.updateStatistic(submit(), 'Ratings/Reviews: submit new review button')}>Submit Review</button>
         </div>
 
       </form>
