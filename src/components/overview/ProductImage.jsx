@@ -10,9 +10,9 @@ export default function ProductImage(props) {
 
   return (
       <div id="productImage" className="container w:full md:w-4/6 h-300 md:h-full ">
-          <div id="imageWheel" className="p-2 hidden md:block absolute z-10">
+          <div id="imageWheel" className="p-4 hidden md:block absolute z-10">
             {imagesUrl.slice(0,5).map((photo,i) => 
-            <div key={i} className={`p-0.5 `}>
+            <div key={i} className={`p-0.5`}>
               <img id="scrollImg" name='overview_productImage_carousel_image' src={photo.url} alt="" className={`border-2 opacity-75 hover:opacity-100 hover:cursor-pointer hover:border-black ${imageUrl === imagesUrl[i].url? "border-b-blue-300 border-b-8 opacity-100" : ""}`} onClick={(e) => updateStatistic(changeImgUrl(photo.url), e)} />
             </div>
             )}
@@ -24,20 +24,28 @@ export default function ProductImage(props) {
             <></>
             }
         </div>
-        <div className="container flex flex-row justify-center items-center l w-full h-full">
+        <div className="container flex flex-row justify-center items-center w-full h-full p-3">
           <div id="overview_arrow" className="flex md:hidden">
             <img id="productImages_arrowLeft" className="overview_image_arrows hover:cursor-pointer opacity-50 hover:opacity-100 select-none mr-80" name='overview_productImage_main_arrow_left' alt="" onClick={(e) => updateStatistic(setPreviousImage(),e)} src={arrowLeft}/ >
             <img id="productImages_arrowRight"className="overview_image_arrows hover:cursor-pointer opacity-50 hover:opacity-100 select-none" name='overview_productImage_main_arrow_right' alt="" onClick={(e) => updateStatistic(setNextImage(),e)} src={arrowRight}/ >
           </div>
-          <img id="overview_main_img" className="h-full p-3 md:min-h-650 md:hover:cursor-pointer" src={imageUrl} alt="" 
+          <img id="overview_main_img" className={`h-full ml-3 md:min-h-650 md:hover:cursor-pointer ${modal ? 'opacity-0':''}`} src={imageUrl} alt="" 
           onClick={() => {
-            if (window.innerWidth > 500) {
-              toggleModal(true)
+            if (window.innerWidth < 766) {
+              toggleModal(false);
+            }else {
+              toggleModal(true);
             }
             }}/>
         </div>
         <Modal visibility={modal} toggleModal={toggleModal}>
-            <img className="md:max-w-1280 md:max-h-1000" src={imageUrl} alt=""/>
+        <div className="container flex flex-row justify-center items-center h-full">
+          <div id="overview_arrow" className="flex bg-black">
+            <img id="productImages_arrowLeft" className="overview_image_arrows hover:cursor-pointer opacity-50 hover:opacity-100 select-none absolute bottom-2/4" name='overview_productImage_main_arrow_left' alt="" onClick={(e) => updateStatistic(setPreviousImage(),e)} src={arrowLeft}/ >
+            <img id="" className=" h-900" src={imageUrl} alt=""/>
+            <img id="productImages_arrowRight"className="overview_image_arrows hover:cursor-pointer opacity-50 hover:opacity-100 select-none absolute bottom-2/4 right-0" name='overview_productImage_main_arrow_right' alt="" onClick={(e) => updateStatistic(setNextImage(),e)} src={arrowRight}/ >
+          </div>
+        </div>
         </Modal>
       </div>
     )

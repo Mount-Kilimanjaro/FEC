@@ -120,7 +120,7 @@ export default function ProductSelector(props) {
       <div id="overview_selector">
         <div className="flex justify-between p-5">
           <div id="size">
-            <select id="overview_select_size" className="border-2 p-3 border-black " value={sku} name="overview_productSelector_size_change"  defaultValue={"DEFAULT"} onChange={(e) => {
+            <select id="overview_select_size" className="border-2 p-3 border-black hover:cursor-pointer" value={sku} name="overview_productSelector_size_change"  defaultValue={"DEFAULT"} onChange={(e) => {
               updateStatistic(handleSizeChange(e.target.value),e)
             }}>
               <option value="DEFAULT" disabled>SELECT SIZE</option>
@@ -130,7 +130,7 @@ export default function ProductSelector(props) {
             </select>
           </div>
           <div id="quantity" className="">
-            <select id="overview_select_quantity" className="border-2 p-3 border-black"  value={order.quantity} name="overview_productSelector_quantity_change" defaultValue={"DEFAULT"} 
+            <select id="overview_select_quantity" className="border-2 p-3 border-black hover:cursor-pointer"  value={order.quantity} name="overview_productSelector_quantity_change" defaultValue={"DEFAULT"} 
               onChange={(e) => updateStatistic(handleAddQuantity(e.target.value),e)
               }>
               {quantity === 0 ? <option  value="DEFAULT" disabled>OUT OF STOCK</option> : <option  value="DEFAULT" disabled>QUANTITY</option>}
