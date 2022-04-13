@@ -13,6 +13,7 @@ import QAndA from "./components/qAndA/QAndA.jsx";
 import SiteStatistic from "./components/SiteStatistic";
 
 
+
 function App() {
   // add redux state to this component
   const currentItemId = useSelector(state => state.category.currentItemId);

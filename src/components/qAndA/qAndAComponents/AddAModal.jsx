@@ -12,19 +12,19 @@ const AddAModal = (props) => {
         </div>
         <div className='a-modal-form'>
           <label>Please enter your answer here.</label>
-            <input className='a-answer-body'
+            <input className='a-modal-input'
               type='textarea'
               size='sm'
               placeholder='Buy another for a friend!'>
             </input>
           <label>Please enter your username here. For your privacy, avoid using your name or social media usernames.</label>
-            <input className='a-username'
+            <input className='a-modal-input'
               type='text'
               size='sm'
               placeholder='Fashionista123'>
             </input>
           <label>Please enter your e-mail here.</label>
-          <input className='a-email'
+          <input className='a-modal-input'
             type='textarea'
             size='sm'
             placeholder='Fashionista123@gmail.com'>
