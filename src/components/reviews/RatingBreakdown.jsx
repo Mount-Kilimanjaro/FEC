@@ -66,7 +66,7 @@ const RatingBreakdown = (props) => {
 
         <br/>
       </div>
-        <div className="percentRec">{`${calculatePercentRecommend(props.metadata.recommended)}%`} of {`${calculateTotalRatings(props.metadata.ratings)}`} total reviews recommend this product</div>
+        <div className="percentRec">{`${calculatePercentRecommend(props.metadata.recommended)}%`} of {`${calculateTotalRatings(props.metadata.ratings)}`} total reviewers recommend this product</div>
 
 
       <div id="star-breakdown">
