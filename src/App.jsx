@@ -90,8 +90,8 @@ function App() {
       <div className={`w-full h-full absolute inset-0 z-[70] bg-black/50 ${blurBG ? "block" : "hidden"}`}></div>
         <Header cart={{handleToggleCart, cartVisibility}} toggleBlurBG={toggleBlurBG}/>
         <Overview handleToggleCart={handleToggleCart}/>
-        {/* <RelatedProducts/>
-        <QAndA/> */}
+        {/* <RelatedProducts/>*/}
+        <QAndA/>
         <RatingsAndReviews />
     </div>
   )

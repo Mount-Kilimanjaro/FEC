@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 import AddAModal from './AddAModal.jsx';
 
 const Q = ({qObj, highlightedString}) => {
@@ -10,36 +9,40 @@ const Q = ({qObj, highlightedString}) => {
     return (<div></div>)
   } else {
     return (
-      <div className='q-list-result'>
-        <span className='q-list-q-body'>Q: {qObj.question_body}  |</span>
-            <span className='q-li-helpful'>|  Helpful?  |</span>
-              <span className='q-li-helpful-count' onClick={() => alert('Yes clicked in QAndA Widget')}>|  Yes</span>
-              ({qObj.question_helpfulness}) |
-                <span className='q-li-add-a' onClick={() => setShow(true)}>|  Add Answer</span>
-                  <AddAModal show={show} onClose={() => setShow(false)} />
-        {/*Answers forEach Question*/}
+      <div className='q-list-q'>
+        <span>
+          <h2 className='q-list-q-body'>Q: {qObj.question_body}
+            <span className='q-list-span'>Helpful?
+              <span className='q-list-click-event' onClick={() => alert('POST /question_helpfulness++')}>Yes</span>
+              ({qObj.question_helpfulness})
+              <span className='q-list-click-event' onClick={() => setShow(true)}>Add Answer</span>
+              <AddAModal show={show} onClose={() => setShow(false)} />
+            </span>
+          </h2>
           {Object.values(qObj.answers)
           .sort((a, b) => { return b.helpfulness - a.helpfulness })
           .slice(0, aCount)
           .map((aObj, index) => (
-            <div className='a-li' key={index}>
-              <span>A: {aObj.body}</span>
-              <p className='a-li-data'>
+            <div className='a-list-per-q' key={index}>
+              <span>
+                <h5>A: </h5>{aObj.body}
+              </span>
+              <p className='a-list-data'>
                 by {aObj.answerer_name},
-                {new Date(aObj.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}  |
+                {new Date(aObj.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
                 Helpful?
-                <span className='a-li-helpful'>Yes</span>
-                ({aObj.helpfulness})  |
-                <span className='a-li-report'>Report</span>
+                <span className='q-list-click-event'>Yes</span>
+                ({aObj.helpfulness})
+                <span className='q-list-click-event'>Report</span>
               </p>
             </div>
           ))}
-
-          {(Object.values(qObj.answers).length <= 2) ? null : ((Object.values(qObj.answers).length === aCount) ?
-          <button className='a-list-collapse' onClick={() => alert('Collapse Answers Clicked')}>Collapse Answers</button>
-          :
-          <button className='a-list-expand' onClick={() => alert('Load More Answers Clicked')}>LOAD MORE ANSWERS</button>
-          )}
+        </span>
+        {(Object.values(qObj.answers).length <= 2) ? null : ((Object.values(qObj.answers).length === aCount) ?
+        <button className='a-list-click-div-event' onClick={() => {setACount(2)}}>COLLAPSE ANSWERS</button>
+        :
+        <button className='a-list-click-div-event' onClick={() => {setACount(Object.values(qObj.answers).length)}}>LOAD MORE ANSWERS</button>
+        )}
       </div>
     )}
 };
