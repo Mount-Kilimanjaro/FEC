@@ -110,7 +110,7 @@ width: 100%;
 }
 
  .ComparisonModal {
-  position: absolute;
+  position: fixed;
   width: 350px;
   height: 400px;
   left: 50%;
@@ -224,6 +224,10 @@ td {
 #relatedMain .rating-star {
   padding: 0px;
 }
+ .sale {
+  text-decoration: line-through;
+  color:rgb(255, 0, 0, .5);
+ }
 
 
 

@@ -11,17 +11,23 @@ const dispatch = useDispatch()
   const RemoveProduct = (id) => {
      dispatch(removeFromFavorite(id))
   }
-
-  if (props.prop1.results[0].photos[0].thumbnail_url) {
+  var abCard;
+  for(var i = 0; i < props.prop1.results.length; i++) {
+    if (props.prop1.results[i]['default?']) {
+      abCard = props.prop1.results[i]
+    }
+  }
+  var useMe = abCard || props.prop1.results[0]
+  if (useMe.photos[0].thumbnail_url) {
   return (
    <div className='relatedProductCards'>
      <svg onClick={() => {RemoveProduct(props.prop1.product_id)}} xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 OutfitCancel" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
   <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
 </svg>
-      <img alt='shoe' src={props.prop1.results[0].photos[0].thumbnail_url}></img>
-      <h3>SHOES</h3>
-      <p>{props.prop1.results[0].name}</p>
-      <span>{props.prop1.results[0].original_price}</span>
+      <img alt='shoe' src={useMe.photos[0].thumbnail_url}></img>
+      <h3>{props.prop1.category}</h3>
+      <p>{useMe.name}</p>
+      {useMe.sale_price ? <span><span className="sale">{useMe.original_price}</span><span>{useMe.sale_price}</span></span> : <span name={props.prop1.product_id}>{useMe.original_price}</span>}
       <div className="start">
       <RatingStar
        name={props.prop1.product_id} id='userRating-star'
@@ -40,9 +46,9 @@ const dispatch = useDispatch()
 </svg>
 <div onClick={props.addCard} name={props.prop1.product_id}>
 <img name={props.prop1.product_id} alt='whatever' src={require('./assets/asset.jpg')}></img>
-      <h3 name={props.prop1.product_id}>SHOES</h3>
-    <p name={props.prop1.product_id}>{props.prop1.results[0].name}</p>
-    <span name={props.prop1.product_id}>{props.prop1.results[0].original_price}</span>
+      <h3 name={props.prop1.product_id}>{props.prop1.category}</h3>
+    <p name={props.prop1.product_id}>{useMe.name}</p>
+    {useMe.sale_price ? <span><span className="sale">{useMe.original_price}</span><span>{useMe.sale_price}</span></span> : <span name={props.prop1.product_id}>{useMe.original_price}</span>}
     <div className="start">
       <RatingStar
        name={props.prop1.product_id} id='userRating-star'

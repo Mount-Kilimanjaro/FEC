@@ -8,6 +8,18 @@ const ReviewTile = (props) => {
   const [helpful, disableHelpful] = useState(false);
   const [reported, disableReport] = useState(false);
 
+  // const truncate = (summary) => {
+  //   console.log('entered truncate');
+  //   console.log(summary, 'summary');
+  //   if (summary.length > 250) {
+  //     summary = summary.trim().split(' ').slice(0, 249).join(' ');
+  //     return (
+  //       summary +=
+  //     )
+  //   } else {
+  //     return summary;
+  //   }
+  // }
   const toggleModal = (e) => {
     var modal = document.getElementById('img-modal');
     if (modal.style.display === 'block') {
@@ -26,6 +38,13 @@ const ReviewTile = (props) => {
           <ImageModal toggleModal={toggleModal} updateStatistic={props.updateStatistic}/>
         </div>
       ))
+    } else if (props.review.photos.length === 1) {
+      return (
+        <>
+          <img className="userImages" src={`${props.review.photos[0].url}`} alt="" onClick={(e) => props.updateStatistic(toggleModal(e), 'Ratings/Reviews: toggle review image modal' )} />
+          <ImageModal toggleModal={toggleModal} updateStatistic={props.updateStatistic} />
+        </>
+      )
     }
   }
 
@@ -37,7 +56,7 @@ const ReviewTile = (props) => {
       disableHelpful(true);
     }
   }
-  
+
   const report = (e) => {
     if (!reported) {
       const reviewId = Number(e.target.getAttribute('dataid'));
@@ -65,9 +84,9 @@ const ReviewTile = (props) => {
         <span>{props.review.reviewer_name}, {formatDate(props.review.date)}</span>
       </div>
 
-      <div className="reviewSummary"><b>{props.review.summary}</b></div>
+      <div className="reviewSummary"><b>{props.review.summary.length > 60 ? props.review.summary.slice(0, 60) : props.review.summary}</b></div>
 
-      <div className="reviewBody ">{props.review.body}</div>
+      <div className="reviewBody ">{props.review.body ? props.review.body : '' }</div>
 
       {!props.review.photos.length ? <span style={{ display: 'none'}}> </span> : <div className="userImages-container">{displayPhotos()} </div>}
 
