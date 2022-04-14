@@ -8,7 +8,7 @@ const QSearch = (props) => {
         e.preventDefault();
       }}>
         <label>
-          <input className='q-search-text' onChange={(e) => {props.onSearchKeystroke(e);}}
+          <input className='q-search-input' onChange={(e) => {props.onSearchKeystroke(e);}}
           type='text'
           size='sm'
           placeholder='HAVE A QUESTION? SEARCH FOR ANSWERS...'>

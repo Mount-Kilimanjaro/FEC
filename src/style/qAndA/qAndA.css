@@ -68,9 +68,8 @@
   width: 100%
 }
 
-.q-search-text {
-  justify-content: center;
-  text-align: center;
+.q-search-input {
+  min-width: 420px;
 }
 
 .q-ul {
