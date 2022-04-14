@@ -26,6 +26,13 @@ const ReviewTile = (props) => {
           <ImageModal toggleModal={toggleModal} updateStatistic={props.updateStatistic}/>
         </div>
       ))
+    } else if (props.review.photos.length === 1) {
+      return (
+        <>
+          <img className="userImages" src={`${props.review.photos[0].url}`} alt="" onClick={(e) => props.updateStatistic(toggleModal(e), 'Ratings/Reviews: toggle review image modal' )} />
+          <ImageModal toggleModal={toggleModal} updateStatistic={props.updateStatistic} />
+        </>
+      )
     }
   }
 
@@ -37,7 +44,7 @@ const ReviewTile = (props) => {
       disableHelpful(true);
     }
   }
-  
+
   const report = (e) => {
     if (!reported) {
       const reviewId = Number(e.target.getAttribute('dataid'));

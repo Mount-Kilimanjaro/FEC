@@ -19,7 +19,7 @@ function RelatedProductCard (props) {
       <span name={props.prop1.product_id}>{props.prop1.results[0].original_price}</span>
       <div className="start">
       <RatingStar
-       name={props.prop1.product_id} id='userRating-star'
+       name={props.prop1.product_id} id='userRating-starProducts'
        size={20}
        maxScore={5}
        rating={props.prop1.rating}
