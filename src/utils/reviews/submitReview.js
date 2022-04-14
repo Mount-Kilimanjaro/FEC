@@ -12,6 +12,8 @@ const formatData = (charsObj, data) => {
         characteristics[characteristicId] = Number(data[key]['value']);
       }
       delete data[key];
+    } else if (key === 'recommend') {
+      data[key] = Boolean(data[key]);
     }
   }
   data['characteristics'] = characteristics;

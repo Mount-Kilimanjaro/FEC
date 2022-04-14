@@ -57,7 +57,7 @@ const RatingBreakdown = (props) => {
         <span id="averageRating">{ Object.keys(props.metadata.ratings).length ? calculateRatingAverage(props.metadata.ratings) : '' }</span>
         <RatingStar
           id="ratingBreakdownStars"
-          rating={Number(calculateRatingAverage(props.metadata.ratings))}
+          rating={Number(calculateRatingAverage(props.metadata.ratings)) || 0}
           size={20}
           colors={{ rear: 'transparent', stroke: 'black', mask: 'black' }}
         />

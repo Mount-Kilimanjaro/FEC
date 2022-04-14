@@ -69,17 +69,14 @@ const RatingsAndReviews = (props) => {
   }
 
   const filterBySearch = (keyword) => {
-    console.log(keyword, 'keyword');
     if (keyword.length >= 3) {
       if (!sort) {
         const filtered = filterByKeyword(keyword, reviewList.results);
         setSorted(filtered);
         toggleSort(true);
-        console.log(filtered, 'filtered without sort');
       } else {
         const filtered = filterByKeyword(keyword, sortedReviews);
         setSorted(filtered);
-        console.log(filtered, 'filterd with sort');
       }
     } else if (!keyword) {
       toggleSort(false);
