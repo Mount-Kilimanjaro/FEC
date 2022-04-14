@@ -11,7 +11,7 @@ import {addToFavorite} from "../../store/reducer/categoryReducer.js"
 function RelatedProductsWidget () {
 const dispatch = useDispatch()
 
-
+  const outfitArray = useSelector(state => state.category.myFavorite);
   const myItem = useSelector(state => state.category.currentItem);
   const headers = {
     'Authorization': process.env.REACT_APP_API_TOKEN
@@ -137,8 +137,11 @@ const closeModal = () => {
     <div id='relatedMain'>
       <h1>Related Products</h1>
       < RelatedProducts addCard={addCard} compare={comparisonChart} arr={relatedProductA}/>
-      <h1>Outfit</h1>
-      < Outfit outfitCards={OutfitStuff}/>
+      {outfitArray.length > 0 ? <h1>Outfit</h1> : <div></div>}
+      {outfitArray.length > 0 ? < Outfit outfitCards={OutfitStuff}/> : <div></div>}
+
+
+
       < ComparisonM closeModal={closeModal} showModal={showModal} feat={compareFeat} prop1={compareThis}/>
     </div>
   )
