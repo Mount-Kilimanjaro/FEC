@@ -29,6 +29,9 @@ const AddReviewForm = (props) => {
       img.style.display = 'block';
       setFormData({ name: 'photos', value: [url] });
     } else {
+      if (e.target.files.length === 5) {
+        document.getElementById('uploadPhotos').style.display = 'none';
+      }
       var photoURLs = [];
       for (var key in e.target.files) {
         let url = URL.createObjectURL(e.target.files[key]);
