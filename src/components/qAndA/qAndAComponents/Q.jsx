@@ -10,31 +10,39 @@ const Q = ({qObj, highlightedString}) => {
   } else {
     return (
       <div className='q-list-q'>
-        <span>
-          <h2 className='q-list-q-body'>Q: {qObj.question_body}
-            <span className='q-list-span'>Helpful?
-              <span className='q-list-click-event' onClick={() => alert('POST /question_helpfulness++')}>Yes</span>
+        <span className='q-list-q-li'>
+          <h3 className='q-list-q-body'>Q: {qObj.question_body}</h3>
+            <span className='q-list-span-element'>Helpful?&ensp;
+              <span className='q-list-click-event' onClick={() => alert('POST /question_helpfulness++')}>
+                <span className='q-list-yes'>Yes</span></span>
               ({qObj.question_helpfulness})
+              &emsp;|&emsp;
               <span className='q-list-click-event' onClick={() => setShow(true)}>Add Answer</span>
               <AddAModal show={show} onClose={() => setShow(false)} />
             </span>
-          </h2>
+        </span>
+        <span>
           {Object.values(qObj.answers)
           .sort((a, b) => { return b.helpfulness - a.helpfulness })
           .slice(0, aCount)
           .map((aObj, index) => (
             <div className='a-list-per-q' key={index}>
               <span>
-                <h5>A: </h5>{aObj.body}
+                <span className='q-list-a-element'>A: </span>{aObj.body}
               </span>
-              <p className='a-list-data'>
-                by {aObj.answerer_name},
-                {new Date(aObj.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-                Helpful?
-                <span className='q-list-click-event'>Yes</span>
-                ({aObj.helpfulness})
-                <span className='q-list-click-event'>Report</span>
-              </p>
+              <br></br>
+              <span className='a-list-data'>
+                <span className='a-list-data-element'>by {aObj.answerer_name},&ensp;
+                  {new Date(aObj.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                </span>
+                &emsp;&emsp;|&emsp;&emsp;
+                <span className='a-list-data-element'>Helpful?&ensp;
+                  <span className='q-list-click-event a-list-yes' onClick={() => alert('POST /answer_helpfulness++')}>Yes</span>
+                  ({aObj.helpfulness})
+                </span>
+                &emsp;|&emsp;&emsp;
+                <span className='a-list-data-element'><span className='q-list-click-event' onClick={() => alert('Set Answer Report Boolean to True')}>Report</span></span>
+              </span>
             </div>
           ))}
         </span>

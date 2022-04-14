@@ -7,7 +7,7 @@ const QSearch = (props) => {
       <form className='q-search-form' onSubmit={(e) => {
         e.preventDefault();
       }}>
-        <label>
+        <label className='q-search-label'>
           <input className='q-search-input' onChange={(e) => {props.onSearchKeystroke(e);}}
           type='text'
           size='sm'
@@ -15,7 +15,7 @@ const QSearch = (props) => {
           </input>
         </label>
         <button className='q-search-button' type='submit' onClick={() => alert('QAndA Searchbar Clicked')}>
-          <img src={searchIcon} alt='' />
+          <img className='q-search-image' src={searchIcon} alt='' />
         </button>
       </form>
     </div>

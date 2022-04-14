@@ -22,16 +22,16 @@ const QList = ({ qData, highlightedString }) => {
 
       <div className='q-list-buttons'>
         {(qData.length > qCount) ?
-          <button className='q-list-more-q-button' onClick={() => {setQCount(qData.length)}}>
-            <span>MORE ANSWERED QUESTIONS  |</span>
+          <button className='q-list-button' onClick={() => {setQCount(qData.length)}}>
+            <span className='q-list-button-text'>MORE ANSWERED QUESTIONS</span>
           </button>
           :
-          <button className='q-list-less-q-button' onClick={() => {setQCount(2)}}>
-            <span>Minimize Questions  |</span>
+          <button className='q-list-button' onClick={() => {setQCount(2)}}>
+            <span className='q-list-button-text'>MINIMIZE QUESTIONS</span>
           </button>
         }
-          <button className='q-list-add-q-button' onClick={() => setShow(true)}>
-            <span>|  ADD A QUESTION +  </span>
+          <button className='q-list-button' onClick={() => setShow(true)}>
+            <span className='q-list-button-text'>ADD A QUESTION +</span>
           </button>
         <QModal show={show} onClose={() => setShow(false)} />
       </div>

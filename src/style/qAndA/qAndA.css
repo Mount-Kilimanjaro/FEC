@@ -1,3 +1,7 @@
+.a-list-yes {
+  text-decoration: underline;
+}
+
 .a-modal-input {
   width: 100%;
   font-size: 1.6rem;
@@ -11,12 +15,16 @@
 }
 
 .q-and-a-container {
-  color: #3a3b3c;
-  font-family: sans-serif;
   background-color: transparent;
-  padding: 0.25em 1em;
-  width: 85%;
+  color: #3a3b3c;
+  /* display: flex; */
+  font-family: sans-serif;
+  height: 100%;
   margin-top: 60px;
+  max-width: 1280px;
+  min-width: 480px;
+  padding: 1.5%;
+  width: 100%;
 }
 
 .q-and-a-title-h3 {
@@ -27,49 +35,100 @@
 
 .q-input-form {
   border: .75px solid #3a3b3c;
+  justify-content: space-between;
   padding: 2px 5px;
-  width: 100%;
 }
 
 .q-input-label {
   font-style: bold;
 }
 
+.q-list-a-element {
+  font-weight: 600;
+}
+
+.q-list-button {
+  border: .75px solid #3a3b3c;
+  margin-right: 15px;
+  margin-top: 15px;
+  padding: 5px;
+  vertical-align: middle;
+}
+
+.q-list-buttons {
+  display: flex;
+  min-width: 420px;
+}
+
+.q-list-button-text {
+  color: #3a3b3c;
+  font-style: bold;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
 .q-list-div {
-  width: 95%;
+  width: 100%;
 }
 
 .q-list-q {
-  color: #3a3b3c;
   background: transparent;
-  margin: 0 1em;
-  padding: 0.25em 1em;
+  color: #3a3b3c;
+  justify-content: space-between;
 }
 
 .q-list-q-body {
-  padding: .25em 0em .25em;
-  display: block;
-  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.q-list-q-li {
+  display: flex;
+  justify-content: space-between;
+}
+
+.q-list-yes {
+  text-decoration: underline;
 }
 
 .q-search {
+  align-items: center;
   border: 1px solid #3a3b3c;
   display: flex;
+  margin-bottom: 7px;
   min-width: 420px;
   padding: 3px;
   padding-left: 7px;
 }
 
-.q-search-button {
-  justify-self: right;
+.q-search-form {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  vertical-align: middle;
+  width: 100%;
 }
 
-.q-search-form {
-  width: 100%
+input::placeholder {
+  color: #3a3b3c;
+  font-style: bold;
+  font-weight: 600;
+}
+
+.q-search-image {
+  max-width: 40%;
 }
 
 .q-search-input {
-  min-width: 420px;
+  color: #3a3b3c;
+  min-height: 20px;
+  min-width: 460px;
+  vertical-align: middle;
+  width: fill;
+}
+
+.q-search-label {
+  width: fill;
 }
 
 .q-ul {
