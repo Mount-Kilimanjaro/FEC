@@ -8,18 +8,6 @@ const ReviewTile = (props) => {
   const [helpful, disableHelpful] = useState(false);
   const [reported, disableReport] = useState(false);
 
-  // const truncate = (summary) => {
-  //   console.log('entered truncate');
-  //   console.log(summary, 'summary');
-  //   if (summary.length > 250) {
-  //     summary = summary.trim().split(' ').slice(0, 249).join(' ');
-  //     return (
-  //       summary +=
-  //     )
-  //   } else {
-  //     return summary;
-  //   }
-  // }
   const toggleModal = (e) => {
     var modal = document.getElementById('img-modal');
     if (modal.style.display === 'block') {
