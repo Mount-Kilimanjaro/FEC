@@ -1,14 +1,8 @@
 import React, { useReducer, useState } from 'react';
 import { RatingStar } from 'rating-star';
 import BreakdownBarLabels from './BreakdownBarLabels.jsx';
-import { formatData } from '../../utils/reviews/submitReview.js';
-
-const formReducer = (state, event) => {
-  return {
-    ...state,
-    [event.name]: event.value
-  }
-}
+import formReducer from '../../utils/reviews/formReducer.js';
+import formatData  from '../../utils/reviews/submitReview.js';
 
 const AddReviewForm = (props) => {
 
@@ -35,6 +29,9 @@ const AddReviewForm = (props) => {
       img.style.display = 'block';
       setFormData({ name: 'photos', value: [url] });
     } else {
+      if (e.target.files.length === 5) {
+        document.getElementById('uploadPhotos').style.display = 'none';
+      }
       var photoURLs = [];
       for (var key in e.target.files) {
         let url = URL.createObjectURL(e.target.files[key]);
@@ -56,15 +53,13 @@ const AddReviewForm = (props) => {
   }
 
   const submit = (e) => {
-    console.log(e);
-    // e.preventDefault();
-    // setFormData({ name: 'product_id', value: props.metadata.product_id });
-    // if (formData[rating]) {
-    //   document.getElementById('addReview-modal').style.display = 'none';
-    //   formatData(props.metadata.characteristics, formData);
-    // } else {
-    //   // if rating is not filled out
-    // }
+    e.preventDefault();
+    formData['product_id'] = Number(props.metadata.product_id);
+    formatData(props.metadata.characteristics, formData);
+
+    document.getElementById('addReview-modal').style.display = 'none';
+    document.getElementById('form').reset();
+    setFormData({});
   }
 
 
@@ -176,7 +171,7 @@ const AddReviewForm = (props) => {
         </div>
 
         <div id="submit-container">
-          <button id="submitReview" onClick={() => props.updateStatistic(submit(), 'Ratings/Reviews: submit new review button')}>Submit Review</button>
+          <button id="submitReview" onClick={(e) => props.updateStatistic(submit(e), 'Ratings/Reviews: submit new review button')}>Submit Review</button>
         </div>
 
       </form>
