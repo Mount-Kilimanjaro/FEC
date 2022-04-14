@@ -47,5 +47,12 @@ module.exports = {
        }else {
           document.body.classList.remove("hideOverFlow");
        }
-  },
+    },
+    sumTotal: (cart) => {
+      let total = 0;
+      cart.forEach(item => {
+        total += Number(item.price) * Number(item.quantity);
+      })
+      return total
+    }
 };
