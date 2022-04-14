@@ -14,6 +14,7 @@ export default function Overview(props) {
   const [imageIndex, setImageIndex] = useState(0);
   const [imageUrl, setImageUrl] = useState("");
   const [imagesUrl, setImagesUrl] = useState([]);
+  console.log(imagesUrl)
 
   const getImageIndex = (url) => {
     return imagesUrl.map((obj,i) => {
@@ -35,26 +36,26 @@ export default function Overview(props) {
     setImagesUrl(imgArr);
   };
 
-  const changeImgUrl = (url) => {
-    setImageIndex(getImageIndex(url));
+  const changeImgUrl = (url,i) => {
+    setImageIndex(i);
     setImageUrl(url);
   };
   const setPreviousImage = () => {
     if (imageIndex !== 0) {
-      setImageUrl(imagesUrl[imageIndex - 1].url);
+      setImageUrl(imagesUrl[imageIndex - 1]);
       setImageIndex(imageIndex - 1);
     } else {
-      setImageUrl(imagesUrl[imagesUrl.length - 1].url);
+      setImageUrl(imagesUrl[imagesUrl.length - 1]);
       setImageIndex(imagesUrl.length - 1);
     }
   };
 
   const setNextImage = () => {
     if (imageIndex + 1 !== imagesUrl.length) {
-      setImageUrl(imagesUrl[imageIndex + 1].url);
+      setImageUrl(imagesUrl[imageIndex + 1]);
       setImageIndex(imageIndex + 1);
     } else {
-      setImageUrl(imagesUrl[0].url);
+      setImageUrl(imagesUrl[0]);
       setImageIndex(0);
     }
   };
@@ -66,7 +67,7 @@ export default function Overview(props) {
   }, [currentItem]);
 
   useEffect(() => {
-    setImageUrl(currentItem.style[styleIndex].photos[0].url);
+    setImageUrl(currentItem.style[styleIndex].photos[0]);
     setImagesUrl(currentItem.style[styleIndex].photos);
   }, [currentItem,styleIndex]);
 
