@@ -40,6 +40,7 @@ const dispatch = useDispatch()
             var result = []
             for(var i = 0; i < data.length; i++) {
               result.push(data[i].data)
+              resultt[i].category = data[i].data.category
             }
             return setCompareHelper(result);
           }
@@ -47,6 +48,7 @@ const dispatch = useDispatch()
 
             const responsee =  await axios.all(myItem.related.map((endpoint) => axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/?product_id=${endpoint}&sort="relevant"&count=1000`,{headers}))).then(
                 (data) => {
+
                   var result = []
 
             for(var i = 0; i < data.length; i++) {

@@ -24,7 +24,7 @@ function RelatedProductCard (props) {
 </svg>
 <div onClick={props.addCard} name={props.prop1.product_id}>
 <img alt='shoe' src={useMe.photos[0].thumbnail_url} name={props.prop1.product_id}></img>
-      <h3 name={props.prop1.product_id}>SHOES</h3>
+      <h3 name={props.prop1.product_id}>{props.prop1.category}</h3>
       <p name={props.prop1.product_id}>{useMe.name}</p>
       {useMe.sale_price ? <span><span className="sale">{useMe.original_price}</span><span>{useMe.sale_price}</span></span> : <span>{useMe.original_price}</span>}
       <div className="start">
@@ -49,7 +49,7 @@ function RelatedProductCard (props) {
 </svg>
 <div onClick={props.addCard} name={props.prop1.product_id}>
 <img name={props.prop1.product_id} alt='whatever' src={require('./assets/asset.jpg')}></img>
-      <h3 name={props.prop1.product_id}>SHOES</h3>
+      <h3 name={props.prop1.product_id}>{props.prop1.category}</h3>
     <p name={props.prop1.product_id}>{useMe.name}</p>
     {useMe.sale_price ? <span><span className="sale">{useMe.original_price}</span><span>{useMe.sale_price}</span></span> : <span >{useMe.original_price}</span>}
     <div className="start">
