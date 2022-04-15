@@ -27,7 +27,7 @@ const QList = ({ qData, highlightedString }) => {
           </button>
           :
           <button className='q-list-button' onClick={() => {setQCount(2)}}>
-            <span className='q-list-button-text'>MINIMIZE QUESTIONS</span>
+            <span className='q-list-button-text'>MINIMIZE LIST</span>
           </button>
         }
           <button className='q-list-button' onClick={() => setShow(true)}>
