@@ -7,7 +7,12 @@
 }
 
 .a-list-data {
-  font-size: .65rem;
+  font-size: .85em;
+}
+
+.a-list-per-q {
+  padding: 5px;
+
 }
 
 .a-list-yes {
@@ -16,7 +21,7 @@
 
 .a-modal-input {
   width: 100%;
-  font-size: 1.6rem;
+  /* font-size: 1.6rem; */
   cursor: pointer;
   margin: 5px 1px 3px 1px;
 }
@@ -24,6 +29,7 @@
 .q-a-list-div {
   max-height: '350px';
   overflow-y: 'scroll';
+
 }
 
 .q-and-a-container {
@@ -33,7 +39,7 @@
   font-family: sans-serif;
   height: 100%;
   margin-top: 60px;
-  max-width: 1280px;
+  max-width: 1200px;
   min-width: 480px;
   padding: 1.5%;
   width: 100%;
@@ -60,7 +66,7 @@
 }
 
 .q-list-answer-body {
-  font-size: .85rem;
+  font-size: .95rem;
 }
 
 .q-list-button {
@@ -78,7 +84,7 @@
 
 .q-list-button-text {
   color: #3a3b3c;
-  font-size: .95rem;
+  /* font-size: .95rem; */
   font-style: bold;
   font-weight: 600;
   vertical-align: middle;
@@ -91,11 +97,15 @@
 .q-list-q {
   background: transparent;
   color: #3a3b3c;
+  margin: 5px;
+  padding: 5px;
   justify-content: space-between;
 }
 
 .q-list-q-body {
   font-weight: 600;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .q-list-q-li {
@@ -104,7 +114,8 @@
 }
 
 .q-list-span-element {
-  font-size: .6rem;
+  /* font-size: .6rem; */
+  font-size: 0.8em;
 }
 
 .q-list-yes {
@@ -142,6 +153,7 @@ input::placeholder {
 
 .q-search-input {
   color: #3a3b3c;
+  background-color: #f5f5f5;
   min-height: 20px;
   min-width: 460px;
   vertical-align: middle;
@@ -154,4 +166,58 @@ input::placeholder {
 
 .q-ul {
   border: thin solid;
+}
+
+.q-modal-container, .a-modal {
+  background-color: rgba(0, 0, 0, 0.589);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  left: 0;
+  top: 0;
+  position: fixed;
+  min-width: 500px;
+  z-index: 1;
+  min-width: 500px;
+  width: 100vw;
+  height: 100vh;
+}
+
+.q-modal-container-component, .a-modal-content {
+  padding: 10px;
+  background-color: #fefefe;
+  top: 20%;
+  display: flex;
+  flex-direction: column;
+  margin: 5% auto;
+  min-width: 450px;
+  min-height: fit-content;
+  position: relative;
+  width: 48%;
+  border-radius: 3px;
+}
+
+.q-modal-body > input {
+  display: block;
+  padding: 5px;
+  min-width: 300px;
+  font-size: 0.9em;
+}
+
+.a-modal-content {
+  display: block;
+  padding: 15px;
+  min-width: 300px;
+  /* font-size: 1em; */
+}
+.q-modal-footer {
+  align-self: center;
+}
+
+.a-modal-footer {
+  text-align: center;
+}
+
+.q-modal-prompt {
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.1em;
 }
