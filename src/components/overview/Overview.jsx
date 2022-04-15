@@ -60,7 +60,7 @@ export default function Overview(props) {
   };
 
   useEffect(() => {
-    setImageUrl(currentItem.style[0].photos[0].url);
+    setImageUrl(currentItem.style[0].photos[0]);
     setImagesUrl(currentItem.style[0].photos);
     setStyleIndex(0);
   }, [currentItem]);
