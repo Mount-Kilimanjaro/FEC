@@ -7,7 +7,7 @@ function Outfit (props) {
   const [currentCard, setCard] = useState(0);
 
   const nextBut = () => {
-    if (currentCard < outfitArray.length - 1 ) {
+    if (currentCard < outfitArray.length - 3 ) {
       setCard(currentCard + 1)
     }
   }
@@ -38,7 +38,7 @@ function Outfit (props) {
         })}
       </div>
     </div>
-    {(currentCard) === outfitArray.length - 1  ? <div></div> : <svg onClick={nextBut} xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 scroll_but" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+    {(currentCard) === outfitArray.length - 3  ? <div></div> : <svg onClick={nextBut} xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 scroll_but" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
 </svg>}
     </div>

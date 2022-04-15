@@ -9,7 +9,7 @@
   /* font-weight: 200; */
   font-size: 0.8em;
   color: black;
-  /* margin-left: 6px; */
+  margin-left: 6px;
 }
 
 #relatedMain p {
@@ -18,13 +18,13 @@
   font-weight: 500;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: black;
-  /* margin-left: 6px; */
+  margin-left: 6px;
 }
 
 #relatedMain span {
   font-size: 12px;
   /* font-weight: 250; */
-  /* margin-left: 6px; */
+  margin-left: 6px;
 }
 
 
@@ -168,7 +168,7 @@ table tr th {
   list-style: none;
   height: 100%;
   display: flex;
-  background-color: white;
+  /* background-color: white; */
   justify-content: center;
   align-items: center;
   gap: 20px;
@@ -258,6 +258,7 @@ td {
 /* #relatedMain .rating-star {
   padding-left: 2%;
 } */
+
  .sale {
   text-decoration: line-through;
   color:rgb(255, 0, 0, .5);
