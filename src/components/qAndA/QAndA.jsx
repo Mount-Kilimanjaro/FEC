@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 import QSearch from './qAndAComponents/QSearch.jsx';
-import QList from './qAndAComponents/qList.jsx';
+import QList from './qAndAComponents/QList.jsx';
 import '../../style/qAndA/qAndA.css';
 
 const QAndA = (props) => {

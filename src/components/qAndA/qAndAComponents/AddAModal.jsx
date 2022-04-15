@@ -32,8 +32,9 @@ const AddAModal = (props) => {
         </div>
         <div className='a-modal-footer'>
           <span>
-            <button onClick={props.onClose} className='a-modal-button'>Close  |</button>
-            <button onClick={props.onClose} className='a-modal-button'>|  Submit Answer</button>
+            <button onClick={props.onClose} className='a-modal-button'>Close</button>
+            &emsp;|&emsp;
+            <button onClick={props.onClose} className='a-modal-button'>Submit Answer</button>
           </span>
         </div>
       </div>
