@@ -51,6 +51,7 @@
   min-height: 200px;
   padding: 15px;
   width: 95%;
+  max-width: 850px;
 }
 
 .reviewHeader {
@@ -66,10 +67,14 @@
   overflow-wrap: break-word;
   text-overflow: ellipsis;
   white-space: nowrap;
+  max-width: 840px;
+  overflow-x: hidden;
 }
 
 .reviewBody {
   margin: 5px 0 5px;
+  max-width: 840px;
+  overflow-x: hidden;
 }
 
 .reviewHelpful {
@@ -542,16 +547,42 @@ button#searchBar-btn > img {
   right: 4%;
 }
 
-@media (max-width: 1125px) {
-  #reviewcount {
+@media (min-width: 920px) and (max-width: 1125px) {
+  #reviews-container {
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+  }
+  #reviewCount {
     flex-direction: column;
   }
   .searchDropdowns {
     left: 2%;
   }
+  .searchDropdowns, .searchReviews-container {
+    position: static;
+  }
 }
 
-@media (max-width: 841px) {
+@media (min-width: 841px) and (max-width: 920px) {
+  #reviewCount {
+    flex-direction: column;
+  }
+  .searchDropdowns {
+    left: 2%;
+  }
+  .searchDropdowns, .searchReviews-container {
+    position: static;
+  }
+  #reviews-container {
+    transform: scale(0.9);
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 759px) and (max-width: 841px) {
   #reviews-container {
     justify-content: center;
   }
@@ -561,33 +592,73 @@ button#searchBar-btn > img {
   .searchDropdowns, .searchReviews-container {
     position: static;
   }
-  #ratingBreakdown-container {
-    transform: scale(0.9);
-    margin: 0;
-    padding: 0;
-  }
-}
-
-@media (min-width: 650px) and (max-width: 760px) {
-  #ratingBreakdown-container {
+  #reviews-container {
     transform: scale(0.85);
   }
-  #reviewsList-outer {
-    transform: scale(0.9);
+}
+
+@media (min-width: 710px) and (max-width: 758px) {
+  #reviewCount {
+    flex-direction: column;
+  }
+  .searchDropdowns, .searchReviews-container {
+    position: static;
+  }
+  #reviews-container {
+    transform: scale(0.8);
+    padding: 0;
+    margin: 0;
+    justify-content: center;
   }
 }
 
-@media (min-width: 540px) and (max-width: 650px) {
+@media (min-width: 660px) and (max-width: 709px) {
   #reviews-container {
-    transform: scale(0.8);
+    transform: scale(0.75);
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .searchDropdowns, .searchReviews-container {
+    position: static;
+  }
+
+  #reviewCount {
+    flex-direction: column;
+  }
+
+}
+@media (min-width: 540px) and (max-width: 660px) {
+  #reviews-container {
+    justify-content: center;
+    transform: scale(0.68);
+    padding: 0;
+    margin: 0;
+  }
+  .searchDropdowns, .searchReviews-container {
+    position: static;
+  }
+  #reviewCount {
+    flex-direction: column;
   }
 }
 
 @media (min-width: 200px) and (max-width: 540px) {
   #reviews-container {
-    transform: scale(0.65);
+    transform: scale(0.6);
     justify-content: center;
-    font-size: 1.15em;
+    padding: 0;
+    margin: 0;
+  }
+  #reviewCount {
+    flex-direction: column;
+  }
+  .searchDropdowns {
+    left: 2%;
+  }
+  .searchDropdowns, .searchReviews-container {
+    position: static;
   }
 }
 
