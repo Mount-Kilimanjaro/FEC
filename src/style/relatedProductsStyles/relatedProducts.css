@@ -167,7 +167,9 @@ table tr th {
   list-style: none;
   height: 100%;
   display: flex;
+
   /* background-color: white; */
+
   justify-content: center;
   align-items: center;
   gap: 20px;
