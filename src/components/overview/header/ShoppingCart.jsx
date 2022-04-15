@@ -46,7 +46,7 @@ export default function ShoppingCart(props) {
                     </div>
                 </div>
                 <div className={`pr-5 pl-5 flex flex-row mt-8 ${cartVisibility ? "" : "hidden"}`}>
-                    <button className=" border-2 p-3 mb-6 border-black whitespace-pre grow bg-white hover:bg-blue-300" name="header_shopping_cart_checkout_button"onClick={(e) =>updateStatistic(null,e)} >CHECKOUT</button>
+                    <button className=" border-2 p-3 mb-6 border-black whitespace-pre grow bg-white hover:bg-slate-300" name="header_shopping_cart_checkout_button"onClick={(e) =>updateStatistic(null,e)} >CHECKOUT</button>
                 </div>
             </div>
          :

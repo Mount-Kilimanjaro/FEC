@@ -12,7 +12,7 @@ export default function ProductImage(props) {
           <div id="imageWheel" className="p-4 hidden md:block absolute z-v">
             {imagesUrl.slice(0,5).map((photo,i) => 
             <div key={i} className={`p-0.5`}>
-              <img id="scrollImg" name='overview_productImage_carousel_image' src={photo.thumbnail_url} alt="" className={`border-2 opacity-75 hover:opacity-100 hover:cursor-pointer hover:border-black ${imageUrl.thumbnail_url === imagesUrl[i].thumbnail_url? "border-b-blue-300 border-b-8 opacity-100" : ""}`} onClick={(e) => updateStatistic(changeImgUrl({url:photo.url,thumbnail_url:photo.thumbnail_url},i), e)} />
+              <img id="scrollImg" name='overview_productImage_carousel_image' src={photo.thumbnail_url} alt="" className={`border-2 opacity-75 hover:opacity-100 hover:cursor-pointer hover:border-black ${imageUrl.thumbnail_url === imagesUrl[i].thumbnail_url? "border-b-[#79592B] border-b-8 opacity-100" : ""}`} onClick={(e) => updateStatistic(changeImgUrl({url:photo.url,thumbnail_url:photo.thumbnail_url},i), e)} />
             </div>
             )}
             {imagesUrl.length > 5 ?             
