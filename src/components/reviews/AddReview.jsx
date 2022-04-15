@@ -1,8 +1,16 @@
 import React, { useReducer, useState } from 'react';
 import { RatingStar } from 'rating-star';
 import BreakdownBarLabels from './BreakdownBarLabels.jsx';
-import formReducer from '../../utils/reviews/formReducer.js';
+// import formReducer from '../../utils/reviews/formReducer.js';
 import formatData  from '../../utils/reviews/submitReview.js';
+
+
+const formReducer = (state, event) => {
+  return {
+    ...state,
+    [event.name]: event.value
+  }
+};
 
 const AddReviewForm = (props) => {
 
