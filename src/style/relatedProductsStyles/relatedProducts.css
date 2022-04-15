@@ -147,10 +147,9 @@ width: 100%;
 }
 
 .cancel_but {
-  align-self: flex-end;
-  /* position: absolute; */
-  /* left:98%; */
-  /* transform: translate(-90%, -90%); */
+  position: absolute;
+  left:98%;
+  transform: translate(-60%, -10%);
 }
 
 .comparison_but {
