@@ -23,7 +23,7 @@ export default function Modal(props) {
   return (
     <div className={`${props.visibility ? "hidden md:block" : "hidden"}`} >
         <div className="">
-            <div id="overview_modal" className="fixed z-[100] bg-white w-full max-w-1280 flex justify-center">
+            <div id="overview_modal" className="fixed z-[100] bg-white w-full max-w-1280 flex justify-center top-[600px]">
                 <div>
                 {props.children}
                 </div>    
