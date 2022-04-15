@@ -90,7 +90,7 @@ function App() {
   },[currentItemId]);
   return (
     <div className="App h-full w-full flex flex-col items-center relative ">
-      <div className={`w-full h-full absolute inset-0 z-[70] bg-black/50 ${blurBG ? "block" : "hidden"}`}></div>
+      <div className={`w-screen h-full absolute inset-0 z-[70] bg-black/50 ${blurBG ? "block" : "hidden"}`}></div>
         <Header cart={{handleToggleCart, cartVisibility}} toggleBlurBG={toggleBlurBG}/>
         <Overview handleToggleCart={handleToggleCart}/>
         <RelatedProducts/>

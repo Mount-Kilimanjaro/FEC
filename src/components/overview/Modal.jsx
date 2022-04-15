@@ -29,7 +29,7 @@ export default function Modal(props) {
                 </div>    
             </div>
         </div>
-        <div className="w-full h-full bg-black/50 absolute top-0 left-0 z-[80]" onClick={() => props.toggleModal(false)}>
+        <div className="w-screen h-full bg-black/50 absolute top-0 left-0 z-[80]" onClick={() => props.toggleModal(false)}>
         </div>
     </div>
   )
