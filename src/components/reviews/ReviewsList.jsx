@@ -50,7 +50,7 @@ const ReviewsList = (props) => {
       <div id="reviewCount">
         <div className="searchDropdowns">
           <b>{props.sort ? props.sortedReviews.length : props.reviews.length} reviews, sorted by</b>
-          <select onChange={(e) => sort(e)}>
+          <select style={{ backgroundColor: '#f5f5f5'}} onChange={(e) => sort(e)}>
             <option>relevance</option>
             <option>newest</option>
             <option>helpfulness</option>

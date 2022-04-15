@@ -1,3 +1,15 @@
+.a-list-button {
+  color: #3a3b3c;
+  font-size: .8rem;
+  font-style: bold;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.a-list-data {
+  font-size: .65rem;
+}
+
 .a-list-yes {
   text-decoration: underline;
 }
@@ -47,6 +59,10 @@
   font-weight: 600;
 }
 
+.q-list-answer-body {
+  font-size: .85rem;
+}
+
 .q-list-button {
   border: .75px solid #3a3b3c;
   margin-right: 15px;
@@ -62,6 +78,7 @@
 
 .q-list-button-text {
   color: #3a3b3c;
+  font-size: .95rem;
   font-style: bold;
   font-weight: 600;
   vertical-align: middle;
@@ -84,6 +101,10 @@
 .q-list-q-li {
   display: flex;
   justify-content: space-between;
+}
+
+.q-list-span-element {
+  font-size: .6rem;
 }
 
 .q-list-yes {

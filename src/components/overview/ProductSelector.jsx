@@ -13,7 +13,6 @@ export default function ProductSelector(props) {
   const skus = product.style[styleIndex > product.style.length ? 0 : styleIndex].skus;
   const dispatch = useDispatch();
 
-
   const resetInputs = () => {
     setSku(undefined);
     setOrder({});
@@ -53,6 +52,7 @@ export default function ProductSelector(props) {
     newOrder.img = product.style[styleIndex].photos[0].url;
     newOrder.style_id = product.style[styleIndex].style_id;
     newOrder.maxQuantity = Number(quantity);
+    newOrder.price = Number(product.default_price);
     const result = validOrderQuantity(newOrder, props.cart);
     if (result.error) {
       return alert(result.error);
@@ -113,7 +113,7 @@ export default function ProductSelector(props) {
         <div id="style" className="flex flex-row flex-wrap gap-5 p-4 justify-center">
           {product.style.map((style, i) => {
             return (
-              <img key={i} id="styleThumbNail" className={`rounded-full hover:cursor-pointer border-2 hover:border-black hover:drop-shadow-lg ${styleIndex === i ? "border-blue-300 border-4" : ""}`} name='overview_productSelector_change_style' src={product.style[i].photos[0].thumbnail_url} alt="" onClick={(e) => updateStatistic(handleSetStyle(i),e)}/>
+              <img key={i} id="styleThumbNail" className={`rounded-full hover:cursor-pointer border-2 hover:border-black hover:drop-shadow-lg ${styleIndex === i ? "border-[#79592B] border-4" : ""}`} name='overview_productSelector_change_style' src={product.style[i].photos[0].thumbnail_url} alt="" onClick={(e) => updateStatistic(handleSetStyle(i),e)}/>
             )})}
         </div>
       </div>
@@ -145,7 +145,7 @@ export default function ProductSelector(props) {
           </div>
         </div>
         <div id="styleButton" className="flex justify-between p-5">
-          <button id="overview_addedItemToCart" className="border-2 p-3 border-black whitespace-pre grow hover:bg-blue-300" name='overview_productSelector_add_to_cart'
+          <button id="overview_addedItemToCart" className="border-2 p-3 border-black whitespace-pre grow hover:bg-slate-300" name='overview_productSelector_add_to_cart'
           onClick={(e) => updateStatistic(handleAddToCart(),e)} 
           >ADD TO BAG   +</button>
         </div>

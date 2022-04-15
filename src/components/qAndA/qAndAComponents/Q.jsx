@@ -14,7 +14,7 @@ const Q = ({qObj, highlightedString}) => {
           <h3 className='q-list-q-body'>Q: {qObj.question_body}</h3>
             <span className='q-list-span-element'>Helpful?&ensp;
               <span className='q-list-click-event' onClick={() => alert('POST /question_helpfulness++')}>
-                <span className='q-list-yes'>Yes</span></span>
+                <span className='q-list-yes'>Yes&nbsp;</span></span>
               ({qObj.question_helpfulness})
               &emsp;|&emsp;
               <span className='q-list-click-event' onClick={() => setShow(true)}>Add Answer</span>
@@ -28,16 +28,17 @@ const Q = ({qObj, highlightedString}) => {
           .map((aObj, index) => (
             <div className='a-list-per-q' key={index}>
               <span>
-                <span className='q-list-a-element'>A: </span>{aObj.body}
+                <span className='q-list-a-element'>A: </span>
+                  <span className='q-list-answer-body'>{aObj.body}</span>
               </span>
               <br></br>
               <span className='a-list-data'>
-                <span className='a-list-data-element'>by {aObj.answerer_name},&ensp;
+                <span className='a-list-data-element'>&emsp;by {aObj.answerer_name},&ensp;
                   {new Date(aObj.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
                 </span>
                 &emsp;&emsp;|&emsp;&emsp;
                 <span className='a-list-data-element'>Helpful?&ensp;
-                  <span className='q-list-click-event a-list-yes' onClick={() => alert('POST /answer_helpfulness++')}>Yes</span>
+                  <span className='q-list-click-event a-list-yes' onClick={() => alert('POST /answer_helpfulness++')}>Yes&nbsp;</span>
                   ({aObj.helpfulness})
                 </span>
                 &emsp;|&emsp;&emsp;
@@ -47,9 +48,13 @@ const Q = ({qObj, highlightedString}) => {
           ))}
         </span>
         {(Object.values(qObj.answers).length <= 2) ? null : ((Object.values(qObj.answers).length === aCount) ?
-        <button className='a-list-click-div-event' onClick={() => {setACount(2)}}>COLLAPSE ANSWERS</button>
+        <button className='a-list-click-div-event' onClick={() => {setACount(2)}}>
+          <span className='a-list-button'>COLLAPSE ANSWERS</span>
+        </button>
         :
-        <button className='a-list-click-div-event' onClick={() => {setACount(Object.values(qObj.answers).length)}}>LOAD MORE ANSWERS</button>
+        <button className='a-list-click-div-event' onClick={() => {setACount(Object.values(qObj.answers).length)}}>
+          <span className='a-list-button'>LOAD MORE ANSWERS</span>
+        </button>
         )}
       </div>
     )}

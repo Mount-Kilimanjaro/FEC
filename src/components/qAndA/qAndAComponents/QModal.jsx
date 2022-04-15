@@ -33,10 +33,11 @@ const QModal = (props) => {
           <div className='q-modal-footer'>
             <span>
               <button onClick={props.onClose} className='q-modal-button'>
-                Close  |
+                Close
               </button>
+              &emsp;|&emsp;
               <button onClick={props.onClose} className='q-modal-button'>
-                |  Submit Question
+                Submit Question
               </button>
             </span>
           </div>

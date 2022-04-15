@@ -5,24 +5,26 @@
 }
 
 #relatedMain h3 {
-  font-size: 14px;
-  font-weight: 200;
+  /* font-size: 14px; */
+  /* font-weight: 200; */
+  font-size: 0.8em;
   color: black;
-  margin-left: 6px;
+  /* margin-left: 6px; */
 }
 
 #relatedMain p {
-  font-size: 19px;
+  /* font-size: 19px; */
+  font-size: 1.2em;
   font-weight: 500;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: rgb(121,89,43);
-  margin-left: 6px;
+  color: black;
+  /* margin-left: 6px; */
 }
 
 #relatedMain span {
   font-size: 12px;
-  font-weight: 250;
-  margin-left: 6px;
+  /* font-weight: 250; */
+  /* margin-left: 6px; */
 }
 
 
@@ -38,7 +40,7 @@ width: 100%;
 #relatedMain {
   width: 100%;
   /* height: 850px; */
-  background-color: white;
+  /* background-color: white; */
   /* display: flex; */
   flex-direction: column;
   justify-content: center;
@@ -52,17 +54,23 @@ width: 100%;
   list-style: none;
   height: 100%;
   display: flex;
-  background-color: white;
+  /* background-color: white; */
   justify-content: center;
   align-items: center;
   gap: 20px;
+}
+
+.relatedProduct-description {
+  padding: 15px;
+  background-color: white;
+
 }
   /* viewport */
 .relatedProducts {
   height: 450px;
   width: 980px;
-  background: white;
- display: flex;
+  /* background: white; */
+  display: flex;
   overflow: hidden;
   -webkit-mask: linear-gradient(to left, transparent 8% , black 30% );
   padding-left: 13px;
@@ -71,8 +79,9 @@ width: 100%;
 .relatedProductCards {
   height: 350px;
   width: 225px;
-  border: 1px solid rgb(0 0 0 / 20%);
-  background-color: white;
+
+  /* border: 1px solid rgb(0 0 0 / 20%); */
+  /* background-color: #C0C0C0; */
   flex-shrink: 0;
   box-shadow: rgb(0 0 0 / 15%) 0px 15px 25px, rgb(0 0 0 / 5%) 0px 5px 10px;
   /* white-space:normal; */
@@ -117,26 +126,31 @@ width: 100%;
 }
 
  .ComparisonModal {
+   display: flex;
+   flex-direction: column;
+   background-color: #e0e0e0;
   position: fixed;
-  width: 350px;
-  height: 400px;
+  /* width: 350px;
+  height: 400px; */
   left: 50%;
   top: 40%;
   z-index: 3;
   transform: translate(-50%, -50%);
-  background-color: gray;
-  padding: 10px;
-  -webkit-transition: 0.5s;
-  overflow: auto;
+
+  /* background-color: gray; */
+  /* padding: 10px; */
+  --webkit-transition: 0.5s;
+  /* overflow: auto; */
   transition: all 0.3s linear;
   border-radius: 5px;
+
 }
 
 .cancel_but {
-
-  position: absolute;
-  left:98%;
-  transform: translate(-90%, -90%);
+  align-self: flex-end;
+  /* position: absolute; */
+  /* left:98%; */
+  /* transform: translate(-90%, -90%); */
 }
 
 .comparison_but {
@@ -145,8 +159,9 @@ width: 100%;
   transform: translate(201px);
 }
 
-th {
-  padding-top: 10px;
+table tr th {
+  /* padding-top: 10px; */
+  background-color:  #e0e0e0;
 }
 
 .OutfitContent {
@@ -168,41 +183,50 @@ th {
 }
 
 .modalBackground {
-  background-color: rgba(0, 0, 0, 0.8);;
+  background-color: rgba(0, 0, 0, 0.8);
   height: 100%;
   width: 100%;
   position: absolute;
+
 }
 
 table, th, td {
-  align-content: center;
+  background-color: #f5f5f5;
+
+  /* align-content: center;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   text-align: center;
-  min-height: 50px;
-max-height: 50px;
-min-width: 110px;
-max-width: 110px;
-color: white;
+  /* min-height: 50px;
+  max-height: 50px;
+  min-width: 110px;
+  max-width: 110px;
+  color: white; */
 }
 
 table {
-  font-size: 12px;
-  margin-top: 30px;
+  font-size: 0.8em;
+  border-collapse: collapse;
+  border-spacing: 3px 15px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  /* margin-top: 30px; */
 }
 
 th {
-  padding-bottom: 20px;
+  /* padding-bottom: 20px; */
+  font-size: 1.2em;
   min-height: 50px;
   max-height: 50px;
   min-width: 110px;
   max-width: 110px;
-  transform: translate(0%, -25%);
+  /* transform: translate(0%, -25%); */
 }
 
 tr {
   width: 100%;
   height: 40px;
+  /* border-top: 1px inset black; */
 }
 
 .check {
@@ -211,14 +235,16 @@ tr {
 }
 
 .feat {
-  font-weight: 400;
-  font-size: 15px;
+  border-top: 1px solid #e0e0e0;
+  padding: 20px;
+  font-weight: 600;
+  font-size: 1.3em;
 }
 
 td {
-  border-top: solid rgba(0, 0, 0, 0.3);
-  font-weight: 100;
-  font-size: 10px;
+
+  font-weight: 300;
+  color: black;
 }
 
  /* .td {
@@ -229,11 +255,9 @@ td {
   vertical-align: middle;
   align-content: center;
 } */
-
-#relatedMain .rating-star {
-  padding: 0px;
-}
-
+/* #relatedMain .rating-star {
+  padding-left: 2%;
+} */
  .sale {
   text-decoration: line-through;
   color:rgb(255, 0, 0, .5);
