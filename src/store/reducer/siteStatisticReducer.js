@@ -16,7 +16,6 @@ export const statisticSlice = createSlice(
         }else {
           cpyState[payloadEventName] = payload[payloadEventName];
         }
-        console.log(cpyState)
         state.clickCount = cpyState
       },
     },
