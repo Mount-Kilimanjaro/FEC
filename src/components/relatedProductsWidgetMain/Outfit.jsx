@@ -27,9 +27,9 @@ function Outfit (props) {
 
   return (
     <div className='containerr'>
-      <svg onClick={prevBut} xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 scroll_but" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      {(currentCard) === 0 ? <div></div> : <svg onClick={prevBut} xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 scroll_but" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-</svg>
+</svg>}
 <div className='relatedProducts'>
 
 <div className='OutfitContent'>
@@ -38,9 +38,9 @@ function Outfit (props) {
         })}
       </div>
     </div>
-    <svg onClick={nextBut} xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 scroll_but" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+    {(currentCard) === outfitArray.length - 1  ? <div></div> : <svg onClick={nextBut} xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 scroll_but" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-</svg>
+</svg>}
     </div>
 
     )
