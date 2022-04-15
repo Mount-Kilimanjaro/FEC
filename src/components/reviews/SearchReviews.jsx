@@ -6,7 +6,7 @@ const SearchReviews = (props) => {
   return (
     <div className="searchBar-container">
       <input className="searchBar" placeholder="Search..." type="text" onChange={(e) => props.filterBySearch(e.target.value)}/>
-      <button type="submit" id="searchBar-btn"><img src={Icon} alt=''/></button>
+      <button type="submit" id="searchBar-btn" ><img src={Icon} alt=''/></button>
     </div>
   )
 }
