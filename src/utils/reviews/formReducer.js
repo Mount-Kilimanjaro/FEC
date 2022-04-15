@@ -6,5 +6,5 @@ const formReducer = (state, event) => {
   }
 };
 
-module.exports = formReducer;
+module.exports = {formReducer:formReducer};
 
