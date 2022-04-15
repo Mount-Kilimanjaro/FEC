@@ -136,7 +136,7 @@ const closeModal = () => {
 
 
   return (
-    <div id='relatedMain'>
+    <div id='relatedMain' className="hidden md:flex">
       <h1>Related Products</h1>
       < RelatedProducts addCard={addCard} compare={comparisonChart} arr={relatedProductA}/>
       {outfitArray.length > 0 ? <h1>Outfit</h1> : <div></div>}

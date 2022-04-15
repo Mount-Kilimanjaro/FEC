@@ -60,15 +60,17 @@ export default function Overview(props) {
   };
 
   useEffect(() => {
-    setImageUrl(currentItem.style[0].photos[0].url);
+    setImageUrl(currentItem.style[0].photos[0]);
     setImagesUrl(currentItem.style[0].photos);
     setStyleIndex(0);
   }, [currentItem]);
 
   useEffect(() => {
-    setImageUrl(currentItem.style[styleIndex].photos[0]);
-    setImagesUrl(currentItem.style[styleIndex].photos);
-  }, [currentItem,styleIndex]);
+    if (currentItem.style[styleIndex]) {
+      setImageUrl(currentItem.style[styleIndex].photos[0]);
+      setImagesUrl(currentItem.style[styleIndex].photos);
+    }
+  }, [styleIndex]);
 
 
   return (

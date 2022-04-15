@@ -10,6 +10,10 @@ export default function ProductSelector(props) {
   const [quantity, setQuantity] = useState(null);
   const [order, setOrder] = useState({});
   const [sku, setSku] = useState(undefined);
+  // console.log(product);
+  // console.log(styleIndex)
+  // console.log(product.style[styleIndex])
+
   const skus = product.style[styleIndex > product.style.length ? 0 : styleIndex].skus;
   const dispatch = useDispatch();
 
@@ -49,7 +53,7 @@ export default function ProductSelector(props) {
       return alert("Select item and size before adding to bag");
     }
     let newOrder = {...order};
-    newOrder.img = product.style[styleIndex].photos[0].url;
+    newOrder.img = product.style[styleIndex].photos[0].thumbnail_url;
     newOrder.style_id = product.style[styleIndex].style_id;
     newOrder.maxQuantity = Number(quantity);
     newOrder.price = Number(product.default_price);

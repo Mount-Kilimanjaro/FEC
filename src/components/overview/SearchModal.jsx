@@ -19,6 +19,7 @@ export default function SearchModal(props) {
     };
 
     useEffect(() => {
+        setPagiIndex(0)
         if (props.filteredData.length > 10) {
             let dataLength = props.filteredData.length;
             let count = 10;

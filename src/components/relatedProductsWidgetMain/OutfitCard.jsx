@@ -30,7 +30,7 @@ const dispatch = useDispatch()
       {useMe.sale_price ? <span><span className="sale">{useMe.original_price}</span><span>{useMe.sale_price}</span></span> : <span name={props.prop1.product_id}>{useMe.original_price}</span>}
       <div className="start">
       <RatingStar
-       name={props.prop1.product_id} id='userRating-star'
+       name={props.prop1.product_id} id='userRating-starProducts'
        size={20}
        maxScore={5}
        rating={props.prop1.rating}
