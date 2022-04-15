@@ -39,8 +39,8 @@ export default function ProductImage(props) {
             }}/>
         </div>
         <Modal visibility={modal} toggleModal={toggleModal}>
-        <div className=" flex flex-row justify-center items-center h-full">
-          <div id="overview_arrow" className="flex bg-black">
+        <div className=" flex flex-row justify-center items-center h-full ">
+          <div id="overview_arrow" className="flex bg-black ">
             <img id="productImages_arrowLeft" className="overview_image_arrows hover:cursor-pointer opacity-50 hover:opacity-100 select-none absolute bottom-2/4" name='overview_productImage_main_arrow_left' alt="" onClick={(e) => updateStatistic(setPreviousImage(),e)} src={arrowLeft}/ >
             <img id="" className=" h-900" src={imageUrl.url} alt=""/>
             <img id="productImages_arrowRight"className="overview_image_arrows hover:cursor-pointer opacity-50 hover:opacity-100 select-none absolute bottom-2/4 right-0" name='overview_productImage_main_arrow_right' alt="" onClick={(e) => updateStatistic(setNextImage(),e)} src={arrowRight}/ >

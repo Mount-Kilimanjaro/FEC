@@ -49,7 +49,7 @@ export default function ProductSelector(props) {
       return alert("Select item and size before adding to bag");
     }
     let newOrder = {...order};
-    newOrder.img = product.style[styleIndex].photos[0].url;
+    newOrder.img = product.style[styleIndex].photos[0].thumbnail_url;
     newOrder.style_id = product.style[styleIndex].style_id;
     newOrder.maxQuantity = Number(quantity);
     newOrder.price = Number(product.default_price);
