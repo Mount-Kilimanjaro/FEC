@@ -13,7 +13,6 @@ export default function ProductSelector(props) {
   const skus = product.style[styleIndex > product.style.length ? 0 : styleIndex].skus;
   const dispatch = useDispatch();
 
-
   const resetInputs = () => {
     setSku(undefined);
     setOrder({});
@@ -53,6 +52,7 @@ export default function ProductSelector(props) {
     newOrder.img = product.style[styleIndex].photos[0].url;
     newOrder.style_id = product.style[styleIndex].style_id;
     newOrder.maxQuantity = Number(quantity);
+    newOrder.price = Number(product.default_price);
     const result = validOrderQuantity(newOrder, props.cart);
     if (result.error) {
       return alert(result.error);

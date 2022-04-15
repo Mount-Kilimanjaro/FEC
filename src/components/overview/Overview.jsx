@@ -14,7 +14,6 @@ export default function Overview(props) {
   const [imageIndex, setImageIndex] = useState(0);
   const [imageUrl, setImageUrl] = useState("");
   const [imagesUrl, setImagesUrl] = useState([]);
-  console.log(imagesUrl)
 
   const getImageIndex = (url) => {
     return imagesUrl.map((obj,i) => {

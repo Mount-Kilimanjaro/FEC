@@ -7,7 +7,6 @@ import Modal from "./Modal"
 export default function ProductImage(props) {
   const {imageUrl, imagesUrl, changeImgUrl, carouselNextImage, setNextImage, setPreviousImage, updateStatistic} = props.img
   const [modal , toggleModal] = useState(false)
-  console.log(imageUrl)
   return (
       <div id="productImage" className="container w:full md:w-4/6 h-300 md:h-full ">
           <div id="imageWheel" className="p-4 hidden md:block absolute z-v">
