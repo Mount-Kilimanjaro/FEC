@@ -15,19 +15,19 @@ const QModal = (props) => {
               <input className='q-modal-question-body'
               type='textarea'
               size='sm'
-              placeholder='How long does this product last?'>
+              placeholder='Why did you like the product or not?'>
             </input>
             <label>Please enter your name.</label>
               <input className='q-modal-username'
                 type='text'
                 size='sm'
-                placeholder='Fashionista123'>
+                placeholder='Example: jackson11!'>
               </input>
             <label>Please enter your e-mail.</label>
               <input className='q-modal-email'
                 type='textarea'
                 size='sm'
-                placeholder='Fashionista123@gmail.com'>
+                placeholder='jackson11@gmail.com'>
               </input>
           </div>
           <div className='q-modal-footer'>

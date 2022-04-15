@@ -21,13 +21,13 @@ const AddAModal = (props) => {
             <input className='a-modal-input'
               type='text'
               size='sm'
-              placeholder='Fashionista123'>
+              placeholder='jack543!'>
             </input>
           <label>Please enter your e-mail here.</label>
           <input className='a-modal-input'
             type='textarea'
             size='sm'
-            placeholder='Fashionista123@gmail.com'>
+            placeholder='jack@email.com'>
           </input>
         </div>
         <div className='a-modal-footer'>

@@ -3,7 +3,7 @@ import Q from './Q.jsx';
 import QModal from './QModal.jsx';
 
 const QList = ({ qData, highlightedString }) => {
-  const [qCount, setQCount] = useState(2);
+  const [qCount, setQCount] = useState(4);
   const [show, setShow] = useState(false);
 
   return (
@@ -26,7 +26,7 @@ const QList = ({ qData, highlightedString }) => {
             <span className='q-list-button-text'>MORE ANSWERED QUESTIONS</span>
           </button>
           :
-          <button className='q-list-button' onClick={() => {setQCount(2)}}>
+          <button className='q-list-button' onClick={() => {setQCount(4)}}>
             <span className='q-list-button-text'>MINIMIZE LIST</span>
           </button>
         }
